@@ -162,8 +162,12 @@ ax.set(xlim=(20,6),ylim=(0,1),xlabel='Temperatura (K)',ylabel='Fracción de vari
 ax.grid(alpha=.2);ax.legend(ncol=4,fontsize=11)
 save(fig,'varianza_entre')
 
+from runpy import run_path
+run_path(str(HERE/'figuras_3d.py'),run_name='__main__')
+
 provenance=dict(datos='Resultados derivados conservados en resultados/. No se ejecutaron nuevas cadenas ni un nuevo bootstrap.',
     texturas='Capa central, copia 1 en ocho_estados y enfriamiento. S_z con escala común [-1,1].',
+    vista_3d='Estado 6, copia 63 a 6 K; los 5425 sitios están conservados. Flechas submuestreadas y eje vertical ampliado.',
     ejemplos_estado6=examples['seleccion'],copias_estado6=examples['copias'],
     curvas='Malla medida de 0.1 K; T* e intervalos del bootstrap original de 50000 réplicas.',
     figuras=sorted(p.name for p in OUT.glob('*.pdf')))

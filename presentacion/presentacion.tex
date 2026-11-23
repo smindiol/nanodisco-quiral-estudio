@@ -22,43 +22,97 @@
 \newcommand{\idea}[1]{\vspace{2pt}\begin{beamercolorbox}[rounded=true,sep=5pt,wd=\linewidth]{block body}\small #1\end{beamercolorbox}}
 \newcommand{\fuente}[1]{{\fontsize{6.5}{8}\selectfont\color{black!60}#1\par}}
 \newcommand{\grafica}[2][\linewidth]{\makebox[\linewidth][c]{\includegraphics[width=#1,height=4.0cm,keepaspectratio]{figuras/#2.pdf}}}
-\title[Nanodisco quiral: resultados]{Nanodisco quiral: simulación y resultados}
-\subtitle{Qué cambia al enfriar y qué tan bien lo conocemos}
+\title[Nanodiscos: física y simulación]{Estados térmicos de un nanodisco quiral}
+\subtitle{Problema físico, estimación Monte Carlo y convergencia}
 \author[Sebastián Mindiola]{Sebastián Mindiola Garizado}
 \institute[UNAL]{Universidad Nacional de Colombia, sede La Paz\\Computación Estadística, Grupo I\\Docente: Yoselin Nieto Gil}
 \date{2026-II}
-\hypersetup{pdftitle={Nanodisco quiral: simulación y resultados},pdfauthor={Sebastián Mindiola Garizado}}
+\hypersetup{pdftitle={Estados térmicos de un nanodisco quiral},pdfauthor={Sebastián Mindiola Garizado}}
 
 \begin{document}
 
 \begin{frame}
   \titlepage
-  \note{La presentación responde dos preguntas centrales: dónde aparece el máximo térmico y si las cadenas representan una misma distribución. La diversidad final es un resultado del enfriamiento, incluso cuando no se ha demostrado equilibrio global.}
+  \note{El punto de partida es el problema físico de los estados magnéticos en una geometría confinada. Se define primero la familia de sistemas y el objetivo de estimación; luego se fija el tamaño simulado y se examina si Metropolis aporta estimaciones confiables en ese caso.}
 \end{frame}
 
 \section{Problema}
-\begin{frame}{Un disco pequeño, muchas configuraciones posibles}
+\begin{frame}{Problema general: magnetismo en un dominio confinado}
+\begin{columns}[c,onlytextwidth]
+\column{.55\textwidth}
+\small Un nanodisco magnético es una región delgada de material magnético, con geometría de disco y dimensiones nanométricas. En el modelo de red, cada sitio porta un espín $\mathbf S_i\in\mathbb S^2$.
+\[
+\begin{aligned}
+\Lambda_{R,L}=\{(x,y,z)\in\mathbb Z^3:\ &x^2+y^2\le R^2,\\[-1pt]
+&0\le z<L\}.
+\end{aligned}
+\]
+\[
+N(R,L)=|\Lambda_{R,L}|,\qquad
+\mathcal X_{R,L}=(\mathbb S^2)^{N(R,L)}.
+\]
+\column{.41\textwidth}
+\grafica{geometria_nanodisco}
+\end{columns}
+\idea{El problema físico es caracterizar el orden magnético y sus cambios con la temperatura y las interacciones en esta familia de dominios finitos.}
+\fuente{Esquema geométrico. $R$: radio en unidades de red; $L$: número de capas. Los bordes del modelo son libres.}
+\note{Se parte de una familia general, no de una cifra particular de espines. El nanodisco se modela por una red finita de momentos magnéticos clásicos. La figura solo representa la geometría; las configuraciones reales se muestran después.}
+\end{frame}
+
+\begin{frame}{Objetivo físico-matemático: estimar la respuesta térmica}
+\small Para una energía $E_{\boldsymbol\vartheta}$, con $\boldsymbol\vartheta=(J,\D,K,H)$, interesa estimar:
+\[
+\boxed{\mu_A(T,\boldsymbol\vartheta;R,L)=
+\int_{\mathcal X_{R,L}}A(\mathbf s)\,
+\pi_{T,\boldsymbol\vartheta;R,L}(\mathbf s)\,d\Omega,\quad
+\pi\propto e^{-E_{\boldsymbol\vartheta}/(k_BT)}.}
+\]
 \begin{columns}[T,onlytextwidth]
-\column{.46\textwidth}
-\begin{block}{El objeto de estudio}
-\begin{itemize}
-\item 5425 espines: vectores de norma uno.
-\item Disco de radio 18.5 sitios y cinco capas.
-\item Bordes libres; interacciones entre vecinos.
-\end{itemize}
+\column{.48\textwidth}
+\begin{block}{Qué se quiere conocer}
+\small Energía y magnetización medias, fluctuaciones térmicas y texturas que aparecen al variar $T$, $\D$ y $H$.
 \end{block}
-\small El intercambio favorece la alineación. La interacción quiral favorece giros; el campo externo favorece una dirección.
-\column{.50\textwidth}
-\begin{block}{Preguntas de investigación}
-\begin{enumerate}
-\item ¿A qué temperatura cambia el régimen térmico?
-\item ¿Las cadenas exploran una misma distribución?
-\item ¿Qué diversidad de texturas conserva el enfriamiento?
-\end{enumerate}
+\column{.48\textwidth}
+\begin{block}{Por qué es relevante}
+\small Caracterizar estados magnéticos y su respuesta térmica fundamenta el estudio de estructuras de interés para memorias y spintrónica.
 \end{block}
 \end{columns}
-\idea{Una curva estable puede coexistir con caminos atrapados en configuraciones diferentes. Hay que estudiar el resultado físico y la calidad del muestreo.}
-\note{Un espín puede imaginarse como una brújula que apunta en tres dimensiones. Una textura es el patrón espacial formado por esas direcciones. No se pretende resolver todas las configuraciones una por una.}
+\idea{La geometría y las interacciones pueden admitir configuraciones diferentes. Su caracterización exige promedios e incertidumbres, además de imágenes representativas.}
+\fuente{Contexto físico: Nagaosa y Tokura (2013), Nature Nanotechnology 8, 899--911, doi:10.1038/nnano.2013.243.}
+\note{El interés tecnológico es una motivación del campo. Este trabajo estudia un modelo térmico y el desempeño del muestreo; no calcula tiempos de retención de un dispositivo ni dinámica física real. El problema general se expresa como una integral de observables bajo la distribución de Boltzmann.}
+\end{frame}
+
+\begin{frame}{Caso de estudio: nanodisco de 5425 espines}
+\grafica{nanodisco_completo_3d}
+\small
+\[
+R=18.5,\quad L=5,\quad N=5425,\qquad
+\text{ejemplo: }\D=0.30,\ H=0.05,\ T=6\ \mathrm K.
+\]
+{\small\centering Geometría fija en los ocho estados; $2N=10850$ grados de libertad.\par}
+
+\fuente{Estado 6, copia 63: configuración final real. Se dibujan los 5425 sitios; las flechas se submuestrean. Eje vertical ampliado para distinguir las capas.}
+\note{La vista izquierda incluye las cinco capas, no una proyección de la capa central. El detalle muestra direcciones locales de los espines. La ampliación vertical es gráfica y no cambia la geometría numérica. Los tamaños se dan en sitios de red, sin asignar una conversión no especificada a nanómetros.}
+\end{frame}
+
+\begin{frame}{Convergencia para obtener estimaciones confiables}
+\small En el dominio fijado, el método aproxima cada observable mediante $C$ caminos y $n$ mediciones por temperatura:
+\[
+\widehat\mu_A(T)=\frac1{Cn}\sum_{j=1}^{C}\sum_{t=1}^{n} A(\mathbf s_{jt}),
+\qquad C=100,\quad n=10000.
+\]
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}
+\begin{block}{Pregunta sobre la física}
+\small ¿Cómo cambian la respuesta térmica y las texturas del disco al enfriarlo y variar $\D$ y $H$?
+\end{block}
+\column{.48\textwidth}
+\begin{block}{Pregunta sobre el método}
+\small ¿En qué región las trayectorias permiten estimar esos observables con mezcla e incertidumbre adecuadas?
+\end{block}
+\end{columns}
+\idea{La convergencia se analiza para distinguir una estimación estable de una trayectoria que permanece en una región limitada del espacio de configuraciones.}
+\note{Se evalúa numéricamente el método en este tamaño, este protocolo y este presupuesto de barridos. Los diagnósticos detectan limitaciones; no constituyen una demostración general de convergencia de la cadena ni de exploración de todos los sectores.}
 \end{frame}
 
 \begin{frame}{La energía: cuatro contribuciones en competencia}
@@ -314,7 +368,42 @@ Con $\D=0.6$, pasar de $H=0$ a $0.1$ cambia el máximo de 194 a 421 barridos.
 \note{Los mapas son configuraciones instantáneas finales. La cifra que los acompaña es la media temporal de m de esa copia, no su valor instantáneo. Los dos ejemplos se eligieron para ilustrar las poblaciones; no son una muestra aleatoria para estimar sus pesos.}
 \end{frame}
 
-\begin{frame}{Comprobar también las fluctuaciones energéticas}
+
+
+\begin{frame}{Herramientas del curso y qué aportó cada una}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{p{3.3cm}X}
+\toprule
+Herramienta & Aplicación y resultado útil\\\midrule
+Transformada inversa & Propuestas uniformes en la esfera; prueba conjunta: 2 rechazos entre 100 semillas, compatible con el nivel nominal del 5\%.\\
+Integración Monte Carlo & Estimación de energía, magnetización y fluctuaciones como esperanzas.\\
+Jackknife por bloques & Error dentro de un camino respetando la dependencia temporal; límites cuando la memoria es larga.\\
+Bootstrap por caminos & Intervalos de $T^*$ y detección de un argmax inestable en el estado 5.\\
+Mezclas y algoritmo EM & Poblaciones finales; en el estado 6, grupos cercanos a 0.580 y 0.702.\\
+Diagnósticos MCMC & Separar estabilidad interna, acuerdo entre caminos y costo de decorrelación.\\\bottomrule
+\end{tabularx}
+\note{Los resultados del generador y del bootstrap son los del análisis original. Los métodos no se enumeran como requisitos aislados: cada uno resuelve una parte de la pregunta científica. El jackknife confiable no garantiza convergencia conjunta.}
+\end{frame}
+
+\begin{frame}{Síntesis: respuesta física y desempeño del método}
+\small
+\begin{block}{Respuesta térmica del disco estudiado}
+El máximo energético está cerca de 14 K; el estado 8 presenta $T^*=13.64$ K. La incertidumbre del estado 5 es mayor. Son temperaturas características del disco finito.
+\end{block}
+\begin{block}{Confiabilidad del muestreo para esa respuesta}
+No en toda la escalera. La energía muestra mayor estabilidad que $m$; a baja temperatura persisten diferencias entre caminos.
+\end{block}
+\begin{block}{Diversidad de configuraciones y alcance del resultado}
+Las texturas, los tiempos de autocorrelación y las poblaciones finales describen cómo el protocolo conserva memoria. Sus frecuencias no deben presentarse como equilibrio probado.
+\end{block}
+\idea{Los diagnósticos respaldan los momentos energéticos cerca del máximo y detectan mezcla limitada de la magnetización al enfriar. La confiabilidad depende del observable y de la temperatura.}
+\note{Cerrar con las respuestas, no con una lista de herramientas. El estudio aporta un mapa de estabilidad y de diversidad del enfriamiento. Nuevos barridos o intercambio de réplicas son propuestas de estudio, no resultados ya ejecutados.}
+\end{frame}
+
+\appendix
+\section{Respaldo}
+\begin{frame}{Respaldo: estabilidad de los momentos energéticos}
 \begin{columns}[T,onlytextwidth]
 \column{.50\textwidth}
 \begin{block}{Lo que necesita el calor específico}
@@ -338,40 +427,6 @@ En los \textbf{32 puntos próximos al pico}:
 \fuente{R-hat dividido, normalizado por rangos y plegado. Auditoría adicional registrada en resultados/auditoria/.}
 \note{Esta prueba adicional cubre 56 puntos, no toda la escalera. Cerca del máximo son cuatro temperaturas por cada uno de los ocho estados. Se refuerza la estimación de energía sin convertir un diagnóstico favorable en una prueba matemática de equilibrio global.}
 \end{frame}
-
-\begin{frame}{Herramientas del curso y qué aportó cada una}
-\small
-\renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\linewidth}{p{3.3cm}X}
-\toprule
-Herramienta & Aplicación y resultado útil\\\midrule
-Transformada inversa & Propuestas uniformes en la esfera; prueba conjunta: 2 rechazos entre 100 semillas, compatible con el nivel nominal del 5\%.\\
-Integración Monte Carlo & Estimación de energía, magnetización y fluctuaciones como esperanzas.\\
-Jackknife por bloques & Error dentro de un camino respetando la dependencia temporal; límites cuando la memoria es larga.\\
-Bootstrap por caminos & Intervalos de $T^*$ y detección de un argmax inestable en el estado 5.\\
-Mezclas y algoritmo EM & Poblaciones finales; en el estado 6, grupos cercanos a 0.580 y 0.702.\\
-Diagnósticos MCMC & Separar estabilidad interna, acuerdo entre caminos y costo de decorrelación.\\\bottomrule
-\end{tabularx}
-\note{Los resultados del generador y del bootstrap son los del análisis original. Los métodos no se enumeran como requisitos aislados: cada uno resuelve una parte de la pregunta científica. El jackknife confiable no garantiza convergencia conjunta.}
-\end{frame}
-
-\begin{frame}{Respuestas a las preguntas de investigación}
-\small
-\begin{block}{¿Dónde cambia el régimen?}
-El máximo energético está cerca de 14 K; el estado 8 presenta $T^*=13.64$ K. La incertidumbre del estado 5 es mayor. Son temperaturas características del disco finito.
-\end{block}
-\begin{block}{¿Se alcanzó una misma distribución?}
-No en toda la escalera. La energía muestra mayor estabilidad que $m$; a baja temperatura persisten diferencias entre caminos.
-\end{block}
-\begin{block}{¿Qué resultados sirven para estudiar los estados?}
-Las texturas, los tiempos de autocorrelación y las poblaciones finales describen cómo el protocolo conserva memoria. Sus frecuencias no deben presentarse como equilibrio probado.
-\end{block}
-\idea{El siguiente contraste útil es variar campo y quiralidad por separado, y medir cambios de sector durante la cadena.}
-\note{Cerrar con las respuestas, no con una lista de herramientas. El estudio aporta un mapa de estabilidad y de diversidad del enfriamiento. Nuevos barridos o intercambio de réplicas son propuestas de estudio, no resultados ya ejecutados.}
-\end{frame}
-
-\appendix
-\section{Respaldo}
 \begin{frame}{Respaldo: resultados de los ocho estados}
 \small\renewcommand{\arraystretch}{1.13}
 \begin{tabular}{crrrcrr}

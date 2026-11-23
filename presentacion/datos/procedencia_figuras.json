@@ -1,6 +1,7 @@
 {
   "datos": "Resultados derivados conservados en resultados/. No se ejecutaron nuevas cadenas ni un nuevo bootstrap.",
   "texturas": "Capa central, copia 1 en ocho_estados y enfriamiento. S_z con escala común [-1,1].",
+  "vista_3d": "Estado 6, copia 63 a 6 K; los 5425 sitios están conservados. Flechas submuestreadas y eje vertical ampliado.",
   "ejemplos_estado6": "Caminos con medias próximas a los centros EM originales 0.580 y 0.702; selección ilustrativa, no aleatoria.",
   "copias_estado6": [
     63,
@@ -13,6 +14,8 @@
     "costo_quiral.pdf",
     "curvas_termicas.pdf",
     "enfriamiento.pdf",
+    "geometria_nanodisco.pdf",
+    "nanodisco_completo_3d.pdf",
     "ocho_estados.pdf",
     "poblaciones_estado6.pdf",
     "rhat_temperatura.pdf",

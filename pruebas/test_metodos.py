@@ -13,6 +13,17 @@ spec.loader.exec_module(audit)
 
 
 class Metodos(unittest.TestCase):
+    def test_dominio_general_reproduce_el_sistema_tridimensional(self):
+        with np.load(ROOT/'presentacion/datos/estado6_copia63_3d.npz') as data:
+            mask = data['mascara'].astype(bool)
+            y, x = np.mgrid[-19:20, -19:20]
+            disk = x*x+y*y <= float(data['Rd'])**2
+            expected = np.broadcast_to(disk, (5, 39, 39))
+            np.testing.assert_array_equal(mask, expected)
+            self.assertEqual(int(mask.sum()), 5425)
+            self.assertEqual(data['spins'].shape, (5425, 3))
+            np.testing.assert_allclose(np.linalg.norm(data['spins'], axis=1), 1, atol=1e-3)
+
     def test_descubrimiento_admite_los_tres_formatos_de_descarga(self):
         spec = importlib.util.spec_from_file_location('analisis', ROOT/'scripts/analisis/dmi_analisis.py')
         module = importlib.util.module_from_spec(spec)

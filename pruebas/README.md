@@ -26,3 +26,5 @@ Los cuadernos de `cuadernos/` conservan verificaciones de salidas y pruebas de h
 `test_metodos.py` comprueba propiedades que ayudan a detectar errores de normalización o diagnóstico: invariancia de R-hat ante un cambio afín, detección de cadenas desplazadas, descomposición de varianza y reconstrucción de las curvas energéticas a partir de los momentos guardados. Usa datos sintéticos o derivados incluidos; no necesita la base externa.
 
 Los registros históricos de la revisión están en `registros/`. Los registros de las comprobaciones del repositorio limpio se generan allí al prepararlo y en la salida de la integración continua. La procedencia de los archivos y el entorno observado se documentan por separado.
+
+La configuración tridimensional de la presentación tiene una comprobación adicional: el dominio definido por radio 18.5 y cinco capas reproduce exactamente los 5425 sitios de la máscara guardada, y sus vectores conservan norma uno dentro de la tolerancia numérica.

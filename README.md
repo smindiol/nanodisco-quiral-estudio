@@ -6,7 +6,7 @@ El estudio analiza ocho combinaciones de interacción quiral y campo externo en 
 
 ## Leer el estudio completo
 
-**[Abrir la página de lectura](https://smindiol.github.io/nanodisco-quiral-estudio/)** · **[Ver o descargar el informe PDF](informe_final.pdf)** · **[Diapositivas de resultados](presentacion/presentacion.pdf)** · **[Guía para simular en Kaggle](docs/GUIA_KAGGLE.md)**
+**[Abrir la página de lectura](https://smindiol.github.io/nanodisco-quiral-estudio/)** · **[Ver o descargar el informe PDF](informe_final.pdf)** · **[Presentación físico-matemática](presentacion/presentacion.pdf)** · **[Guía para simular en Kaggle](docs/GUIA_KAGGLE.md)**
 
 La página reúne el informe completo en un visor y la explicación matemática desarrollada, con las curvas y los exploradores de los ocho estados. Los dos documentos se leen desde la misma página; las secciones se recorren desde el índice. Si el visor PDF no está disponible en el dispositivo, el botón de descarga abre el informe completo.
 
