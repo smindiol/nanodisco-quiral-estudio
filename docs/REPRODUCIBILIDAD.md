@@ -96,3 +96,7 @@ make html
 Las dos primeras órdenes requieren la base externa y actualizan `resultados/auditoria/`. La primera comprueba 56 puntos de momentos, calcula la regresión agrupada y su sensibilidad, reproduce la permutación exacta y extrae texturas de caminos fijos. La segunda lee las 1128 matrices de magnetización. No ejecutan nuevas simulaciones ni repiten el bootstrap original.
 
 Los derivados publicados permiten evaluar las conclusiones y reconstruir las visualizaciones. No permiten rehacer análisis arbitrarios que necesiten datos no conservados, como tasas de cambio topológico durante cada barrido. El entorno de la revisión está documentado en `pruebas/registros/entorno_revision.json`; no se presenta como un bloqueo exacto del entorno histórico de Kaggle.
+
+## Presentación de resultados
+
+`make presentacion` reconstruye las figuras y compila `presentacion/presentacion.pdf`, usando los derivados publicados. La fuente es `presentacion/presentacion.tex`, con el tema Oxygen y su encabezado incluidos. Hay 20 diapositivas principales y cinco de respaldo. Los ejemplos vectoriales del estado 6 se conservan en `presentacion/datos/`, con selección documentada, de modo que esta compilación no necesita la base cruda ni GPU.

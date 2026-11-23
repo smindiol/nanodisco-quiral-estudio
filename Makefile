@@ -1,7 +1,7 @@
 PYTHON ?= python
 NODE ?= node
 
-.PHONY: verificar html informe auditoria magnetizacion publicar
+.PHONY: verificar html informe presentacion auditoria magnetizacion publicar
 
 verificar:
 	$(PYTHON) scripts/verificar_repositorio.py
@@ -15,6 +15,10 @@ html:
 
 informe:
 	bash scripts/informe/compilar_informe.sh
+
+presentacion:
+	MPLCONFIGDIR="$(CURDIR)/build/matplotlib" $(PYTHON) presentacion/generar_figuras.py
+	bash presentacion/compilar.sh
 
 auditoria:
 	$(PYTHON) scripts/auditoria/revisar_datos.py

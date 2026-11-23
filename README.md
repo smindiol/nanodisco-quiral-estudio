@@ -6,7 +6,7 @@ El estudio analiza ocho combinaciones de interacción quiral y campo externo en 
 
 ## Leer el estudio completo
 
-**[Abrir la página de lectura](https://smindiol.github.io/nanodisco-quiral-estudio/)** · **[Ver o descargar el informe PDF](informe_final.pdf)** · **[Guía para simular en Kaggle](docs/GUIA_KAGGLE.md)**
+**[Abrir la página de lectura](https://smindiol.github.io/nanodisco-quiral-estudio/)** · **[Ver o descargar el informe PDF](informe_final.pdf)** · **[Diapositivas de resultados](presentacion/presentacion.pdf)** · **[Guía para simular en Kaggle](docs/GUIA_KAGGLE.md)**
 
 La página reúne el informe completo en un visor y la explicación matemática desarrollada, con las curvas y los exploradores de los ocho estados. Los dos documentos se leen desde la misma página; las secciones se recorren desde el índice. Si el visor PDF no está disponible en el dispositivo, el botón de descarga abre el informe completo.
 
@@ -39,6 +39,7 @@ resultados/
   figuras/               Figuras del análisis original
   experimentos/          Salidas conservadas de pruebas exploratorias
 informe/latex/           main.tex, secciones, bibliografía y figuras
+presentacion/            Diapositivas LaTeX, PDF y figuras reproducibles
 index.html               Página principal con informe y explicación completos
 informe_final.pdf        Informe final para lectura y descarga
 docs/                    Guías de simulación y reproducción
@@ -66,6 +67,7 @@ Los resultados derivados incluidos permiten reconstruir la explicación:
 ```bash
 make html
 make informe
+make presentacion
 ```
 
 El primer comando actualiza `index.html`. El segundo compila `informe/latex/main.tex` y actualiza `informe_final.pdf`. Los temporales quedan en `build/`. La [guía de reproducción](docs/REPRODUCIBILIDAD.md) describe también cómo repetir el análisis desde los archivos crudos cuando estén disponibles.

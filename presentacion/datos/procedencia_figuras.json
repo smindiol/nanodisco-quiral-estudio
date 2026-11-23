@@ -1,0 +1,22 @@
+{
+  "datos": "Resultados derivados conservados en resultados/. No se ejecutaron nuevas cadenas ni un nuevo bootstrap.",
+  "texturas": "Capa central, copia 1 en ocho_estados y enfriamiento. S_z con escala común [-1,1].",
+  "ejemplos_estado6": "Caminos con medias próximas a los centros EM originales 0.580 y 0.702; selección ilustrativa, no aleatoria.",
+  "copias_estado6": [
+    63,
+    44
+  ],
+  "curvas": "Malla medida de 0.1 K; T* e intervalos del bootstrap original de 50000 réplicas.",
+  "figuras": [
+    "barridos.pdf",
+    "bootstrap_intervalos.pdf",
+    "costo_quiral.pdf",
+    "curvas_termicas.pdf",
+    "enfriamiento.pdf",
+    "ocho_estados.pdf",
+    "poblaciones_estado6.pdf",
+    "rhat_temperatura.pdf",
+    "trazas_caminos.pdf",
+    "varianza_entre.pdf"
+  ]
+}
