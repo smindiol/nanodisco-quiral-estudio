@@ -1,0 +1,50 @@
+{
+ "1": {
+  "fracción de T con $\\hat R_m<1.01$": 0.3404255319148936,
+  "T más baja del tramo convergido en $m$ (K)": 15.5,
+  "$\\tau_{int}$ máximo de $m$ (barridos)": 946.0780326707875,
+  "$\\tau_{int}$ máximo de $E$ (barridos)": 52.15412794403891
+ },
+ "2": {
+  "fracción de T con $\\hat R_m<1.01$": 0.3404255319148936,
+  "T más baja del tramo convergido en $m$ (K)": 15.3,
+  "$\\tau_{int}$ máximo de $m$ (barridos)": 932.6170341418365,
+  "$\\tau_{int}$ máximo de $E$ (barridos)": 46.709958390913236
+ },
+ "3": {
+  "fracción de T con $\\hat R_m<1.01$": 0.4326241134751773,
+  "T más baja del tramo convergido en $m$ (K)": 14.0,
+  "$\\tau_{int}$ máximo de $m$ (barridos)": 642.9859149752604,
+  "$\\tau_{int}$ máximo de $E$ (barridos)": 38.41663418632739
+ },
+ "4": {
+  "fracción de T con $\\hat R_m<1.01$": 0.6524822695035462,
+  "T más baja del tramo convergido en $m$ (K)": 11.1,
+  "$\\tau_{int}$ máximo de $m$ (barridos)": 193.87178199046522,
+  "$\\tau_{int}$ máximo de $E$ (barridos)": 30.245370647182327
+ },
+ "5": {
+  "fracción de T con $\\hat R_m<1.01$": 0.7659574468085106,
+  "T más baja del tramo convergido en $m$ (K)": 9.5,
+  "$\\tau_{int}$ máximo de $m$ (barridos)": 104.2580118936345,
+  "$\\tau_{int}$ máximo de $E$ (barridos)": 57.492991155151245
+ },
+ "6": {
+  "fracción de T con $\\hat R_m<1.01$": 0.3829787234042553,
+  "T más baja del tramo convergido en $m$ (K)": 14.7,
+  "$\\tau_{int}$ máximo de $m$ (barridos)": 664.5284792205626,
+  "$\\tau_{int}$ máximo de $E$ (barridos)": 32.16281042514972
+ },
+ "7": {
+  "fracción de T con $\\hat R_m<1.01$": 0.46808510638297873,
+  "T más baja del tramo convergido en $m$ (K)": 13.5,
+  "$\\tau_{int}$ máximo de $m$ (barridos)": 421.16902290942005,
+  "$\\tau_{int}$ máximo de $E$ (barridos)": 32.43961738160582
+ },
+ "8": {
+  "fracción de T con $\\hat R_m<1.01$": 0.46099290780141844,
+  "T más baja del tramo convergido en $m$ (K)": 13.7,
+  "$\\tau_{int}$ máximo de $m$ (barridos)": 403.13767942916957,
+  "$\\tau_{int}$ máximo de $E$ (barridos)": 30.300781318680336
+ }
+}

@@ -1,0 +1,6 @@
+# Dependencias del análisis y de la guía HTML. No instala ni ejecuta simulaciones.
+# Las versiones observadas en la auditoría constan en pruebas/registros/entorno_revision.json.
+numpy
+scipy
+matplotlib
+Pillow

@@ -1,0 +1,30 @@
+# Base externa y salidas nuevas de simulación
+datos/crudos/
+datos/externos/
+T_*.npz
+Datos_*.npz
+Stats_*.npz
+lote_*/
+# Entornos, cachés y temporales
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+build/
+.cache/
+.DS_Store
+# Credenciales y configuración local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*
+# Subproductos LaTeX; las fuentes y el PDF final sí se incluyen
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.synctex.gz

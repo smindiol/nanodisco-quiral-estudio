@@ -1,0 +1,72 @@
+% Final report, Computacion Estadistica 2026-II. Preamble adapted from the Morfeo IA template (LIA UNAL).
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+\usepackage[a4paper,margin=2.0cm,headheight=34pt,footskip=1.1cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\graphicspath{{fig/}}
+
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage[font=small,labelfont={bf,color=azulUNAL}]{caption}
+\usepackage{url}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{azulUNAL}{HTML}{0066B3}
+\definecolor{grisLabIA}{HTML}{666666}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\refname}{Referencias}
+\renewcommand{\appendixname}{Anexo}
+
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries\color{azulUNAL}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{grisLabIA}Computación Estadística 2026-II}
+\fancyhead[R]{\IfFileExists{logos/logo_unal.png}{\includegraphics[height=0.95cm]{logos/logo_unal.png}}{}}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newcommand{\Rhat}{\hat R}
+\newcommand{\kdm}{k_{DM}}
+\newcommand{\tauint}{\tau_{\mathrm{int}}}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries\color{azulUNAL} Convergencia de cadenas de Metropolis en un nanodisco quiral:\\[2pt]
+temperatura de transición, divergencia entre caminos y costo en barridos}\\[10pt]
+{\normalsize Informe final del proyecto aplicado}\\[4pt]
+{\small Sebastián Mindiola Garizado}\\[2pt]
+{\small Computación Estadística, Grupo I, 2026-II. Docente: Yoselin Nieto Gil}\\[2pt]
+{\small Universidad Nacional de Colombia, sede La Paz}
+\end{center}
+
+\input{redaccion/sections/00_resumen}
+\input{redaccion/sections/01_introduccion}
+\input{redaccion/sections/02_simulacion}
+\input{redaccion/sections/03_integracion_remuestreo}
+\input{redaccion/sections/04_convergencia}
+\input{redaccion/sections/07_auditoria_local}
+\input{redaccion/sections/05_discusion}
+
+\bibliographystyle{apalike}
+\bibliography{refs}
+
+\appendix
+\input{redaccion/sections/06_anexo}
+
+\end{document}

@@ -1,0 +1,141 @@
+[{"stream_name":"stderr","time":7.63539753,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.635468959,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":8.738652386,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.738687922,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.738699385,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.738702439,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.465621246,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.465656824,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.465662734,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.46566725,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":29.413225151,"data":"backend actual: gpu\n"}
+,{"stream_name":"stdout","time":32.992430232,"data":"JAX 0.11.1 | dispositivos: [CudaDevice(id=0), CudaDevice(id=1)]\n"}
+,{"stream_name":"stdout","time":33.026381113,"data":"Writing sim_pt.py\n"}
+,{"stream_name":"stdout","time":34.451534034,"data":"espines del disco Rd=9: 1265 | escalera: 128 temperaturas de 0.5 a 20.0 K\n"}
+,{"stream_name":"stdout","time":34.677978498,"data":"umbral de rechazos (P(X\u003e=k)\u003c0.01): 12\n"}
+,{"stream_name":"stdout","time":37.285008533,"data":"esfera, inversa        rechazos 7/100  P(X\u003e=7)=0.234  KS p=0.629\n"}
+,{"stream_name":"stdout","time":38.64118913,"data":"esfera, gaussiana      rechazos 7/100  P(X\u003e=7)=0.234  KS p=0.870\n"}
+,{"stream_name":"stdout","time":40.769518658,"data":"casquete π/4, inversa  rechazos 2/100  P(X\u003e=2)=0.963  KS p=0.944\n"}
+,{"stream_name":"stdout","time":41.012668106,"data":"En el casquete los ejes S son uniformes, así que el punto propuesto también es uniforme en la esfera: sus momentos también deben ser 0 y 1/3.\n"}
+,{"stream_name":"stdout","time":41.698833257,"data":"Criterio de éxito E1 (esfera, inversa): CUMPLE\n"}
+,{"stream_name":"stdout","time":41.698873681,"data":"Criterio de éxito E1 (casquete π/4, inversa): CUMPLE\n"}
+,{"stream_name":"stdout","time":79.655741061,"data":"Criterio de éxito E2: CUMPLE\n"}
+,{"stream_name":"stdout","time":81.921688888,"data":"Rd=9.0 | espines=1265 | NT=16 (0.5-20.0 K) | copias=4 | GPUs=2 | termalizacion=200 | medicion=400 (cada 10)\n"}
+,{"stream_name":"stdout","time":91.064742431,"data":"termalizacion 1/2  0.2 min\n"}
+,{"stream_name":"stdout","time":98.134532266,"data":"termalizacion 2/2  0.3 min\n"}
+,{"stream_name":"stdout","time":106.052370682,"data":"medicion 1/2  0.4 min\n"}
+,{"stream_name":"stdout","time":106.194976237,"data":"medicion 2/2  0.4 min\n"}
+,{"stream_name":"stdout","time":106.213305768,"data":"estado 0: aceptacion local [0.47, 0.50] | intercambio minimo 0.00 | viajes redondos por caminante (mediana) 0.0\n"}
+,{"stream_name":"stdout","time":106.225365551,"data":"estado 1: aceptacion local [0.48, 0.55] | intercambio minimo 0.00 | viajes redondos por caminante (mediana) 0.0\n"}
+,{"stream_name":"stdout","time":106.226505473,"data":"listo en 0.01 h\n"}
+,{"stream_name":"stdout","time":106.796511873,"data":"[humo] código de salida 0; 0.5 min\n"}
+,{"stream_name":"stdout","time":108.988800761,"data":"Rd=9.0 | espines=1265 | NT=128 (0.5-20.0 K) | copias=20 | GPUs=2 | termalizacion=20000 | medicion=50000 (cada 10)\n"}
+,{"stream_name":"stdout","time":171.131995979,"data":"termalizacion 1/10  1.0 min\n"}
+,{"stream_name":"stdout","time":231.259476252,"data":"termalizacion 2/10  2.0 min\n"}
+,{"stream_name":"stdout","time":284.313954939,"data":"termalizacion 3/10  2.9 min\n"}
+,{"stream_name":"stdout","time":337.323811882,"data":"termalizacion 4/10  3.8 min\n"}
+,{"stream_name":"stdout","time":390.375013639,"data":"termalizacion 5/10  4.7 min\n"}
+,{"stream_name":"stdout","time":443.371520091,"data":"termalizacion 6/10  5.6 min\n"}
+,{"stream_name":"stdout","time":496.419637219,"data":"termalizacion 7/10  6.5 min\n"}
+,{"stream_name":"stdout","time":549.417061857,"data":"termalizacion 8/10  7.3 min\n"}
+,{"stream_name":"stdout","time":602.459898526,"data":"termalizacion 9/10  8.2 min\n"}
+,{"stream_name":"stdout","time":655.457266729,"data":"termalizacion 10/10  9.1 min\n"}
+,{"stream_name":"stdout","time":797.282580649,"data":"medicion 1/10  11.5 min\n"}
+,{"stream_name":"stdout","time":931.768711691,"data":"medicion 2/10  13.7 min\n"}
+,{"stream_name":"stdout","time":1066.375947491,"data":"medicion 3/10  16.0 min\n"}
+,{"stream_name":"stdout","time":1200.849561433,"data":"medicion 4/10  18.2 min\n"}
+,{"stream_name":"stdout","time":1335.457087403,"data":"medicion 5/10  20.4 min\n"}
+,{"stream_name":"stdout","time":1469.936066085,"data":"medicion 6/10  22.7 min\n"}
+,{"stream_name":"stdout","time":1604.534991335,"data":"medicion 7/10  24.9 min\n"}
+,{"stream_name":"stdout","time":1739.014757578,"data":"medicion 8/10  27.2 min\n"}
+,{"stream_name":"stdout","time":1873.616826192,"data":"medicion 9/10  29.4 min\n"}
+,{"stream_name":"stdout","time":2008.091611189,"data":"medicion 10/10  31.7 min\n"}
+,{"stream_name":"stdout","time":2019.163119395,"data":"estado 0: aceptacion local [0.50, 0.50] | intercambio minimo 0.35 | viajes redondos por caminante (mediana) 0.0\n"}
+,{"stream_name":"stdout","time":2029.705902098,"data":"estado 1: aceptacion local [0.50, 0.55] | intercambio minimo 0.34 | viajes redondos por caminante (mediana) 0.0\n"}
+,{"stream_name":"stdout","time":2029.706869623,"data":"listo en 0.53 h\n"}
+,{"stream_name":"stdout","time":2030.459927111,"data":"[resultados_rd9] código de salida 0; 32.1 min\n"}
+,{"stream_name":"stdout","time":2032.760063967,"data":"Rd=6.0 | espines=565 | NT=128 (0.5-20.0 K) | copias=12 | GPUs=2 | termalizacion=10000 | medicion=30000 (cada 10)\n"}
+,{"stream_name":"stdout","time":2049.46572825,"data":"termalizacion 1/10  0.3 min\n"}
+,{"stream_name":"stdout","time":2064.381842204,"data":"termalizacion 2/10  0.5 min\n"}
+,{"stream_name":"stdout","time":2072.660852797,"data":"termalizacion 3/10  0.7 min\n"}
+,{"stream_name":"stdout","time":2081.00427058,"data":"termalizacion 4/10  0.8 min\n"}
+,{"stream_name":"stdout","time":2089.250876717,"data":"termalizacion 5/10  0.9 min\n"}
+,{"stream_name":"stdout","time":2097.496084802,"data":"termalizacion 6/10  1.1 min\n"}
+,{"stream_name":"stdout","time":2105.71579817,"data":"termalizacion 7/10  1.2 min\n"}
+,{"stream_name":"stdout","time":2113.94335968,"data":"termalizacion 8/10  1.4 min\n"}
+,{"stream_name":"stdout","time":2122.164999205,"data":"termalizacion 9/10  1.5 min\n"}
+,{"stream_name":"stdout","time":2130.397352641,"data":"termalizacion 10/10  1.6 min\n"}
+,{"stream_name":"stdout","time":2162.873119782,"data":"medicion 1/10  2.2 min\n"}
+,{"stream_name":"stdout","time":2188.110136796,"data":"medicion 2/10  2.6 min\n"}
+,{"stream_name":"stdout","time":2213.303090099,"data":"medicion 3/10  3.0 min\n"}
+,{"stream_name":"stdout","time":2238.403953911,"data":"medicion 4/10  3.4 min\n"}
+,{"stream_name":"stdout","time":2263.517285623,"data":"medicion 5/10  3.8 min\n"}
+,{"stream_name":"stdout","time":2288.73100355,"data":"medicion 6/10  4.3 min\n"}
+,{"stream_name":"stdout","time":2314.148920371,"data":"medicion 7/10  4.7 min\n"}
+,{"stream_name":"stdout","time":2339.143386394,"data":"medicion 8/10  5.1 min\n"}
+,{"stream_name":"stdout","time":2364.363319124,"data":"medicion 9/10  5.5 min\n"}
+,{"stream_name":"stdout","time":2389.572139539,"data":"medicion 10/10  5.9 min\n"}
+,{"stream_name":"stdout","time":2393.544760236,"data":"estado 0: aceptacion local [0.50, 0.51] | intercambio minimo 0.54 | viajes redondos por caminante (mediana) 0.1\n"}
+,{"stream_name":"stdout","time":2397.322070577,"data":"estado 1: aceptacion local [0.50, 0.56] | intercambio minimo 0.53 | viajes redondos por caminante (mediana) 0.1\n"}
+,{"stream_name":"stdout","time":2397.323394459,"data":"listo en 0.10 h\n"}
+,{"stream_name":"stdout","time":2398.339674947,"data":"[resultados_rd6] código de salida 0; 6.1 min\n"}
+,{"stream_name":"stdout","time":2400.402076125,"data":"Rd=12.0 | espines=2205 | NT=128 (0.5-20.0 K) | copias=12 | GPUs=2 | termalizacion=10000 | medicion=30000 (cada 10)\n"}
+,{"stream_name":"stdout","time":2435.934572615,"data":"termalizacion 1/10  0.6 min\n"}
+,{"stream_name":"stdout","time":2468.896738998,"data":"termalizacion 2/10  1.1 min\n"}
+,{"stream_name":"stdout","time":2494.992087296,"data":"termalizacion 3/10  1.6 min\n"}
+,{"stream_name":"stdout","time":2521.111847185,"data":"termalizacion 4/10  2.0 min\n"}
+,{"stream_name":"stdout","time":2547.218266845,"data":"termalizacion 5/10  2.4 min\n"}
+,{"stream_name":"stdout","time":2573.34352646,"data":"termalizacion 6/10  2.9 min\n"}
+,{"stream_name":"stdout","time":2599.44637428,"data":"termalizacion 7/10  3.3 min\n"}
+,{"stream_name":"stdout","time":2625.570936166,"data":"termalizacion 8/10  3.8 min\n"}
+,{"stream_name":"stdout","time":2651.669450924,"data":"termalizacion 9/10  4.2 min\n"}
+,{"stream_name":"stdout","time":2677.785928374,"data":"termalizacion 10/10  4.6 min\n"}
+,{"stream_name":"stdout","time":2765.020283963,"data":"medicion 1/10  6.1 min\n"}
+,{"stream_name":"stdout","time":2844.840700326,"data":"medicion 2/10  7.4 min\n"}
+,{"stream_name":"stdout","time":2924.649598477,"data":"medicion 3/10  8.7 min\n"}
+,{"stream_name":"stdout","time":3004.21604695,"data":"medicion 4/10  10.1 min\n"}
+,{"stream_name":"stdout","time":3083.739597544,"data":"medicion 5/10  11.4 min\n"}
+,{"stream_name":"stdout","time":3163.603449275,"data":"medicion 6/10  12.7 min\n"}
+,{"stream_name":"stdout","time":3243.433089438,"data":"medicion 7/10  14.1 min\n"}
+,{"stream_name":"stdout","time":3323.293030989,"data":"medicion 8/10  15.4 min\n"}
+,{"stream_name":"stdout","time":3403.12073525,"data":"medicion 9/10  16.7 min\n"}
+,{"stream_name":"stdout","time":3482.936281265,"data":"medicion 10/10  18.0 min\n"}
+,{"stream_name":"stdout","time":3487.163744884,"data":"estado 0: aceptacion local [0.50, 0.50] | intercambio minimo 0.21 | viajes redondos por caminante (mediana) 0.0\n"}
+,{"stream_name":"stdout","time":3491.305495186,"data":"estado 1: aceptacion local [0.50, 0.55] | intercambio minimo 0.20 | viajes redondos por caminante (mediana) 0.0\n"}
+,{"stream_name":"stdout","time":3491.307172246,"data":"listo en 0.30 h\n"}
+,{"stream_name":"stdout","time":3492.176469408,"data":"[resultados_rd12] código de salida 0; 18.2 min\n"}
+,{"stream_name":"stdout","time":3511.094231424,"data":"Estado A: aceptación en [0.3, 0.7] donde α\u003cπ: True | confiables 128/128 | cociente de meseta en [0.8, 1.2]: 1.00\n"}
+,{"stream_name":"stdout","time":3511.094284045,"data":"Criterio de éxito E3 (estado A): CUMPLE\n"}
+,{"stream_name":"stdout","time":3511.09429019,"data":"Estado B: aceptación en [0.3, 0.7] donde α\u003cπ: True | confiables 99/128 | cociente de meseta en [0.8, 1.2]: 0.98\n"}
+,{"stream_name":"stdout","time":3511.094295142,"data":"Criterio de éxito E3 (estado B): NO CUMPLE\n"}
+,{"stream_name":"stdout","time":3524.942399223,"data":"Estado A: tamaño efectivo mínimo de los pesos 0.64 | acuerdo percentil/BCa c: 100%, chi: 100%\n"}
+,{"stream_name":"stdout","time":3524.942446095,"data":"Criterio de éxito E4 (estado A): CUMPLE\n"}
+,{"stream_name":"stdout","time":3533.164141996,"data":"Estado B: tamaño efectivo mínimo de los pesos 0.63 | acuerdo percentil/BCa c: 100%, chi: 100%\n"}
+,{"stream_name":"stdout","time":3533.164186168,"data":"Criterio de éxito E4 (estado B): CUMPLE\n"}
+,{"stream_name":"stdout","time":3537.160261601,"data":"Estado A, umbral 0.1: textura más probable a 0.50 K = en el plano (decidido)\n"}
+,{"stream_name":"stdout","time":3537.160337339,"data":"Estado A, umbral 0.2: textura más probable a 0.50 K = en el plano (decidido)\n"}
+,{"stream_name":"stdout","time":3537.160346775,"data":"Estado A, umbral 0.3: textura más probable a 0.50 K = en el plano (decidido)\n"}
+,{"stream_name":"stdout","time":3538.149526725,"data":"Estado B, umbral 0.1: textura más probable a 0.50 K = skyrmion (decidido)\n"}
+,{"stream_name":"stdout","time":3538.149607464,"data":"Estado B, umbral 0.2: textura más probable a 0.50 K = skyrmion (decidido)\n"}
+,{"stream_name":"stdout","time":3538.149616531,"data":"Estado B, umbral 0.3: textura más probable a 0.50 K = skyrmion (decidido)\n"}
+,{"stream_name":"stdout","time":3594.955381648,"data":"tiempo total del cuaderno: 0.99 h\n"}
+,{"stream_name":"stderr","time":3599.172864681,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3599.172951506,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3599.376849505,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3599.376931823,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3600.327732639,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":3600.48156801,"data":"[NbConvertApp] Writing 1405614 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":3603.640094616,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3604.684104646,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":3604.684160979,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":3604.684467068,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":3604.684828525,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":3604.68502445,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":3604.685206686,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":3604.685512038,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":3604.685758193,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":3604.685977251,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":3604.686368713,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":3604.686658318,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":3604.687103042,"data":"[NbConvertApp] Writing 697697 bytes to __results__.html\n"}
+]

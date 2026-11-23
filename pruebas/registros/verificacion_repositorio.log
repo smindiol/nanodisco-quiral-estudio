@@ -1,0 +1,19 @@
+python scripts/verificar_repositorio.py
+PASS: 137 archivos revisados; fuentes Python válidas, cuadernos sin salidas, sin crudos ni credenciales detectadas.
+python pruebas/validar_html.py
+PASS: 54 imágenes válidas, sin recursos externos; índice íntegro; 8 estados × 141 temperaturas; 56 pruebas y 128 ternas de texturas.
+node --check build/explorador.js
+node pruebas/validar_controles.cjs
+PASS: 18 combinaciones de curva/escala, 141 tablas de temperatura, 48 vistas de texturas de los 8 estados y 3 descargas. 596232 celdas dibujadas. DOM simulado; no es validación visual de navegador.
+python -m unittest discover -s pruebas -p 'test_*.py' -v
+test_descomposicion_de_varianza_con_divisores_poblacionales (test_metodos.Metodos.test_descomposicion_de_varianza_con_divisores_poblacionales) ... ok
+test_descubrimiento_admite_los_tres_formatos_de_descarga (test_metodos.Metodos.test_descubrimiento_admite_los_tres_formatos_de_descarga) ... ok
+test_diseno_y_auditoria_tienen_las_mismas_temperaturas (test_metodos.Metodos.test_diseno_y_auditoria_tienen_las_mismas_temperaturas) ... ok
+test_reconstruccion_energetica_coincide_con_auditoria (test_metodos.Metodos.test_reconstruccion_energetica_coincide_con_auditoria) ... ok
+test_rhat_detecta_sectores_desplazados (test_metodos.Metodos.test_rhat_detecta_sectores_desplazados) ... ok
+test_rhat_es_invariante_a_un_cambio_de_unidades (test_metodos.Metodos.test_rhat_es_invariante_a_un_cambio_de_unidades) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.306s
+
+OK

@@ -1,0 +1,30 @@
+\section{Introducción y contexto de los datos}
+
+En un material magnético, cada átomo se comporta como una pequeña brújula, un espín $\mathbf S_i$ de norma uno que puede apuntar en cualquier dirección del espacio. A alta temperatura las brújulas fluctúan sin orden; al enfriar, sus interacciones las alinean y aparece una textura ordenada. Cuando el material carece de simetría de inversión, la interacción de Dzyaloshinskii y Moriya \citep{dzyaloshinskii1958,moriya1960}, de intensidad $\kdm$, favorece que los espines vecinos giren un ángulo fijo. El resultado son espirales y, en presencia de un campo externo $H$, texturas de tipo skyrmión con carga topológica no necesariamente entera en un disco de bordes libres \citep{nagaosa2013}. El objeto de estudio es un disco de radio $R_d=18.5$ sitios y cinco capas, con $N=5425$ espines sobre una red cúbica de $39\times39\times5$ posiciones.
+
+Para un estadístico, el problema tiene una lectura directa. Una configuración $\mathbf s=(\mathbf S_1,\dots,\mathbf S_N)$ es un vector aleatorio de dimensión $2N=10\,850$ con densidad de Boltzmann; las cantidades físicas son esperanzas bajo esa densidad, y su constante de normalización es una integral imposible de calcular. Por eso se recurre a una cadena de Markov (Metropolis) cuya distribución estacionaria es la de Boltzmann. Las dos preguntas del proyecto son estadísticas: ¿a qué temperatura cambia de régimen el disco y con qué incertidumbre se conoce?, y ¿alcanzaron las cadenas su distribución estacionaria con el número de pasos simulado?
+
+El diseño simula cada estado de parámetros con 100 copias independientes. Una copia arranca a 20~K, se enfría en pasos de 0.1~K hasta 6~K y en cada temperatura continúa desde la configuración que dejó la anterior. Cada copia es, entonces, un camino de enfriamiento distinto y todos son igualmente válidos. A temperatura alta los caminos deben describir la misma distribución; a temperatura baja pueden quedar en estados finales diferentes, porque el paisaje de energía tiene varios valles casi equivalentes. \citet{rincon2026} documentan este comportamiento en nanopartículas de cobre enfriadas a distintas tasas: las curvas de energía coinciden a temperatura alta, divergen levemente a temperatura baja y el pico del calor específico identifica las transiciones. Este informe cuantifica esa divergencia con herramientas del curso, distingue diversidad del protocolo y falta de mezcla de equilibrio, y evalúa si aumentar el número de barridos puede mejorar el muestreo. Las realizaciones son válidas para el protocolo; su representatividad de Boltzmann exige evidencia adicional.
+
+\begin{table}[H]
+\centering\small
+\caption{Estados simulados. $J=1$, anisotropía cúbica $K=0.05$ y campo perpendicular al disco ($\gamma=90^\circ$) en todos los casos. Cada lote de Kaggle ejecutó dos estados en dos GPU T4.}
+\label{tab:estados}
+\begin{tabular}{lcccccccc}
+\toprule
+Estado & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+\midrule
+$\kdm$ & 0.05 & 0.15 & 0.33 & 0.60 & 1.00 & 0.30 & 0.60 & 0.75\\
+$H$ & 0 & 0 & 0 & 0 & 0 & 0.05 & 0.10 & 0.30\\
+Lote & 1 & 1 & 2 & 2 & 3 & 3 & 4 & 4\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Los datos son series temporales simuladas, no observadas. Por cada estado, temperatura y copia se registraron, en cada uno de los 10\,000 barridos de medición, la energía total $E$ normalizada por $E_0$, sus cuatro componentes (intercambio, anisotropía, Dzyaloshinskii y Moriya, campo) y la norma de la magnetización por espín $m$. Las 141 temperaturas por estado y los ocho estados suman 1128 matrices de $10\,000\times100$ por variable, unos 25~GB en formato comprimido. No hay valores faltantes; el análisis no requiere el tratamiento de ceros que la guía exige a las series financieras, pues $E$ y $m$ son continuas y $m>0$ casi seguramente.
+
+\subsection{Preguntas e hipótesis operativas}
+
+El estudio pregunta dónde se sitúa el máximo energético, si su posición se asocia con $\kdm$ y $H$, y en qué regiones los caminos mezclan con el presupuesto disponible. La hipótesis de asociación nula entre $\kdm$ y $T^*$ se evalúa con Spearman y permutación exacta. Su no rechazo no establece independencia. La compatibilidad entre caminos se examina con $\Rhat$, Geweke, MSER-5 y homogeneidad; pasar esos diagnósticos no demuestra exploración global.
+
+La hipótesis física de trabajo relaciona la escala de las texturas con el costo del movimiento local. El factor de estructura, las cargas finales y las mezclas de magnetización evalúan aspectos complementarios. Para separar efectos de campo e interacción quiral haría falta un diseño factorial. Donde no se demuestra equilibrio, las frecuencias finales se interpretan como resultados del protocolo de enfriamiento.

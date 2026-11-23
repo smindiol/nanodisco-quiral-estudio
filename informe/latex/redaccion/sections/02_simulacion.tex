@@ -1,0 +1,46 @@
+\section{Fase A: simulación y generación de variables}
+
+\subsection{Modelo y densidad objetivo}
+
+La energía de una configuración $\mathbf s$ es
+\begin{equation}
+\begin{split}
+\mathcal H(\mathbf s)={}&-J\sum_{\langle ij\rangle}\mathbf S_i\cdot\mathbf S_j
+-\kdm\sum_i\Big[\hat x\cdot(\mathbf S_i\times\mathbf S_{i+\hat x})+\hat y\cdot(\mathbf S_i\times\mathbf S_{i+\hat y})\Big]\\
+&+K\sum_i\Big[(S_i^xS_i^y)^2+(S_i^xS_i^z)^2+(S_i^yS_i^z)^2\Big]-H\sum_i S_i^z .
+\end{split}
+\label{eq:hamiltoniano}
+\end{equation}
+El primer término (intercambio) premia los espines paralelos. El segundo es antisimétrico: premia un giro de sentido fijo entre vecinos del plano, con ángulo $\delta=\arctan(\kdm/J)$ en una cadena, y por tanto una espiral de período $\lambda=2\pi/\delta$ sitios. El tercero penaliza las direcciones alejadas de los ejes y el cuarto premia los espines alineados con el campo, perpendicular al disco. Los bordes del disco y de las capas son libres. A temperatura $T$, la configuración sigue la densidad de Boltzmann sobre $(\mathbb S^2)^N$,
+\begin{equation}
+\pi_\beta(\mathbf s)=\frac{e^{-\beta\mathcal H(\mathbf s)}}{Z(\beta)},\qquad \beta=\frac{1}{k_BT},\qquad Z(\beta)=\int_{(\mathbb S^2)^N}e^{-\beta\mathcal H(\mathbf s)}\,\mathrm d\mathbf s .
+\label{eq:boltzmann}
+\end{equation}
+La energía multiplicada por $\beta$ hace el papel de menos el logaritmo de la densidad no normalizada y $\beta$ el de un parámetro de concentración: con $\beta$ pequeño la densidad es casi plana y con $\beta$ grande se concentra en los mínimos de $\mathcal H$. La integral $Z$ tiene dimensión 10\,850 y no es viable evaluarla por cuadratura directa; el algoritmo de Metropolis solo necesita cocientes $\pi_\beta(\mathbf s')/\pi_\beta(\mathbf s)$, en los que $Z$ se cancela \citep{metropolis1953,hastings1970}.
+
+\subsection{Propuesta por transformada inversa en la esfera}
+
+La propuesta de cada paso es una dirección uniforme en la esfera unitaria. En coordenadas esféricas, el elemento de área es $\mathrm d\Omega=\sin\theta\,\mathrm d\theta\,\mathrm d\varphi$ y la densidad uniforme es $f(\theta,\varphi)=\sin\theta/(4\pi)$ en $[0,\pi]\times[0,2\pi)$. Las variables $\theta$ y $\varphi$ son independientes, con $f_\varphi(\varphi)=1/(2\pi)$ y $f_\theta(\theta)=\tfrac12\sin\theta$. Con el cambio de variable $z=\cos\theta$, de jacobiano $|\mathrm d\theta/\mathrm dz|=1/\sin\theta$, el factor $\sin\theta$ se cancela:
+\begin{equation}
+f_z(z)=f_\theta(\theta(z))\left|\frac{\mathrm d\theta}{\mathrm dz}\right|=\frac{\sin\theta}{2}\cdot\frac{1}{\sin\theta}=\frac12,\qquad z\in[-1,1].
+\end{equation}
+Así, $z\sim\mathcal U(-1,1)$ y $\varphi\sim\mathcal U(0,2\pi)$ son independientes. Sus funciones de distribución son $F_z(z)=(z+1)/2$ y $F_\varphi(\varphi)=\varphi/(2\pi)$; al invertirlas, con $U_1,U_2\sim\mathcal U(0,1)$ independientes,
+\begin{equation}
+z=2U_1-1,\qquad \varphi=2\pi U_2,\qquad \mathbf S'=\big(\sqrt{1-z^2}\cos\varphi,\ \sqrt{1-z^2}\sin\varphi,\ z\big).
+\label{eq:inversa}
+\end{equation}
+Sortear $\theta$ uniforme en $[0,\pi]$ sería un error: omitiría el jacobiano y acumularía puntos en los polos. La densidad de propuesta es la constante $q(\mathbf S'\mid\mathbf S)=1/(4\pi)$, simétrica, de modo que la razón de Hastings se reduce a la de Metropolis y la probabilidad de aceptar es $\alpha=\min\{1,e^{-\beta\Delta\mathcal H}\}$.
+
+\textbf{Validación del generador.} Para cada una de $R=100$ semillas se generaron $n=4\times10^6$ direcciones. El rectángulo $(U_1,U_2)\in[0,1)^2$ se dividió en $8\times8=64$ celdas equiprobables y se calculó $X^2=\sum_c(O_c-E_c)^2/E_c$ con $E_c=n/64$, que bajo uniformidad sigue aproximadamente una $\chi^2_{63}$. Las marginales de $z$ y de $\varphi$ se contrastaron por separado con 64 celdas (63 grados de libertad). Con $\alpha=0.05$, el número de rechazos entre las 100 semillas sigue una $\mathrm{Binomial}(100,0.05)$ si el generador es correcto. Se observaron 2 rechazos en la prueba conjunta, 5 en $z$ y 7 en $\varphi$, con $P(X\ge k)$ de 0.96, 0.56 y 0.23. La distancia de Kolmogorov y Smirnov entre los 100 valores $p$ y la uniforme fue 0.108, 0.058 y 0.071, por debajo del valor crítico $1.36/\sqrt{100}=0.136$. Los segundos momentos empíricos de $(S_x,S_y,S_z)$ fueron $(0.33333,0.33334,0.33332)$, frente al valor teórico $1/3$.
+
+\subsection{Algoritmo y protocolo de enfriamiento}
+
+En cada barrido, todos los espines del disco reciben una propuesta. La red se divide en dos subredes tipo tablero de ajedrez, de modo que ningún par de vecinos queda en la misma subred. Cada subred se actualiza en paralelo en la GPU, y un barrido consta de dos medios barridos, cada uno de los cuales deja invariante a $\pi_\beta$. La simulación se programó en JAX y se ejecutó en Kaggle con dos GPU T4 por lote.
+
+\begin{itemize}
+\item Escalera de 141 temperaturas, de 20.0 a 6.0~K en pasos de 0.1~K, recorrida de forma secuencial: cada temperatura arranca de la configuración final de la anterior.
+\item En cada temperatura, 25\,000 barridos de termalización, que se descartan, y 10\,000 barridos de medición, todos registrados. Cada copia acumula $141\times35\,000\approx4.9\times10^6$ barridos.
+\item 100 copias independientes por estado, con claves aleatorias distintas a partir de una semilla fija, que permiten reproducir la corrida completa.
+\end{itemize}
+
+El protocolo responde a un compromiso de costo: cada lote tardó varias horas de GPU, y el presupuesto de 35\,000 barridos por temperatura se fijó antes de conocer los tiempos de autocorrelación que se reportan en la sección~\ref{sec:convergencia}.

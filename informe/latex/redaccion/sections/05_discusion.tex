@@ -1,0 +1,36 @@
+\section{Discusión, conclusiones y transparencia}
+
+\subsection{Respuesta a las preguntas del proyecto}
+
+El máximo de la fluctuación energética identifica una temperatura característica cercana a 14.3~K en siete estados y de 13.64~K en el estado 8. Es una escala pseudocrítica del disco finito y del ensamble observado. El tamaño del sistema y la presencia de campo impiden identificarla automáticamente con una singularidad de Curie. La auditoría de los momentos energéticos cerca del máximo aporta evidencia favorable para esa estimación, sin demostrar mezcla global.
+
+No se detecta asociación monotónica entre $\kdm$ y $T^*$ ($\rho=0.05$, $p=0.90$). La ausencia de rechazo no establece independencia ni equivalencia. El estado 8 difiere de cinco combinaciones bajo las comparaciones bootstrap corregidas, pero cambia a la vez campo e interacción quiral. El diseño no atribuye todo el desplazamiento al campo.
+
+Ningún estado pasa el criterio conjunto de convergencia en toda la escalera. La magnetización conserva diferencias entre caminos al enfriar, mientras que los momentos energéticos examinados cerca del pico muestran mayor estabilidad. Los caminos son realizaciones válidas del enfriamiento; sus proporciones finales describen el protocolo y no son pesos de equilibrio demostrados.
+
+\subsection{Resultados útiles para estudiar las texturas}
+
+La asociación de $\kdm$ con el costo de decorrelación de $m$ conserva el signo al retirar cualquiera de los estados. Los períodos espaciales y la cancelación entre dominios ofrecen una interpretación física de ese comportamiento. Una rotación rígida no cambia $m$; las diferencias entre caminos requieren variación de la textura o de la alineación relativa.
+
+El par de estados 4 y 7 mantiene $\kdm=0.6$ y permite comparar $H=0$ con $H=0.1$: el máximo observado de $\tauint(m)$ pasa de 194 a 421 barridos. Es una comparación puntual útil. La regresión general conserva el signo del campo, pero su magnitud es sensible al estado 8 y sus errores aumentan al agrupar por estado. Con solo ocho grupos, el ajuste tiene alcance exploratorio.
+
+En el estado 6, las medias de magnetización a 6~K forman dos poblaciones bien separadas. En el estado 8, el BIC selecciona tres componentes. Esas poblaciones y las cargas finales permiten estudiar memoria del camino y diversidad de texturas, aun donde no se ha demostrado equilibrio. Las componentes gaussianas son una descripción estadística y deben contrastarse con clasificaciones espaciales por copia.
+
+\subsection{Conclusiones}
+
+\begin{enumerate}
+\item Las curvas energéticas sitúan una temperatura característica alrededor de 14~K. La incertidumbre del argmax es especialmente grande en el estado 5 y exige conservar la distribución bootstrap completa.
+\item La auditoría adicional de la fluctuación energética cuadrática pasa el umbral de $\hat R<1.002$ en los 32 puntos próximos a los máximos. Esta evidencia respalda los momentos observados usados en $c(T)$; no prueba exploración de todos los sectores.
+\item La magnetización presenta mezcla limitada a baja temperatura. La descomposición de su varianza separa fluctuaciones internas y diferencias entre historias, y permite interpretar qué parte de la curva agrupada procede de heterogeneidad del protocolo.
+\item Las relaciones con $\kdm$ y $H$ orientan nuevos experimentos, pero el diseño incompleto y sus ocho estados limitan la atribución causal. Las extrapolaciones a millones de barridos son señales de dificultad, no predicciones de costo verificadas.
+\end{enumerate}
+
+\subsection{Limitaciones y siguientes pruebas}
+
+Un diseño factorial en $\kdm$ y $H$ permitiría separar sus asociaciones. Variar radio y espesor con el mismo hamiltoniano permitiría evaluar confinamiento. Cambiar duración del enfriamiento y comparar calentamiento permitiría medir dependencia del protocolo. Los barridos no son tiempo físico calibrado.
+
+Para evaluar mezcla conviene registrar la termalización, guardar $Q$ y las componentes de magnetización durante la medición y comparar inicializaciones diferentes. El intercambio de réplicas y los movimientos colectivos son candidatos a estudiar; no se ejecutaron en esta revisión. Su evaluación requiere cambios de sector y viajes completos por la escalera, además de aceptación de intercambios.
+
+\subsection{Transparencia y reproducibilidad}
+
+El análisis original recibió apoyo del asistente Claude Code en depuración, programación y redacción, según la declaración previa del proyecto. La revisión local con Codex añadió pruebas de momentos en 56 puntos, covarianza agrupada por estado, sensibilidad al retirar estados, permutación exacta y curvas de magnetización en las 1128 combinaciones. No volvió a ejecutar la simulación ni el bootstrap de 50000 réplicas. Los programas, resultados derivados y registros se conservan en \texttt{scripts/auditoria/} y \texttt{resultados/auditoria/}; el desarrollo matemático y los exploradores se incluyen en \texttt{docs/explicacion\_completa.html}. La escritura sigue las pautas del marco Morfeo instalado.

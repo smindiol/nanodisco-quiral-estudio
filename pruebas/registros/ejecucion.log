@@ -1,0 +1,65 @@
+Momentos: estado 1, T=6.0, R E²=1.0010
+Momentos: estado 1, T=10.0, R E²=1.0006
+Momentos: estado 1, T=14.2, R E²=1.0010
+Momentos: estado 1, T=14.3, R E²=1.0009
+Momentos: estado 1, T=14.4, R E²=1.0011
+Momentos: estado 1, T=14.5, R E²=1.0010
+Momentos: estado 1, T=20.0, R E²=1.0001
+Momentos: estado 2, T=6.0, R E²=1.0009
+Momentos: estado 2, T=10.0, R E²=1.0006
+Momentos: estado 2, T=14.0, R E²=1.0008
+Momentos: estado 2, T=14.1, R E²=1.0009
+Momentos: estado 2, T=14.2, R E²=1.0009
+Momentos: estado 2, T=14.3, R E²=1.0010
+Momentos: estado 2, T=20.0, R E²=1.0001
+Momentos: estado 3, T=6.0, R E²=1.0009
+Momentos: estado 3, T=10.0, R E²=1.0006
+Momentos: estado 3, T=14.2, R E²=1.0008
+Momentos: estado 3, T=14.3, R E²=1.0008
+Momentos: estado 3, T=14.4, R E²=1.0009
+Momentos: estado 3, T=14.5, R E²=1.0007
+Momentos: estado 3, T=20.0, R E²=1.0001
+Momentos: estado 4, T=6.0, R E²=1.0009
+Momentos: estado 4, T=10.0, R E²=1.0007
+Momentos: estado 4, T=14.0, R E²=1.0006
+Momentos: estado 4, T=14.1, R E²=1.0007
+Momentos: estado 4, T=14.2, R E²=1.0008
+Momentos: estado 4, T=14.3, R E²=1.0009
+Momentos: estado 4, T=20.0, R E²=1.0001
+Momentos: estado 5, T=6.0, R E²=1.0011
+Momentos: estado 5, T=10.0, R E²=1.0008
+Momentos: estado 5, T=14.4, R E²=1.0007
+Momentos: estado 5, T=14.5, R E²=1.0008
+Momentos: estado 5, T=14.6, R E²=1.0009
+Momentos: estado 5, T=14.7, R E²=1.0007
+Momentos: estado 5, T=20.0, R E²=1.0002
+Momentos: estado 6, T=6.0, R E²=1.0009
+Momentos: estado 6, T=10.0, R E²=1.0006
+Momentos: estado 6, T=14.3, R E²=1.0007
+Momentos: estado 6, T=14.4, R E²=1.0005
+Momentos: estado 6, T=14.5, R E²=1.0006
+Momentos: estado 6, T=14.6, R E²=1.0008
+Momentos: estado 6, T=20.0, R E²=1.0002
+Momentos: estado 7, T=6.0, R E²=1.0008
+Momentos: estado 7, T=10.0, R E²=1.0005
+Momentos: estado 7, T=14.2, R E²=1.0007
+Momentos: estado 7, T=14.3, R E²=1.0005
+Momentos: estado 7, T=14.4, R E²=1.0008
+Momentos: estado 7, T=14.5, R E²=1.0005
+Momentos: estado 7, T=20.0, R E²=1.0001
+Momentos: estado 8, T=6.0, R E²=1.0008
+Momentos: estado 8, T=10.0, R E²=1.0005
+Momentos: estado 8, T=13.5, R E²=1.0005
+Momentos: estado 8, T=13.6, R E²=1.0008
+Momentos: estado 8, T=13.7, R E²=1.0007
+Momentos: estado 8, T=13.8, R E²=1.0005
+Momentos: estado 8, T=20.0, R E²=1.0002
+Texturas: estado 1 completo
+Texturas: estado 2 completo
+Texturas: estado 3 completo
+Texturas: estado 4 completo
+Texturas: estado 5 completo
+Texturas: estado 6 completo
+Texturas: estado 7 completo
+Texturas: estado 8 completo
+AUDITORÍA GUARDADA {'coef': [3.029129452119727, -2.365339599777381, 2.7486844997318203, 30.609571232073332], 'se_HC0': [0.09855628082821452, 0.07231870016903166, 0.2170084606273593, 0.7916045882576761], 'se_cluster_CR1': [0.20093211095645974, 0.14499038539481693, 0.5366145458606473, 2.086329917345636], 'leave_one_state_out': [[3.183742417334742, -2.460337495836416, 2.7363239475783754, 29.58278766041917], [3.0848621064089787, -2.313404237448826, 2.780766954433434, 29.47602649448801], [3.1124914345848143, -2.3732244602274397, 2.7123096581485533, 29.799198862389005], [2.994734272324509, -2.252020751111849, 2.351967737542082, 31.18076099292174], [3.0021736874771845, -2.577303885102416, 3.1510014810110625, 31.498942595896345], [2.958195957230475, -2.325840029432351, 2.7159866664632735, 31.022312932932042], [2.9847244649225124, -2.407024254528106, 2.6075713382703025, 30.963709544867672], [2.907166309411515, -2.362597385057062, 6.153840175648665, 31.352830772672434]], 'n_observaciones': 1128, 'n_grupos': 8}

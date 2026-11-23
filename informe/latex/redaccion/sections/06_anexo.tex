@@ -1,0 +1,32 @@
+\section{Anexo: reproducibilidad}
+
+\textbf{Simulación.} Cuadernos \texttt{simulacion/lotes/lote\_0X.ipynb} (JAX, dos GPU T4 en Kaggle, semilla fija por lote). Cada temperatura se guarda en el archivo\\ \texttt{lote\_0X/estado\_N/T\_<T>.npz}, con las series $E$, $m$ y componentes de energía ($10\,000\times100$), los espines finales, los parámetros físicos y las claves aleatorias; la escritura es atómica y verifica dimensiones, finitud y norma de los espines.
+
+\textbf{Análisis oficial.} \texttt{scripts/analisis/dmi\_analisis.py} y \texttt{scripts/analisis/ejecutar.py}, ejecutados en CPU con 32 procesos y $B=50\,000$: diagnósticos por temperatura, jackknife, bootstrap, repesado, $T^*$, carga topológica y factor de estructura. Tablas en \texttt{resultados/}.
+
+\textbf{Análisis de este informe.} Todos con semilla 20261117 y ejecutables de principio a fin sin intervención:
+\begin{itemize}
+\item \texttt{pasos\_mc.py}: $\Rhat$ clásico, $W$, $B/n$ y $\tauint$ por estado y temperatura, y $\Rhat(n)$ sobre 25 valores de $n$.
+\item \texttt{figuras\_informe.py}: figuras~\ref{fig:rhat}, \ref{fig:trazas}, \ref{fig:rhatn}, \ref{fig:barridos} y \ref{fig:corr}, correlaciones de Spearman con permutación exacta y bootstrap, y la regresión de la ecuación~(\ref{eq:regresion}).
+\item \texttt{figura\_calor.py}: figura~\ref{fig:calor} y la verificación independiente de $T^*$.
+\item \texttt{mezcla\_em.py}: mezclas gaussianas por EM y selección por BIC (tabla~\ref{tab:em} y figura~\ref{fig:em}).
+\item \texttt{uniformidad.py}: prueba $\chi^2$ del generador por transformada inversa con 100 semillas.
+\end{itemize}
+
+\textbf{Uso de librerías.} Los generadores no uniformes, el bootstrap, el jackknife, el EM, $\Rhat$, $\tauint$, la regresión y las correlaciones se programaron con operaciones básicas de NumPy. Se usaron funciones de librería solo para la transformada rápida de Fourier, el álgebra de matrices, las funciones especiales que dan valores $p$ ($\Gamma$ incompleta, normal estándar, binomial) y el agrupamiento jerárquico del factor de estructura.
+
+\begin{table}[H]
+\centering\small
+\caption{Diagnósticos por variable con la convención $\tauint=1+2\sum\rho$. Fracción de temperaturas con $\Rhat<1.01$ y $\tauint$ máximo sobre la escalera.}
+\begin{tabular}{lcccccccc}
+\toprule
+Estado & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+\midrule
+$\Rhat_E<1.01$ (\%) & 100 & 100 & 100 & 100 & 93 & 100 & 100 & 100\\
+$\Rhat_m<1.01$ (\%) & 34 & 34 & 43 & 65 & 77 & 38 & 47 & 46\\
+$\tauint$ máx de $E$ & 52 & 47 & 38 & 30 & 57 & 32 & 32 & 30\\
+$\tauint$ máx de $m$ & 946 & 933 & 643 & 194 & 104 & 665 & 421 & 403\\
+Tramo convergido en $m$ (K) & 15.5 & 15.3 & 14.0 & 11.1 & 9.5 & 14.7 & 13.5 & 13.7\\
+\bottomrule
+\end{tabular}
+\end{table}

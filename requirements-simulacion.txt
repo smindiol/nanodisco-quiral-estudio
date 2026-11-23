@@ -1,0 +1,7 @@
+# Dependencias generales de los cuadernos. La instalación GPU de JAX depende del entorno.
+# Los cuadernos comprueban que hay dos dispositivos antes de la producción.
+jax
+numpy
+scipy
+matplotlib
+pandas

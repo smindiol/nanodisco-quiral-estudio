@@ -1,0 +1,10 @@
+| Estado | T con R̂<1.01 | T sin deriva Geweke (Holm) | T con MSER ≤ 500 barridos | τ_int máx (barridos) | ESS mín | T con copias homogéneas (Holm) | T con se_int/sd_ext en [0.8,1.25] | T con jackknife confiable | ESS mín del repesado | Acuerdo percentil/BCa de c | ¿Convergió? (% de T, tramo continuo desde 20 K) | ¿Representativo? | ¿Confiable? |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 30% (máx 1.992 en 6.1 K) | 34% | 89% (máx 1068) | 461 en 7.3 K | 1315 | 34% | 100% | 30% | 0.65 | 100% | **no**: 30% de las T (20.0–15.9 K) | **no**: 29% de las T (20.0–16.1 K) | **no**: 30% de las T (20.0–15.9 K) |
+| 2 | 31% (máx 1.919 en 6.5 K) | 40% | 84% (máx 1820) | 453 en 6.0 K | 1314 | 35% | 100% | 31% | 0.66 | 100% | **no**: 31% de las T (20.0–15.7 K) | **no**: 31% de las T (20.0–15.7 K) | **no**: 31% de las T (20.0–15.7 K) |
+| 3 | 38% (máx 1.221 en 6.5 K) | 70% | 100% (máx 132) | 283 en 6.7 K | 2160 | 43% | 100% | 38% | 0.66 | 100% | **no**: 38% de las T (20.0–14.7 K) | **no**: 38% de las T (20.0–15.1 K) | **no**: 38% de las T (20.0–14.7 K) |
+| 4 | 55% (máx 1.037 en 6.5 K) | 96% | 100% (máx 0) | 90 en 6.2 K | 6347 | 47% | 99% | 72% | 0.66 | 100% | **no**: 54% de las T (20.0–13.8 K) | **no**: 46% de las T (20.0–14.5 K) | **no**: 72% de las T (20.0–11.4 K) |
+| 5 | 56% (máx 1.034 en 6.0 K) | 91% | 100% (máx 0) | 44 en 6.2 K | 12036 | 38% | 99% | 100% | 0.66 | 100% | **no**: 55% de las T (20.0–13.7 K) | **no**: 38% de las T (20.0–17.5 K) | sí: 100% de las T (20.0–6.0 K) |
+| 6 | 30% (máx 1.634 en 6.2 K) | 52% | 100% (máx 65) | 294 en 6.0 K | 2122 | 38% | 99% | 32% | 0.66 | 100% | **no**: 30% de las T (20.0–15.8 K) | **no**: 28% de las T (20.0–18.0 K) | **no**: 32% de las T (20.0–15.6 K) |
+| 7 | 38% (máx 1.186 en 6.1 K) | 91% | 100% (máx 15) | 187 en 6.3 K | 3169 | 39% | 99% | 40% | 0.66 | 100% | **no**: 38% de las T (20.0–15.1 K) | **no**: 36% de las T (20.0–17.9 K) | **no**: 40% de las T (20.0–14.5 K) |
+| 8 | 40% (máx 1.442 en 6.0 K) | 96% | 100% (máx 5) | 151 en 11.6 K | 3797 | 48% | 100% | 41% | 0.66 | 100% | **no**: 40% de las T (20.0–14.7 K) | **no**: 40% de las T (20.0–14.7 K) | **no**: 41% de las T (20.0–14.3 K) |

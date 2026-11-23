@@ -1,0 +1,598 @@
+{
+  "descripcion": "Copias organizadas; las rutas de origen son relativas al espacio de trabajo anterior. No se incluye la base cruda ni credenciales.",
+  "archivos": [
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_01/nanodiscos_lote_01.ipynb",
+      "destino": "simulacion/lotes/lote_01.ipynb",
+      "sha256_origen": "f916afdf670fa1847a4531fc6d98e4f42b5ae4b750c34aebe2f01d9a1490ec86",
+      "transformacion": "Salidas y metadatos de sesión retirados; código conservado."
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_02/nanodiscos_lote_02.ipynb",
+      "destino": "simulacion/lotes/lote_02.ipynb",
+      "sha256_origen": "2b129181af7aa2e9150e289ead55e58d2397752de48a7f6a5bd6f8d3a13ced27",
+      "transformacion": "Salidas y metadatos de sesión retirados; código conservado."
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_03/nanodiscos_lote_03.ipynb",
+      "destino": "simulacion/lotes/lote_03.ipynb",
+      "sha256_origen": "a07fd0c34d760b7ccdaac27b9399b8ada8d5b5aa95d96a6a7be1a9be90f704a3",
+      "transformacion": "Salidas y metadatos de sesión retirados; código conservado."
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_04/nanodiscos_lote_04.ipynb",
+      "destino": "simulacion/lotes/lote_04.ipynb",
+      "sha256_origen": "6fd0b09600aae8c2414ec621826ac830f518392175e07dbef8c6894263d7f0ce",
+      "transformacion": "Salidas y metadatos de sesión retirados; código conservado."
+    },
+    {
+      "origen": "proyecto/entrega1/sim_dmi.py",
+      "destino": "experimentos/metropolis_inicial/simular.py",
+      "sha256_origen": "bc5540ad6f7d4194ff7cadb050467606838cebc78a2aa2fe30e141ad5b1505f7"
+    },
+    {
+      "origen": "proyecto/entrega1/sim_pt.py",
+      "destino": "experimentos/tempering_cono/simular.py",
+      "sha256_origen": "6f72f7632d9ca6cba629aa3dcaa16858fee20b66f961b80d4e6fdfec716bfb9b"
+    },
+    {
+      "origen": "proyecto/entrega1/v3/sim_pt.py",
+      "destino": "experimentos/tempering_multigpu/simular.py",
+      "sha256_origen": "0f3b17242ab0a25d0277c600e809dd480c8b0c9e76ee247d4b5035b0448bcbb7"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/verificar_salida_20_19.ipynb",
+      "destino": "pruebas/cuadernos/verificar_salida.ipynb",
+      "sha256_origen": "f8a636b852f1aa43e78c38b59d8af6aa33c6d5a8be3ae91e6461eefc1542e130",
+      "transformacion": "Salidas y metadatos de sesión retirados; código conservado."
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/analisis_lotes.ipynb",
+      "destino": "pruebas/cuadernos/analizar_lotes.ipynb",
+      "sha256_origen": "a487050c9aa877db9d4b093336c9a2c726888f99fb95750e8d71cdc5b31c4553",
+      "transformacion": "Salidas y metadatos de sesión retirados; código conservado."
+    },
+    {
+      "origen": "proyecto/entrega1/kaggle_smoke_secuencial/smoke_secuencial.ipynb",
+      "destino": "pruebas/cuadernos/humo_secuencial.ipynb",
+      "sha256_origen": "041b8cf99e84c9e20521c59da3a5def67f5dd785be268e777c951f55218eae2c",
+      "transformacion": "Salidas y metadatos de sesión retirados; código conservado."
+    },
+    {
+      "origen": "proyecto/entrega1/v3/kaggle/verificacion/entrega1_v3_verificacion.ipynb",
+      "destino": "experimentos/tempering_multigpu/verificar.ipynb",
+      "sha256_origen": "705994de0a7fd82bcbf98381055e83570ba5948c263f4d2dd1a853ef206fbe13",
+      "transformacion": "Salidas y metadatos de sesión retirados; código conservado."
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/dmi_analisis.py",
+      "destino": "scripts/analisis/dmi_analisis.py",
+      "sha256_origen": "3602ebce0175c4530bb7f5b080f5df1a4de7f167bd7e85a0470ee79540ff2a23"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/ejecutar.py",
+      "destino": "scripts/analisis/ejecutar.py",
+      "sha256_origen": "d8d1493963b65927bf9052dbd451c555e0684d22bec6bc2f6f1e1bedd9b51d16"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/informe.py",
+      "destino": "scripts/analisis/informe.py",
+      "sha256_origen": "d14f6d4dacd90fff42030550f227f9356b645f317281d5b49e1adbd7e7826203"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/pasos_mc.py",
+      "destino": "scripts/analisis/pasos_mc.py",
+      "sha256_origen": "f6c08956d15367be86dd9e4ed596a1db2b2200a90dd2661c01232d1802507c4b"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/uniformidad.py",
+      "destino": "scripts/analisis/uniformidad.py",
+      "sha256_origen": "29c4d47281c573e32e2df625ac4041718d5b45403e58091da2558841deb4e88d"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/mezcla_em.py",
+      "destino": "scripts/analisis/mezcla_em.py",
+      "sha256_origen": "8e25639214af16bd3cd08c469e6fa24a1b1dc84775652c133da34b0b6514d130"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/figura_calor.py",
+      "destino": "scripts/analisis/figura_calor.py",
+      "sha256_origen": "2a2dc9a09cfde5447d7a9f4233d6b28a9132e7717933a52d68c4ff712dcfd9e0"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/figuras_informe.py",
+      "destino": "scripts/analisis/figuras_informe.py",
+      "sha256_origen": "ac3d86f757a6279b737df471f2ca27c773f6837005de756a5afd45a15d37e17e"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/main.tex",
+      "destino": "informe/latex/main.tex",
+      "sha256_origen": "8a3b6896e086f5e1fcefe95d8d10a31b690cbc99ed40b0306db4dff72a4e555c"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/refs.bib",
+      "destino": "informe/latex/refs.bib",
+      "sha256_origen": "c59a27410d7e2e2793b645dc92000b50a380e3b4569662cf9a79199d940c41ad"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/rhat_T.pdf",
+      "destino": "informe/latex/fig/rhat_T.pdf",
+      "sha256_origen": "384dbb68b135d53ff5cdbe799502d672f6d77b4046ae08d4e5e8bae1d67e1ae9"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/trazas_m.pdf",
+      "destino": "informe/latex/fig/trazas_m.pdf",
+      "sha256_origen": "cd6f457f38b2137b624eecb3334cc37028ec6b4d3102c80ed70ad88eb90dfae1"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/rhat_n.pdf",
+      "destino": "informe/latex/fig/rhat_n.pdf",
+      "sha256_origen": "03079b1b21218e7937be28b42312433fdbe9c1a3fed9391960a6beb4160259bf"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/barridos_necesarios.pdf",
+      "destino": "informe/latex/fig/barridos_necesarios.pdf",
+      "sha256_origen": "a2b6e970ce5bfc4a35411143d8aa7092da806680fbef6e67e2b55395a4f3823e"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/correlacion_kdm.pdf",
+      "destino": "informe/latex/fig/correlacion_kdm.pdf",
+      "sha256_origen": "c1a38f3eec5157e3be470b1bbcd2ce8ebb22a22da0f6eb467710e4234f1589f3"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/medias_copias.pdf",
+      "destino": "informe/latex/fig/medias_copias.pdf",
+      "sha256_origen": "c552da8ee658f35fe8929bf469bad12d87d7d1442a8e50878a9590203e78359c"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/c_T.png",
+      "destino": "informe/latex/fig/c_T.png",
+      "sha256_origen": "1acfeea142302bc2f57c96cc429ae2d30a0390603e8614392a1ddd6896be7adb"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/T_estrella_bootstrap.png",
+      "destino": "informe/latex/fig/T_estrella_bootstrap.png",
+      "sha256_origen": "1324a8ccb78552c88dc034604ba72e010492d07b2961372b03233887e7fe1786"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/T_estrella_vs_kDM.png",
+      "destino": "informe/latex/fig/T_estrella_vs_kDM.png",
+      "sha256_origen": "57a2052dd7ca31ddb8fb3a74f32840517f5b297215aac841b9924691f51bb232"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/estados_finales_Q_q.png",
+      "destino": "informe/latex/fig/estados_finales_Q_q.png",
+      "sha256_origen": "26d626e3f1a71e11b1c90d681d9d4a9902a3a1d72b89357b0bc80f809fde9a7f"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/factor_estructura.png",
+      "destino": "informe/latex/fig/factor_estructura.png",
+      "sha256_origen": "96af6fa17b07673449424403125ec4570e0c79bae4da38dde769894064190c8b"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/U_T.png",
+      "destino": "informe/latex/fig/U_T.png",
+      "sha256_origen": "168d2f99f040bc9b15c67bb3f7c00059bd94dbc6e34a8f023e1eea9454c9fe76"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/calor_especifico.pdf",
+      "destino": "informe/latex/fig/calor_especifico.pdf",
+      "sha256_origen": "5a0503e5a0a3d1a1a03c6d8c8feb7ddf81e68f418998305c977217c94b717300"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/fig/mezcla_em.pdf",
+      "destino": "informe/latex/fig/mezcla_em.pdf",
+      "sha256_origen": "32f37c3f4925d7afb8dfdf02422ca1e1a033e8cb6e969dee1500ba6d1590e2c9"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/logos/logo_unal.png",
+      "destino": "informe/latex/logos/logo_unal.png",
+      "sha256_origen": "529130ed34ab5718cccf4233cce9b7a52fa69432ad0b69f42aed4878f21c0e57"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/redaccion/sections/00_resumen.tex",
+      "destino": "informe/latex/redaccion/sections/00_resumen.tex",
+      "sha256_origen": "309982a013051e28858799b85522f548154297b39da721ab6a1c12b98c16f052"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/redaccion/sections/01_introduccion.tex",
+      "destino": "informe/latex/redaccion/sections/01_introduccion.tex",
+      "sha256_origen": "9426e82f302a567a59798134179843df622dda1ed838e23926ea968f02a77552"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/redaccion/sections/02_simulacion.tex",
+      "destino": "informe/latex/redaccion/sections/02_simulacion.tex",
+      "sha256_origen": "3b438a50fde229ccadbb8e98135851587ab205a919ec45723798c13fbfcc8a92"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/redaccion/sections/03_integracion_remuestreo.tex",
+      "destino": "informe/latex/redaccion/sections/03_integracion_remuestreo.tex",
+      "sha256_origen": "fabb4b195307925422b088e0130564af8125e6a804d366727783e8388a4b4d73"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/redaccion/sections/04_convergencia.tex",
+      "destino": "informe/latex/redaccion/sections/04_convergencia.tex",
+      "sha256_origen": "163604692f310c14b3ced86dd25b6c4991e7df5b21dd65cb63f28f4d6769ffad"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/redaccion/sections/05_discusion.tex",
+      "destino": "informe/latex/redaccion/sections/05_discusion.tex",
+      "sha256_origen": "4cf2ce906aee4370e5c40c51cc2b441651aef9b4d6e9d5a414285a7c5b147672"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/redaccion/sections/06_anexo.tex",
+      "destino": "informe/latex/redaccion/sections/06_anexo.tex",
+      "sha256_origen": "21d5c0ffb5203c975517998ee7b843fc1bcad80e33852409a70b946ddad214a5"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/redaccion/sections/07_auditoria_local.tex",
+      "destino": "informe/latex/redaccion/sections/07_auditoria_local.tex",
+      "sha256_origen": "db421ca0c77033f626d9e68169539d2e7f9b1efbcf22646cc83ed4e59f56695e"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/main.pdf",
+      "destino": "docs/informe_final.pdf",
+      "sha256_origen": "934a2d41cfa2081d2b79f8cb89821d62c4e8efd66e48c456f0c037bbcf3d325d"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/explicacion_completa.html",
+      "destino": "docs/explicacion_completa.html",
+      "sha256_origen": "28b58c724d35c303a3624a455f621bc21ce650f6ae182f367796902085481e6a"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/comparacion_ocho_estados.png",
+      "destino": "informe/latex/fig/comparacion_ocho_estados.png",
+      "sha256_origen": "72d3a8ef4e654119ad2e4496cb59e43d67c974cd0075b4e6203f97fd7ea9268f"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/tablas/metricas_estado.json",
+      "destino": "resultados/informe/metricas_estado.json",
+      "sha256_origen": "8b821777612f90f6f86fade211dd34c3e77add51e83aef9a23c9a4b112af04b1"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/tablas/regresion_tau.json",
+      "destino": "resultados/informe/regresion_tau.json",
+      "sha256_origen": "73562b8e3a07e650dfe9170329c4cefe62abb6374beb097bd1e52c163f1bd166"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/tablas/uniformidad.json",
+      "destino": "resultados/informe/uniformidad.json",
+      "sha256_origen": "52669867360b346353992afa769d53ca063ce81f05ef90e6618d9ade59e0bc6d"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/tablas/mezcla_em.json",
+      "destino": "resultados/informe/mezcla_em.json",
+      "sha256_origen": "ce3344bff47bfede27d686e8a0eb8ebffab39b6ba36a40fc743cc0dbd0aeda11"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/tablas/extrapolacion.json",
+      "destino": "resultados/informe/extrapolacion.json",
+      "sha256_origen": "96d00394fef5b00b10a31d479ab0caa1f189153fd4744f35c24ca2b2b82c9624"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/tablas/correlaciones.tex",
+      "destino": "resultados/informe/correlaciones.tex",
+      "sha256_origen": "83dd384b4acd6b5e5e7c314fbce56bea06751f37ef7a68d4dc0d4aa4977103df"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/tablas/mezcla_em.tex",
+      "destino": "resultados/informe/mezcla_em.tex",
+      "sha256_origen": "11489a97dfc67ce5f2f57c1f1ccdb144af139c1f2e19e956d7307b7aea23fa27"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/tablas/T_estrella.md",
+      "destino": "resultados/tablas/T_estrella.md",
+      "sha256_origen": "504aea6ecf69fff6228905ee125d298f923c51a55bd53635835d211277ba5944"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/tablas/convergencia.md",
+      "destino": "resultados/tablas/convergencia.md",
+      "sha256_origen": "2d30e136b3b63ccee6d118ec18b053ca83291d685a105d255e27e0271685a20f"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/tablas/diferencias_T_estrella.md",
+      "destino": "resultados/tablas/diferencias_T_estrella.md",
+      "sha256_origen": "45269550d71607193d1a70f814fcd916afff458b14ea67797dbfc9ac71385222"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/tablas/estados_finales.md",
+      "destino": "resultados/tablas/estados_finales.md",
+      "sha256_origen": "5e7db356907db6a6fc24b254808571ce5d3e00154fc9935e8fc743713c606602"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/T_estrella_bootstrap.png",
+      "destino": "resultados/figuras/T_estrella_bootstrap.png",
+      "sha256_origen": "1324a8ccb78552c88dc034604ba72e010492d07b2961372b03233887e7fe1786"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/T_estrella_vs_kDM.png",
+      "destino": "resultados/figuras/T_estrella_vs_kDM.png",
+      "sha256_origen": "57a2052dd7ca31ddb8fb3a74f32840517f5b297215aac841b9924691f51bb232"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/U_T.png",
+      "destino": "resultados/figuras/U_T.png",
+      "sha256_origen": "168d2f99f040bc9b15c67bb3f7c00059bd94dbc6e34a8f023e1eea9454c9fe76"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/c_T.png",
+      "destino": "resultados/figuras/c_T.png",
+      "sha256_origen": "1acfeea142302bc2f57c96cc429ae2d30a0390603e8614392a1ddd6896be7adb"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/chi_T.png",
+      "destino": "resultados/figuras/chi_T.png",
+      "sha256_origen": "7232135ca521b5a40a8bee432395141c878489725e7f1feefc293b535358ac38"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/convergencia.png",
+      "destino": "resultados/figuras/convergencia.png",
+      "sha256_origen": "265f3b94602ac6b3ef7b2c1baf7fc28ab26d96fcdf45b772c9207c9dd635bd1a"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/e_an_T.png",
+      "destino": "resultados/figuras/e_an_T.png",
+      "sha256_origen": "842a4d01074787149e72e7c45c4ca8703ed613a7e31ea8c9e1ecf03c2af7334a"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/e_dm_T.png",
+      "destino": "resultados/figuras/e_dm_T.png",
+      "sha256_origen": "de0008ed46c552eeeebef29036c244a1769e47148f844b5fe10842c60a6c999f"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/e_exc_T.png",
+      "destino": "resultados/figuras/e_exc_T.png",
+      "sha256_origen": "1fbb686c4e59a6d4b7c0cfc7ca3388fab47ec60a1377be39d2cb97d896eb4469"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/estados_finales_Q_q.png",
+      "destino": "resultados/figuras/estados_finales_Q_q.png",
+      "sha256_origen": "26d626e3f1a71e11b1c90d681d9d4a9902a3a1d72b89357b0bc80f809fde9a7f"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/figuras/factor_estructura.png",
+      "destino": "resultados/figuras/factor_estructura.png",
+      "sha256_origen": "96af6fa17b07673449424403125ec4570e0c79bae4da38dde769894064190c8b"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/pasos_mc/estado_1.npz",
+      "destino": "resultados/pasos_mc/estado_1.npz",
+      "sha256_origen": "40788ffe1fed206780bb77bfef4c6517265f1f640c67fc10aa321cbdd3e3fe61"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/pasos_mc/estado_2.npz",
+      "destino": "resultados/pasos_mc/estado_2.npz",
+      "sha256_origen": "69a33f4fc85f1c4eca85fccd565d633198fa0e32f0cf3f9a128f0fb4b3f8d08f"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/pasos_mc/estado_3.npz",
+      "destino": "resultados/pasos_mc/estado_3.npz",
+      "sha256_origen": "a5d1d57d9c005b0d44b742df90e0b8f261c687d77bc8578d99ec75d4b30b0a65"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/pasos_mc/estado_4.npz",
+      "destino": "resultados/pasos_mc/estado_4.npz",
+      "sha256_origen": "bc9d55638eaf70b73824e0b433a26c24c3c9a39adc2ed327657b6a35bbc768c6"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/pasos_mc/estado_5.npz",
+      "destino": "resultados/pasos_mc/estado_5.npz",
+      "sha256_origen": "4c29216caef1915d0cfffba2d2c0f0b3d7e66f0336214946865507d107dfc346"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/pasos_mc/estado_6.npz",
+      "destino": "resultados/pasos_mc/estado_6.npz",
+      "sha256_origen": "d1ffcc5f30e7c82eaa3d2af7c4599058d1ebd8ce84282e7d9a0feb75864b71a1"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/pasos_mc/estado_7.npz",
+      "destino": "resultados/pasos_mc/estado_7.npz",
+      "sha256_origen": "dd7854d0caac75ec2ad5caeba5a2be653ba041306454e4b341eed107cafcdafe"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/pasos_mc/estado_8.npz",
+      "destino": "resultados/pasos_mc/estado_8.npz",
+      "sha256_origen": "c20db5376c02428da16f5e00c92f293e892381932907910a94259e7693f48ed9"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/pasos_mc/HECHO.json",
+      "destino": "resultados/pasos_mc/HECHO.json",
+      "sha256_origen": "87c2373a1f35ecf7c425938db39e8ddb248abfe46f2363d63bcca38a4897877f"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/analisis/resultados/RESUMEN.md",
+      "destino": "resultados/analisis_original.md",
+      "sha256_origen": "27f3aae485bd4ae62de6de7abf43e033e75abac6b12465dbd1767537e3a3b57a"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/auditoria.json",
+      "destino": "resultados/auditoria/auditoria.json",
+      "sha256_origen": "5cd08a8a7ca723260b3b8ecae04d5b58eb851f9de5e3d1cb3d15d29d160ffdff"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/magnetizacion.json",
+      "destino": "resultados/auditoria/magnetizacion.json",
+      "sha256_origen": "4fb8edb030dd91ca4acd2160e5e15fdfb04e44d4515b0cebe888223258519ae8"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/ejecucion.log",
+      "destino": "pruebas/registros/ejecucion.log",
+      "sha256_origen": "dc9cdd8678575daaee307d93fcca29cfc6e4f453384bcfe6c6504602275402a3"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/magnetizacion.log",
+      "destino": "pruebas/registros/magnetizacion.log",
+      "sha256_origen": "cc8df430ffd0a35d6730f44cfd40f64b4db3f8195d4a598e5a630200a4ab07ae"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/estilo_html.json",
+      "destino": "pruebas/registros/estilo_html.json",
+      "sha256_origen": "ad1d86b4b80b6ffee18416ca46ff976277d85cef7b78b025e9139af960de4a10"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/estilo_informe.json",
+      "destino": "pruebas/registros/estilo_informe.json",
+      "sha256_origen": "ba501054842b5c2f601814c126cd709a32054410f956b6f9cc8f082d73b00fe2"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/validacion_controles.log",
+      "destino": "pruebas/registros/validacion_controles.log",
+      "sha256_origen": "b6376d17f73e91a54ba3a26afd4b54a72b35a5ab53ab085e67f332e5734a23e4"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/validacion_html.log",
+      "destino": "pruebas/registros/validacion_html.log",
+      "sha256_origen": "9446626d8bc207cb46594ca21db1fc006904774a83345b83acfc4470a0fbbcc6"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/mc-dmi-entrega1-v2.log",
+      "destino": "resultados/experimentos/tempering/mc-dmi-entrega1-v2.log",
+      "sha256_origen": "0d44cc44d098e7d02344cacde03dd16540ef939df0af717b1627cbe173e6fbf3"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/figures/E1_pvalores.png",
+      "destino": "resultados/experimentos/tempering/figures/E1_pvalores.png",
+      "sha256_origen": "f6d38b6a10e4b85570e096390d19eb26e99f2964f0df7b87b510ac8c33eace7b"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/figures/E3_aceptacion_tau.png",
+      "destino": "resultados/experimentos/tempering/figures/E3_aceptacion_tau.png",
+      "sha256_origen": "5f9f7c355f2d3fe2885b22d186a9642af906db4c01bcaab41008ce9f2a4a4dfa"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/figures/E3_intercambio_rhat.png",
+      "destino": "resultados/experimentos/tempering/figures/E3_intercambio_rhat.png",
+      "sha256_origen": "79e08c4665c82e6eb95fd4895a2d7cb713d0fd22280a630494835e97756dc202"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/figures/E3_meseta.png",
+      "destino": "resultados/experimentos/tempering/figures/E3_meseta.png",
+      "sha256_origen": "9fe5104abac11b0dab973d1afd894cc88f797c52b24d3cf232daf1cb179e9896"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/figures/E4_Tstar.png",
+      "destino": "resultados/experimentos/tempering/figures/E4_Tstar.png",
+      "sha256_origen": "265d93b08f3c097e3a35ac400fda66448f7991f0894d939bd4b3df9738be5e75"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/figures/E4_bandas.png",
+      "destino": "resultados/experimentos/tempering/figures/E4_bandas.png",
+      "sha256_origen": "491886b3ac52eb68c83a59933eed6a5f6ab2c782faf98b0644ac08e6043b1ff1"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/figures/E5_probabilidades.png",
+      "destino": "resultados/experimentos/tempering/figures/E5_probabilidades.png",
+      "sha256_origen": "78ec03baaa4722a8e29f388f285e228dbb98f86aecd89f8d20874e313e68104c"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/figures/E5_texturas_A.png",
+      "destino": "resultados/experimentos/tempering/figures/E5_texturas_A.png",
+      "sha256_origen": "8fc81a6948d07fb2e65e941ed74ae155ca6c2dabbcd02fa99a0065acf6cbabbc"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/figures/E5_texturas_B.png",
+      "destino": "resultados/experimentos/tempering/figures/E5_texturas_B.png",
+      "sha256_origen": "8c35f10d4a1f907704a370e3a2c30c44069473cf1421136a8f092d3541dcbf01"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/figures/E6_tamano.png",
+      "destino": "resultados/experimentos/tempering/figures/E6_tamano.png",
+      "sha256_origen": "9f240629ec495a7a16149808010e65a806e7f87b6635c453fd398590bc44626c"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/tablas/E1.md",
+      "destino": "resultados/experimentos/tempering/tablas/E1.md",
+      "sha256_origen": "bce29c17752b89adc2f9c830a998ed9b7a6c2375fe686b3192e4a9f382950947"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/tablas/E2.md",
+      "destino": "resultados/experimentos/tempering/tablas/E2.md",
+      "sha256_origen": "3fa8162d6609df093054593f69344db4a7b3edc3308e7a7c581fe1f6199a67fd"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/tablas/E3.md",
+      "destino": "resultados/experimentos/tempering/tablas/E3.md",
+      "sha256_origen": "6a08fef01b9be99e0cbdbac0b231c72c18cf040516d00fc24c9ccefd2ccca2d8"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/tablas/E3_intercambio.md",
+      "destino": "resultados/experimentos/tempering/tablas/E3_intercambio.md",
+      "sha256_origen": "a5b65fe38e212cd42aa2e068f8f5f4ebaef706f8a9e0aba4464dd8114e595349"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/tablas/E4.md",
+      "destino": "resultados/experimentos/tempering/tablas/E4.md",
+      "sha256_origen": "83537b118029f455d595504d11e7ee417c2b38226cce1a02daad40580a956ec1"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/tablas/E5.md",
+      "destino": "resultados/experimentos/tempering/tablas/E5.md",
+      "sha256_origen": "ad1429395ff866f30166a88c887d14e7e3f3c2f4456b4f131d7a0fa929b44876"
+    },
+    {
+      "origen": "proyecto/entrega1/resultados_v2/tablas/E6.md",
+      "destino": "resultados/experimentos/tempering/tablas/E6.md",
+      "sha256_origen": "d19df8c099891072231590de990a0afa2b0b76e78884a30875c2f2d6ecd3c9fa"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_01/analisis_corto/curvas_100_copias.csv",
+      "destino": "resultados/prueba_salida_lote01/curvas_100_copias.csv",
+      "sha256_origen": "3fecce124ba90d676cd8f61b3661065478be9ce2341041d451a056174849f256"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_01/analisis_corto/verificacion.csv",
+      "destino": "resultados/prueba_salida_lote01/verificacion.csv",
+      "sha256_origen": "8db91ef91fce19e268d8fda05b116964a3cd097c77daa55574499f95422875a0"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_01/analisis_corto/curvas.png",
+      "destino": "resultados/prueba_salida_lote01/curvas.png",
+      "sha256_origen": "cc59209df1f6c3d0cb102b6cd79294323651268372515678b12e07f048cc86de"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_01/analisis_corto/estado_1_texturas.png",
+      "destino": "resultados/prueba_salida_lote01/estado_1_texturas.png",
+      "sha256_origen": "5d1d70e1c616e8c49ec2758d007dab31fdc4e7327397fa8080a18a80545f84dc"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_01/analisis_corto/estado_2_texturas.png",
+      "destino": "resultados/prueba_salida_lote01/estado_2_texturas.png",
+      "sha256_origen": "6542adaf10d548d4b77c166ab2aeee15d70ad76bf1b066f61d310c469d385dab"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_01/analisis_corto/componentes.png",
+      "destino": "resultados/prueba_salida_lote01/componentes.png",
+      "sha256_origen": "b3de672b78657f9b248074e1829972e245f306fd7aa93d821290421ad6863324"
+    },
+    {
+      "origen": "proyecto/entrega1/produccion_secuencial/lote_01/analisis_corto/resumen.csv",
+      "destino": "resultados/prueba_salida_lote01/resumen.csv",
+      "sha256_origen": "401b38038366df7ad978f3b006dad74ac44f5580c5959cd3b9f744f563297ea8"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/revisar_datos.py",
+      "destino": "scripts/auditoria/revisar_datos.py",
+      "sha256_origen": "a2741dd7ab16aad8d6ed9cf861518b226ecb5c7c71e6491c0e4fa0b1286f056a"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/curvas_magnetizacion.py",
+      "destino": "scripts/auditoria/curvas_magnetizacion.py",
+      "sha256_origen": "0d60ee30d8b84bb351c29e48006da552c2330e6e39b960b951930ba80355fa57"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/generar_html.py",
+      "destino": "scripts/informe/generar_html.py",
+      "sha256_origen": "9e2423b5bc77bf97d7adfd0d0a517bd4054696811a901627e4c5719a719b464a"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/validar_html.py",
+      "destino": "pruebas/validar_html.py",
+      "sha256_origen": "850ba182531ca127fbf6a658863332c4e40897df16f34f8be21d66b2c7a36d29"
+    },
+    {
+      "origen": "proyecto/entrega1/informe_final/revision_local/validar_controles.cjs",
+      "destino": "pruebas/validar_controles.cjs",
+      "sha256_origen": "2222adaff300f66fd20407b34cfc06550a88011326f56845055d24b52ef30a0c"
+    }
+  ]
+}
