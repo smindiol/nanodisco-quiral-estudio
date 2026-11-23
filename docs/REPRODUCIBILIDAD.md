@@ -99,4 +99,4 @@ Los derivados publicados permiten evaluar las conclusiones y reconstruir las vis
 
 ## Presentación de resultados
 
-`make presentacion` reconstruye las figuras y compila `presentacion/presentacion.pdf`, usando los derivados publicados. La fuente es `presentacion/presentacion.tex`, con el tema Oxygen y su encabezado incluidos. Hay 22 diapositivas principales y seis de respaldo. Los ejemplos vectoriales del estado 6 se conservan en `presentacion/datos/`, con selección documentada, de modo que esta compilación no necesita la base cruda ni GPU.
+`make presentacion` reconstruye las figuras y compila `presentacion/presentacion.pdf`, usando los derivados publicados. La fuente es `presentacion/presentacion.tex`, con el tema Oxygen y su encabezado incluidos. Hay 19 diapositivas principales y seis de respaldo. Los ejemplos vectoriales del estado 6 se conservan en `presentacion/datos/`, con selección documentada, de modo que esta compilación no necesita la base cruda ni GPU.

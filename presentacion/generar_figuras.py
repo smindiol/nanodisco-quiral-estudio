@@ -17,7 +17,6 @@ ROOT=HERE.parent
 OUT=HERE/'figuras'
 OUT.mkdir(exist_ok=True)
 A=json.loads((ROOT/'resultados/auditoria/auditoria.json').read_text())
-M=json.loads((ROOT/'resultados/auditoria/magnetizacion.json').read_text())
 EM=json.loads((ROOT/'resultados/informe/mezcla_em.json').read_text())
 COLORS=['#0066b3','#ce5421','#1c875a','#8c53ad','#bd3654','#00828f','#9b7300','#35455a']
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':14,'axes.titlesize':17,
@@ -46,15 +45,26 @@ fig.colorbar(ScalarMappable(norm=Normalize(-1,1),cmap='RdBu_r'),ax=axes.ravel().
              shrink=.8,pad=.02,label=r'$S_z$')
 save(fig,'ocho_estados')
 
-fig,axes=plt.subplots(2,4,figsize=(11,4.5),layout='constrained')
-for row,e in enumerate([1,6]):
-    for col,t in enumerate([20.,14.3,10.,6.]):
-        ax=axes[row,col];texture(ax,e,t)
-        if row==0:ax.set_title(f'{t:g} K',fontsize=16)
-        if col==0:ax.set_ylabel(f'Estado {e}',fontsize=15)
-fig.colorbar(ScalarMappable(norm=Normalize(-1,1),cmap='RdBu_r'),ax=axes.ravel().tolist(),
-             shrink=.8,pad=.02,label=r'$S_z$')
-save(fig,'enfriamiento')
+temperaturas_ejemplo = [20., 14.3, 10., 6.]
+fig,axes=plt.subplots(3,4,figsize=(10,4.2))
+fig.subplots_adjust(left=.13,right=.92,bottom=.04,top=.87,hspace=.15,wspace=.43)
+for row in range(3):
+    for col,t in enumerate(temperaturas_ejemplo):
+        ax=axes[row,col]
+        texture(ax,6,t,copy=row)
+        if row==0:
+            ax.set_title(f'{t:g} K',fontsize=15)
+        if col==0:
+            ax.text(-.19,.5,f'Copia {row+1}',transform=ax.transAxes,
+                    va='center',ha='right',fontsize=13)
+        if col<3:
+            ax.annotate('',xy=(1.47,.5),xytext=(1.02,.5),xycoords='axes fraction',
+                        arrowprops=dict(arrowstyle='->',color='#546d80',lw=1.5),
+                        annotation_clip=False)
+cax=fig.add_axes([.95,.13,.016,.65])
+fig.colorbar(ScalarMappable(norm=Normalize(-1,1),cmap='RdBu_r'),
+             cax=cax,label=r'$S_z$',ticks=[-1,0,1])
+save(fig,'caminos_enfriamiento')
 
 fig,axes=plt.subplots(1,2,figsize=(11,3.6),layout='constrained')
 for st,color in zip(A['curvas'],COLORS):
@@ -86,16 +96,18 @@ ax.grid(axis='x',alpha=.2)
 ax.set_title('IC bootstrap percentil del 95 %',fontsize=17)
 save(fig,'bootstrap_intervalos')
 
-fig,axes=plt.subplots(1,2,figsize=(11,3.5),layout='constrained')
-for ax,t in zip(axes,[20.,6.]):
-    for j in range(6):
-        x=D[6][f'trazaM_{t:.1f}'][:,j]
-        ax.plot(np.arange(len(x))*20,x,lw=.8,color=plt.cm.tab10(j),alpha=.9,label=f'Copia {j+1}')
-    ax.set(title=f'Estado 6 a {t:g} K',xlabel='Barridos de medición')
-    ax.grid(alpha=.18)
-axes[0].set_ylabel('Magnetización m')
-axes[1].legend(ncol=3,loc='lower center',fontsize=10)
-save(fig,'trazas_caminos')
+fig,ax=plt.subplots(figsize=(10,3.5),layout='constrained')
+rng=np.random.default_rng(43)
+for j,t in enumerate(temperaturas_ejemplo):
+    means=D[6][f'mediasM_{t:.1f}']
+    ax.scatter(j+rng.uniform(-.16,.16,len(means)),means,s=21,
+               color='#0072B2',alpha=.55,edgecolors='none')
+    ax.hlines(np.median(means),j-.21,j+.21,color='#b64b19',lw=2.3)
+ax.set(xticks=range(4),xticklabels=[f'{t:g} K' for t in temperaturas_ejemplo],
+       xlabel='Temperaturas en orden de enfriamiento',
+       ylabel='Magnetización media por copia',ylim=(0,.78))
+ax.grid(axis='y',alpha=.22)
+save(fig,'magnetizacion_por_temperatura')
 
 fig,axes=plt.subplots(1,2,figsize=(11,3.6),layout='constrained')
 for e,color in enumerate(COLORS,1):
@@ -143,31 +155,13 @@ ax.set(xlabel=r'Media del camino $\bar m_j$',ylabel='Densidad',title='100 camino
 ax.legend(fontsize=10)
 save(fig,'poblaciones_estado6')
 
-fig,axes=plt.subplots(1,2,figsize=(11,3.6),layout='constrained')
-for ax,t in zip(axes,[14.3,6.]):
-    for e in [1,4,6,8]:
-        d=D[e];i=int(np.argmin(abs(d['T']-t)))
-        ax.loglog(d['N_GRID'],np.maximum(d['curva_M'][i]-1,1e-7),color=COLORS[e-1],lw=2,label=f'E{e}')
-    ax.axhline(.01,color='black',ls='--');ax.grid(alpha=.15)
-    ax.set(xlabel='Barridos incluidos',title=f'{t:g} K',ylim=(1e-4,10))
-axes[0].set_ylabel(r'$\widehat R_m(n)-1$')
-axes[0].legend(ncol=2)
-save(fig,'barridos')
-
-fig,ax=plt.subplots(figsize=(8,3.8),layout='constrained')
-for e,color in enumerate(COLORS,1):
-    q=[r for r in M if r['estado']==e]
-    ax.plot([r['T'] for r in q],[r['fraccion_var_entre'] for r in q],color=color,lw=1.8,label=f'E{e}')
-ax.set(xlim=(20,6),ylim=(0,1),xlabel='Temperatura (K)',ylabel='Fracción de varianza entre caminos')
-ax.grid(alpha=.2);ax.legend(ncol=4,fontsize=11)
-save(fig,'varianza_entre')
-
 from runpy import run_path
 run_path(str(HERE/'figuras_3d.py'),run_name='__main__')
 
 provenance=dict(datos='Resultados derivados conservados en resultados/. No se ejecutaron nuevas cadenas ni un nuevo bootstrap.',
-    texturas='Capa central, copia 1 en ocho_estados y enfriamiento. S_z con escala común [-1,1].',
-    vista_3d='Estado 6, copia 63 a 6 K; los 5425 sitios están conservados. Flechas submuestreadas y eje vertical ampliado.',
+    texturas='Capa central, copia 1 en ocho_estados. S_z con escala común [-1,1].',
+    apertura='Textura 3D analítica ilustrativa de un disco magnético.',
+    caminos='Estado 6, copias 1 a 3, instantáneas finales en cuatro temperaturas.',
     ejemplos_estado6=examples['seleccion'],copias_estado6=examples['copias'],
     curvas='Malla medida de 0.1 K; T* e intervalos del bootstrap original de 50000 réplicas.',
     figuras=sorted(p.name for p in OUT.glob('*.pdf')))

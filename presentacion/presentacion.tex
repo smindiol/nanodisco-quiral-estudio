@@ -31,88 +31,63 @@
 
 \begin{document}
 
-\begin{frame}
-  \titlepage
-  \note{El punto de partida es el problema físico de los estados magnéticos en una geometría confinada. Se define primero la familia de sistemas y el objetivo de estimación; luego se fija el tamaño simulado y se examina si Metropolis aporta estimaciones confiables en ese caso.}
-\end{frame}
 
 \section{Problema}
-\begin{frame}{Problema general: magnetismo en un dominio confinado}
+\begin{frame}{El problema físico del nanodisco}
 \begin{columns}[c,onlytextwidth]
-\column{.55\textwidth}
-\small Un nanodisco magnético es una región delgada de material magnético, con geometría de disco y dimensiones nanométricas. En el modelo de red, cada sitio porta un espín $\mathbf S_i\in\mathbb S^2$.
+\column{.51\textwidth}
+Un nanodisco magnético es una pieza delgada de material magnético con forma de disco y dimensiones nanométricas. Dentro de ella, los momentos magnéticos pueden alinearse o girar de un sitio a otro.
+\medskip
+
+\textbf{Pregunta física.} ¿Qué patrones magnéticos aparecen al cambiar la temperatura y el campo, y en qué condiciones se conservan?
+\column{.45\textwidth}
+\grafica{nanodisco_apertura}
+\fuente{Textura ilustrativa. Las flechas indican la orientación local. El color distingue orientaciones hacia arriba y hacia abajo.}
+\end{columns}
+\medskip
+\fuente{Sebastián Mindiola Garizado $\cdot$ Computación Estadística $\cdot$ Universidad Nacional de Colombia, sede La Paz}
+\note{Mostrar primero el disco. En la superficie se dibuja un patrón de giro ilustrativo. Las líneas laterales permiten leer su espesor. La motivación es saber qué configuraciones magnéticas pueden existir bajo determinadas condiciones.}
+\end{frame}
+
+\begin{frame}{Por qué interesa controlar las texturas magnéticas}
+\small Una textura magnética es el patrón que forman los momentos del material. Un skyrmión es un ejemplo localizado, con momentos que giran alrededor de una región central.
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}
+\begin{block}{Aplicación investigada}
+La presencia o ausencia de una textura localizada podría codificar información. Para ello habría que poder crearla, distinguirla y conservarla.
+\end{block}
+\column{.48\textwidth}
+\begin{block}{Del experimento al modelo}
+Fabricar discos, ajustar estímulos y obtener imágenes magnéticas requiere instrumentación especializada. Repetirlo para muchas condiciones demanda tiempo y recursos.
+\end{block}
+\end{columns}
+\idea{Un modelo permite comparar temperatura, campo e interacciones en condiciones controladas y orientar las comparaciones experimentales.}
+\fuente{Creación y desplazamiento en simulaciones de nanoestructuras: \href{https://doi.org/10.1038/nnano.2013.210}{Sampaio et al. (2013)}. Formación controlada e imagen magnética: \href{https://doi.org/10.1002/adma.202501250}{Kern et al. (2025)}.}
+\note{Sampaio y colaboradores analizaron por simulación la creación local y el desplazamiento por corriente. Kern y colaboradores combinaron ingeniería local de anisotropía, campos, pulsos y técnicas de imagen. Aquí las aplicaciones motivan el problema de estados térmicos y sus condiciones de aparición.}
+\end{frame}
+
+\begin{frame}{El modelo de espines y el disco estudiado}
+\begin{columns}[T,onlytextwidth]
+\column{.53\textwidth}
+La red describe dónde están los momentos magnéticos. El vector unitario $\mathbf S_i$ representa su dirección en el sitio $i$.
 \[
 \begin{aligned}
 \Lambda_{R,L}=\{(x,y,z)\in\mathbb Z^3:\ &x^2+y^2\le R^2,\\[-1pt]
 &0\le z<L\}.
 \end{aligned}
 \]
-\[
-N(R,L)=|\Lambda_{R,L}|,\qquad
-\mathcal X_{R,L}=(\mathbb S^2)^{N(R,L)}.
-\]
-\column{.41\textwidth}
-\grafica{geometria_nanodisco}
-\end{columns}
-\idea{El problema físico es caracterizar el orden magnético y sus cambios con la temperatura y las interacciones en esta familia de dominios finitos.}
-\fuente{Esquema geométrico. $R$: radio en unidades de red; $L$: número de capas. Los bordes del modelo son libres.}
-\note{Se parte de una familia general, no de una cifra particular de espines. El nanodisco se modela por una red finita de momentos magnéticos clásicos. La figura solo representa la geometría; las configuraciones reales se muestran después.}
-\end{frame}
-
-\begin{frame}{Objetivo físico-matemático: estimar la respuesta térmica}
-\small Para una energía $E_{\boldsymbol\vartheta}$, con $\boldsymbol\vartheta=(J,\D,K,H)$, interesa estimar:
-\[
-\boxed{\mu_A(T,\boldsymbol\vartheta;R,L)=
-\int_{\mathcal X_{R,L}}A(\mathbf s)\,
-\pi_{T,\boldsymbol\vartheta;R,L}(\mathbf s)\,d\Omega,\quad
-\pi\propto e^{-E_{\boldsymbol\vartheta}/(k_BT)}.}
-\]
-\begin{columns}[T,onlytextwidth]
-\column{.48\textwidth}
-\begin{block}{Qué se quiere conocer}
-\small Energía y magnetización medias, fluctuaciones térmicas y texturas que aparecen al variar $T$, $\D$ y $H$.
-\end{block}
-\column{.48\textwidth}
-\begin{block}{Por qué es relevante}
-\small Caracterizar estados magnéticos y su respuesta térmica fundamenta el estudio de estructuras de interés para memorias y spintrónica.
+\column{.43\textwidth}
+\begin{block}{Geometría de la simulación}
+Radio $R=18.5$ en unidades de red.\\
+Número de capas $L=5$.\\
+$N=|\Lambda_{R,L}|=5425$ sitios, con bordes libres.
 \end{block}
 \end{columns}
-\idea{La geometría y las interacciones pueden admitir configuraciones diferentes. Su caracterización exige promedios e incertidumbres, además de imágenes representativas.}
-\fuente{Contexto físico: Nagaosa y Tokura (2013), Nature Nanotechnology 8, 899--911, doi:10.1038/nnano.2013.243.}
-\note{El interés tecnológico es una motivación del campo. Este trabajo estudia un modelo térmico y el desempeño del muestreo; no calcula tiempos de retención de un dispositivo ni dinámica física real. El problema general se expresa como una integral de observables bajo la distribución de Boltzmann.}
-\end{frame}
-
-\begin{frame}{Caso de estudio: nanodisco de 5425 espines}
-\grafica{nanodisco_completo_3d}
-\small
 \[
-R=18.5,\quad L=5,\quad N=5425,\qquad
-\text{ejemplo: }\D=0.30,\ H=0.05,\ T=6\ \mathrm K.
+\mathbf s\in(\mathbb S^2)^N,\qquad 2N=10850\ \text{grados de libertad}.
 \]
-{\small\centering Geometría fija en los ocho estados; $2N=10850$ grados de libertad.\par}
-
-\fuente{Estado 6, copia 63: configuración final real. Se dibujan los 5425 sitios; las flechas se submuestrean. Eje vertical ampliado para distinguir las capas.}
-\note{La vista izquierda incluye las cinco capas, no una proyección de la capa central. El detalle muestra direcciones locales de los espines. La ampliación vertical es gráfica y no cambia la geometría numérica. Los tamaños se dan en sitios de red, sin asignar una conversión no especificada a nanómetros.}
-\end{frame}
-
-\begin{frame}{Convergencia para obtener estimaciones confiables}
-\small En el dominio fijado, el método aproxima cada observable mediante $C$ caminos y $n$ mediciones por temperatura:
-\[
-\widehat\mu_A(T)=\frac1{Cn}\sum_{j=1}^{C}\sum_{t=1}^{n} A(\mathbf s_{jt}),
-\qquad C=100,\quad n=10000.
-\]
-\begin{columns}[T,onlytextwidth]
-\column{.48\textwidth}
-\begin{block}{Pregunta sobre la física}
-\small ¿Cómo cambian la respuesta térmica y las texturas del disco al enfriarlo y variar $\D$ y $H$?
-\end{block}
-\column{.48\textwidth}
-\begin{block}{Pregunta sobre el método}
-\small ¿En qué región las trayectorias permiten estimar esos observables con mezcla e incertidumbre adecuadas?
-\end{block}
-\end{columns}
-\idea{La convergencia se analiza para distinguir una estimación estable de una trayectoria que permanece en una región limitada del espacio de configuraciones.}
-\note{Se evalúa numéricamente el método en este tamaño, este protocolo y este presupuesto de barridos. Los diagnósticos detectan limitaciones; no constituyen una demostración general de convergencia de la cadena ni de exploración de todos los sectores.}
+\idea{Se fija la geometría y se comparan ocho combinaciones de interacción quiral y campo perpendicular al enfriar el disco.}
+\note{Dos grados de libertad por espín. Primero se define el dominio general en función del radio y el número de capas. Luego se fija el tamaño que comparten todas las simulaciones.}
 \end{frame}
 
 \begin{frame}{La energía: cuatro contribuciones en competencia}
@@ -184,34 +159,15 @@ U_1,U_2\sim\mathcal U(0,1),\quad z=2U_1-1,\quad\varphi=2\pi U_2,
 \small Las mejoras energéticas se aceptan siempre. También se aceptan algunos aumentos de energía.
 \end{block}
 \end{columns}
-\idea{Esos aumentos permiten explorar. A baja temperatura resultan menos probables y los movimientos locales pueden mezclar con lentitud.}
+\idea{A temperatura fija, el siguiente estado se obtiene de la configuración actual mediante esta regla. Si se rechaza la propuesta, la cadena conserva esa configuración.}
 \note{La propuesta es simétrica. La constante de normalización se cancela en la razón. El curso aparece aquí en generación de variables por transformada inversa y en cadenas de Markov. Un barrido ofrece una propuesta a cada espín.}
 \end{frame}
 
-\begin{frame}{Estado, camino y medición: el diseño}
-\centering
-\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,font=\small]
-\foreach \x/\t in {2.5/20 K,6.4/14.3 K,10.3/6 K}{\node[font=\bfseries] at (\x,.35){\t};}
-\foreach \y/\j in {-.2/1,-.85/2,-1.5/100}{
-\node[anchor=east] at (.8,\y){Camino \j};
-\foreach \x in {2.5,6.4,10.3}{\node[draw=oxygenblue,fill=blue!7,rounded corners,minimum width=1.4cm,minimum height=.4cm] (n\j\x) at (\x,\y){configuración};}
-\draw[->,oxygenblue] (3.25,\y)--(5.65,\y);
-\draw[->,oxygenblue] (7.15,\y)--(9.55,\y);
-}
-\node at (12,-.85){\large\vdots};
-\end{tikzpicture}
-\begin{columns}[T,onlytextwidth]
-\column{.49\textwidth}
-\begin{block}{Ocho estados de parámetros}
-\small Cada estado fija $(\D,H)$ y tiene 100 caminos con claves aleatorias distintas.
-\end{block}
-\column{.49\textwidth}
-\begin{block}{141 temperaturas por camino}
-\small De 20 a 6 K, paso 0.1 K. En cada una: 25000 barridos descartados y 10000 medidos.
-\end{block}
-\end{columns}
-\idea{Los caminos son independientes entre sí. Las temperaturas de un mismo camino están relacionadas: cada una continúa la configuración anterior.}
-\note{El dibujo muestra tres temperaturas de las 141 y tres caminos de los 100. Es un esquema del protocolo, no una gráfica de observaciones. Dos GPU ejecutan dos estados por lote; se utilizaron cuatro lotes.}
+\begin{frame}{Caminos independientes durante el enfriamiento}
+\makebox[\linewidth][c]{\includegraphics[width=.94\linewidth,height=4.65cm,keepaspectratio]{figuras/caminos_enfriamiento.pdf}}\par
+\small Cada fila conserva su propia configuración al pasar al siguiente nivel. Se generan 100 caminos por combinación de parámetros.\par
+\fuente{Estado 6, copias 1 a 3. Se muestran cuatro de 141 temperaturas. Cada bloque tiene 25000 barridos de termalización y 10000 de medición.}
+\note{Las flechas resumen el enfriamiento entre temperaturas seleccionadas. Dentro de cada temperatura se ejecuta una cadena de Metropolis con regla fija. El último estado de ese bloque inicializa el siguiente. Las temperaturas mostradas no son adyacentes en la escalera.}
 \end{frame}
 
 \begin{frame}{Calor específico y temperatura característica}
@@ -236,7 +192,7 @@ c(T)=\frac{\Var(E)}{Nk_BT^2}.
 \[
 \boxed{T^*=\underset{T\in[6,20]}{\arg\max}\ c(T)}
 \]
-\idea{En un disco finito, $T^*$ es una temperatura característica o pseudocrítica. El máximo no demuestra por sí solo una transición singular.}
+\idea{En un disco finito, $T^*$ identifica una temperatura característica. Su confiabilidad depende de qué tan bien exploran las cadenas las configuraciones que contribuyen a las fluctuaciones de energía.}
 \note{La energía del archivo está normalizada por Eo: antes de calcular la varianza se recuperan las unidades físicas. Una rotación rígida de todos los espines conserva la norma m; sus diferencias requieren cambios de alineaciones relativas o de textura.}
 \end{frame}
 
@@ -248,12 +204,7 @@ c(T)=\frac{\Var(E)}{Nk_BT^2}.
 \note{Una curva suave de energía no ubica tan claramente el cambio como su fluctuación. La malla de la figura es de 0.1 K; no se exige que su máximo coincida exactamente con el de la malla fina. El color de cada estado se mantiene en las figuras estadísticas.}
 \end{frame}
 
-\begin{frame}{Qué cambia durante un camino de enfriamiento}
-\grafica{enfriamiento}
-\idea{Se sigue la misma copia en cada fila. Los patrones espaciales evolucionan al enfriar; el color muestra $S_z$, no una clasificación automática de fases.}
-\fuente{Capa central, copia 1 de los estados 1 y 6. Escala común: azul $-1$, blanco 0, rojo $+1$. Instantáneas finales por temperatura.}
-\note{Los estados 1 y 6 tienen parámetros diferentes. Aquí se ilustra su evolución; no es una película de todos los barridos. Para clasificar una textura hacen falta las direcciones vectoriales y medidas como la carga topológica.}
-\end{frame}
+
 
 \begin{frame}{Ocho estados a 6 K}
 \grafica{ocho_estados}
@@ -301,11 +252,11 @@ IC_{95\%}=[q_{0.025}(T^{*b}),q_{0.975}(T^{*b})].
 \note{El estado 8 difiere de los estados 1, 2, 3, 4 y 6 tras corrección de Holm sobre 28 pares. Su diseño cambia campo y quiralidad a la vez: no se atribuye todo el desplazamiento al campo. La malla fina no equivale a un error de 0.01 K.}
 \end{frame}
 
-\begin{frame}{Un mismo estado produce caminos diferentes}
-\grafica{trazas_caminos}
-\idea{A 6 K, algunas copias permanecen cerca de niveles distintos de $m$. Una ventana estable dentro de cada camino puede esconder diferencias entre caminos.}
-\fuente{Estado 6; seis copias, una medición cada 20 barridos. Escalas verticales distintas para mostrar las fluctuaciones.}
-\note{El estado físico es el mismo: solo cambia la historia aleatoria. A alta temperatura las trazas se superponen; al enfriar aparece separación entre grupos. Esa separación motiva comparar dispersión interna y externa.}
+\begin{frame}{Cómo se separan las copias al enfriar}
+\grafica{magnetizacion_por_temperatura}
+\idea{Con los mismos parámetros, las medias se dispersan durante el enfriamiento y forman dos grupos a 6 K. La siguiente comparación de convergencia comprueba cuánto acuerdo hay entre copias.}
+\fuente{Estado 6. Cada punto es la media temporal de una de las 100 copias. Líneas naranjas: medianas. La separación horizontal dentro de cada temperatura facilita la lectura.}
+\note{Los cuatro grupos usan la misma escala vertical. Los puntos son medias por copia, no mediciones individuales. La dispersión indica diferencias entre recorridos y motiva el diagnóstico de mezcla. El análisis EM cuantifica después las dos poblaciones a 6 K.}
 \end{frame}
 
 \begin{frame}{Mezcla e información efectiva}
@@ -487,10 +438,14 @@ $1/T$ & 30.610&0.792&2.086&[29.476,31.499]\\\bottomrule
 \small Al excluir el estado 8, el coeficiente de $H$ sube a 6.154. El signo de $\D$ se mantiene al retirar cualquiera de los estados.
 \end{frame}
 
-\begin{frame}{Respaldo: diagnóstico al aumentar los barridos}
-\grafica{barridos}
-\idea{Cerca del máximo, el diagnóstico mejora con la longitud observada. A 6 K puede estancarse. Extrapolar desde 10000 hasta millones de barridos no da una predicción validada.}
-\fuente{25 prefijos de medición. Referencias del método: Metropolis et al. (1953); Gelman y Rubin (1992); Vehtari et al. (2021); Efron y Tibshirani (1993); Dempster et al. (1977). Bibliografía completa en el informe.}
+\begin{frame}{Respaldo sobre la longitud de las cadenas}
+\begin{block}{Qué se comparó}
+Se recalculó el diagnóstico de magnetización con 25 prefijos de cada cadena, hasta 10000 barridos de medición.
+\end{block}
+\begin{block}{Qué permite afirmar}
+Cerca de 14.3 K el diagnóstico suele mejorar a medida que se incluyen más barridos. A 6 K, en algunos estados permanece lejos del valor de referencia.
+\end{block}
+\idea{Para evaluar cuántos barridos adicionales hacen falta se necesitan cadenas más largas o una comparación directa con otro método de muestreo.}
 \end{frame}
 
 \end{document}
