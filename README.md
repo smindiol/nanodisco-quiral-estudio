@@ -98,3 +98,13 @@ La base cruda, de aproximadamente 25 GB, está excluida. No se descarga ni se pu
 El repositorio conserva resultados derivados suficientes para leer el estudio y reconstruir el HTML. Estos archivos no sustituyen las matrices crudas para recalcular cualquier análisis. Tampoco contienen las series temporales completas de carga topológica, que no se registraron durante cada barrido.
 
 La bibliografía está en [refs.bib](informe/latex/refs.bib). Las fuentes del informe conservan las citas por autor y año. La redacción sigue las pautas de claridad académica del marco Morfeo. El [HOOK](HOOK.md) registra el estado de preparación y publicación.
+
+## Publicar la copia preparada
+
+El repositorio local ya tiene su commit. Desde una terminal con acceso a GitHub y la sesión del usuario iniciada:
+
+```bash
+bash scripts/publicar_github.sh
+```
+
+La orden crea `nanodisco-quiral-estudio` como repositorio público en la cuenta autenticada y sube la rama `main`. No guarda credenciales ni cambia un remoto existente. En el entorno de preparación, la publicación quedó bloqueada por conexión a `api.github.com`; el código y los resultados locales están completos.

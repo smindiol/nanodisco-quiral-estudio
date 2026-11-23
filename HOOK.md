@@ -23,7 +23,9 @@
 
 ## Publicación
 
-Pendiente de comprobar al cerrar la preparación. La consulta inicial a `api.github.com` falló por conexión desde este entorno. Ese fallo no demuestra que la sesión del usuario haya caducado. Se comprobó una alternativa de conexión con GitHub, todavía sin conexión confirmada.
+El repositorio Git local tiene un commit en la rama `main`. El intento de publicación con `scripts/publicar_github.sh` terminó con `error connecting to api.github.com` antes de crear el remoto. No se creó ningún repositorio de GitHub desde esta tarea. El fallo es de conexión desde el entorno y no demuestra que la sesión del usuario haya caducado.
+
+La publicación puede completarse desde una terminal con acceso a GitHub mediante `bash scripts/publicar_github.sh`, desde esta carpeta. El programa consulta la cuenta autenticada y crea el repositorio público con el contenido confirmado. Se comprobó una alternativa de conexión con GitHub, todavía sin conexión confirmada.
 
 ## Fuera de esta entrega
 
