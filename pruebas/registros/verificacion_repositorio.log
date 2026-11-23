@@ -14,6 +14,6 @@ test_rhat_detecta_sectores_desplazados (test_metodos.Metodos.test_rhat_detecta_s
 test_rhat_es_invariante_a_un_cambio_de_unidades (test_metodos.Metodos.test_rhat_es_invariante_a_un_cambio_de_unidades) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.306s
+Ran 6 tests in 0.305s
 
 OK

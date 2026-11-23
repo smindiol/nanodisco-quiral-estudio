@@ -4,9 +4,15 @@ Proyecto de Computación Estadística de Sebastián Mindiola Garizado, Universid
 
 El estudio analiza ocho combinaciones de interacción quiral y campo externo en un nanodisco de 5425 espines. Cada combinación tiene 100 caminos de enfriamiento, desde 20 hasta 6 K, en 141 temperaturas. La pregunta física es cómo cambian el orden y las texturas. La pregunta estadística es qué resultados pueden interpretarse como equilibrio y cuáles describen la memoria del protocolo de enfriamiento.
 
-Para leer el estudio, conviene empezar por la [explicación completa en HTML](docs/explicacion_completa.html) y continuar con el [informe final en PDF](docs/informe_final.pdf). GitHub muestra el código de un HTML; para usar los gráficos y selectores, descargue el repositorio y abra ese archivo en el navegador. Funciona sin conexión.
+## Leer el estudio completo
 
-El HTML desarrolla el problema, las hipótesis y la matemática paso a paso. Incluye las figuras del informe, curvas comparativas de los ocho estados, pruebas estadísticas, tablas completas y un explorador de texturas durante el enfriamiento. Es una guía extensa que complementa al informe.
+**[Abrir la página de lectura](https://smindiol.github.io/nanodisco-quiral-estudio/)** · **[Ver o descargar el informe PDF](informe_final.pdf)** · **[Guía para simular en Kaggle](docs/GUIA_KAGGLE.md)**
+
+La página reúne el informe completo en un visor y la explicación matemática desarrollada, con las curvas y los exploradores de los ocho estados. Los dos documentos se leen desde la misma página; las secciones se recorren desde el índice. Si el visor PDF no está disponible en el dispositivo, el botón de descarga abre el informe completo.
+
+También se puede descargar el repositorio y abrir `index.html` directamente. La explicación funciona sin conexión; el PDF está a su lado en la raíz. El enlace web se habilita publicando la rama `main` mediante GitHub Pages.
+
+La explicación desarrolla el problema, las hipótesis y la matemática paso a paso. Incluye las figuras del informe, las pruebas estadísticas, las tablas completas y un explorador de texturas durante el enfriamiento.
 
 ## Contenido del repositorio
 
@@ -33,7 +39,9 @@ resultados/
   figuras/               Figuras del análisis original
   experimentos/          Salidas conservadas de pruebas exploratorias
 informe/latex/           main.tex, secciones, bibliografía y figuras
-docs/                    HTML completo, PDF y documentación
+index.html               Página principal con informe y explicación completos
+informe_final.pdf        Informe final para lectura y descarga
+docs/                    Guías de simulación y reproducción
 datos/                   Instrucciones de conexión; no incluye datos crudos
 build/                   Archivos temporales generados, excluidos de Git
 ```
@@ -60,7 +68,7 @@ make html
 make informe
 ```
 
-El primer comando actualiza `docs/explicacion_completa.html`. El segundo compila `informe/latex/main.tex` y actualiza `docs/informe_final.pdf`. Los temporales quedan en `build/`. La [guía de reproducción](docs/REPRODUCIBILIDAD.md) describe también cómo repetir el análisis desde los archivos crudos cuando estén disponibles.
+El primer comando actualiza `index.html`. El segundo compila `informe/latex/main.tex` y actualiza `informe_final.pdf`. Los temporales quedan en `build/`. La [guía de reproducción](docs/REPRODUCIBILIDAD.md) describe también cómo repetir el análisis desde los archivos crudos cuando estén disponibles.
 
 ## Qué se simuló
 
@@ -97,14 +105,14 @@ La base cruda, de aproximadamente 25 GB, está excluida. No se descarga ni se pu
 
 El repositorio conserva resultados derivados suficientes para leer el estudio y reconstruir el HTML. Estos archivos no sustituyen las matrices crudas para recalcular cualquier análisis. Tampoco contienen las series temporales completas de carga topológica, que no se registraron durante cada barrido.
 
-La bibliografía está en [refs.bib](informe/latex/refs.bib). Las fuentes del informe conservan las citas por autor y año. La redacción sigue las pautas de claridad académica del marco Morfeo. El [HOOK](HOOK.md) registra el estado de preparación y publicación.
+La bibliografía está en [refs.bib](informe/latex/refs.bib). Las fuentes del informe conservan las citas por autor y año.
 
 ## Publicar la copia preparada
 
-El repositorio local ya tiene su commit. Desde una terminal con acceso a GitHub y la sesión del usuario iniciada:
+Para crear otra copia remota desde un repositorio nuevo y sin remoto, puede usarse:
 
 ```bash
 bash scripts/publicar_github.sh
 ```
 
-La orden crea `nanodisco-quiral-estudio` como repositorio público en la cuenta autenticada y sube la rama `main`. No guarda credenciales ni cambia un remoto existente. En el entorno de preparación, la publicación quedó bloqueada por conexión a `api.github.com`; el código y los resultados locales están completos.
+La orden crea `nanodisco-quiral-estudio` como repositorio público en la cuenta autenticada y sube la rama `main`. No guarda credenciales ni cambia un remoto existente. Para un repositorio que ya tiene remoto, las actualizaciones se publican con `git push`. La página de lectura se configura con `bash scripts/activar_pagina.sh` después de subir la versión que contiene `index.html`.

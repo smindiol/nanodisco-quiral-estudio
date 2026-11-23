@@ -13,3 +13,5 @@ La escritura comprueba dimensiones, finitud y norma de los espines antes de reno
 Las claves y semillas del archivo definen la realización concreta. Los comentarios del código sobre generación de semillas no sustituyen el metadato guardado. La reproducción estadística del diseño y la reproducción exacta de una realización deben distinguirse.
 
 Los cuadernos de `pruebas/cuadernos/` verifican salidas o ejecutan pruebas cortas. Los métodos de `experimentos/` cambian el protocolo; su inclusión documenta los ensayos y no los convierte en fuentes de los ocho estados del informe.
+
+La [guía detallada de Kaggle](../docs/GUIA_KAGGLE.md) explica la verificación de la cuenta, la importación del cuaderno, la selección de GPU T4 ×2, la comprobación de JAX y la conservación de resultados.

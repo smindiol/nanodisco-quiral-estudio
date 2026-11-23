@@ -16,14 +16,14 @@ class Check(HTMLParser):
         if tag=='a' and a.get('href','').startswith('#'):self.links.append(a['href'][1:])
         if tag=='img' and a.get('src'):self.images.append(a['src']);assert a.get('alt')
         for k in ['src','href']:
-            if a.get(k,'').startswith(('http:','https:')):self.external.append(a[k])
+            if tag != 'a' and a.get(k,'').startswith(('http:','https:')):self.external.append(a[k])
         if tag in ['script','style']:self.hidden+=1
     def handle_endtag(self,tag):
         if tag in ['script','style']:self.hidden-=1
     def handle_data(self,s):
         if not self.hidden:self.text.append(s)
 
-page=(ROOT/'docs/explicacion_completa.html').read_text();c=Check();c.feed(page)
+page=(ROOT/'index.html').read_text();c=Check();c.feed(page)
 assert len(c.ids)==len(set(c.ids)), 'IDs duplicados'
 assert set(c.links)<=set(c.ids), 'Índice roto'
 assert not c.external, 'Recursos externos'
@@ -40,6 +40,9 @@ for s in d['auditoria']['curvas']:
     for key in ['c_recalculado','energia_meV_por_espin','rhat_M','rhat_E','tau_M','tau_E']:assert len(s[key])==141
 for r in d['magnetizacion']:assert 0<=r['m_media']<=1 and 0<=r['fraccion_var_entre']<=1
 assert '<eq>' not in page
+assert 'informe-completo' in c.ids and 'kaggle' in c.ids
+assert 'src="informe_final.pdf#view=FitH"' in page
+assert (ROOT/'informe_final.pdf').read_bytes().startswith(b'%PDF')
 (BUILD/'texto_html.txt').write_text('\n'.join(c.text))
 (BUILD/'datos_html.json').write_text(json.dumps(d,ensure_ascii=False))
 print(f'PASS: {len(c.images)} imágenes válidas, sin recursos externos; índice íntegro; 8 estados × 141 temperaturas; 56 pruebas y 128 ternas de texturas.')

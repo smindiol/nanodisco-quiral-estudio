@@ -354,8 +354,47 @@ sec('referencias','15. Referencias y trazabilidad',r'''
 <li>Holm (1979). Scandinavian Journal of Statistics, 6, 65–70. Corrección de pruebas múltiples.</li>
 </ul>
 <p>El estudio de nanopartículas de cobre de Rincón Gutiérrez et al. (2026), citado en el main, ofrece un antecedente sobre enfriamientos y diversidad de caminos. Su potencial y su sistema físico son distintos; no valida directamente el hamiltoniano ni la temperatura del nanodisco.</p>
-<p>La escritura sigue las pautas de prosa académica clara y citación autor–año del marco Morfeo instalado. La revisión matemática distingue definiciones, resultados observados e interpretaciones. La fuente principal sigue siendo el <code>main.tex</code> de la entrega final.</p>
+<p>La revisión matemática distingue definiciones, resultados observados e interpretaciones. La fuente principal sigue siendo el <code>main.tex</code> de la entrega final.</p>
 ''')
+
+
+# La guía de ejecución se mantiene en Markdown y se incorpora íntegra a la página.
+def inline_md(value):
+    value=html.escape(value)
+    value=re.sub(r'`([^`]+)`', r'<code>\1</code>', value)
+    value=re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', value)
+    value=re.sub(r'\[([^\]]+)\]\(([^)]+)\)', lambda m: '<a href="'+m.group(2).replace('../datos/README.md','datos/README.md').replace('REPRODUCIBILIDAD.md','docs/REPRODUCIBILIDAD.md')+'">'+m.group(1)+'</a>', value)
+    return value
+
+def markdown_guide(path):
+    lines=path.read_text().splitlines();out=[];i=0
+    while i<len(lines):
+        line=lines[i]
+        if not line.strip():i+=1;continue
+        if line.startswith('```'):
+            code=[];i+=1
+            while i<len(lines) and not lines[i].startswith('```'):code.append(lines[i]);i+=1
+            out.append('<pre><code>'+html.escape('\n'.join(code))+'</code></pre>');i+=1;continue
+        if line.startswith('# '):i+=1;continue
+        if line.startswith('## '):out.append('<h3>'+inline_md(line[3:])+'</h3>');i+=1;continue
+        if line.startswith('|'):
+            group=[]
+            while i<len(lines) and lines[i].startswith('|'):group.append(lines[i]);i+=1
+            cells=[[inline_md(v.strip()) for v in line.strip('|').split('|')] for line in group]
+            out.append(table(cells[0],cells[2:]));continue
+        para=[line];i+=1
+        while i<len(lines) and lines[i].strip() and not lines[i].startswith(('#','|','```')):para.append(lines[i]);i+=1
+        out.append('<p>'+inline_md(' '.join(para))+'</p>')
+    return '\n'.join(out)
+
+sec('kaggle','Ejecución en Kaggle con dos GPU',markdown_guide(ROOT/'docs/GUIA_KAGGLE.md'))
+report_view='''
+<p>El informe final puede leerse completo en este visor. La explicación matemática y los gráficos interactivos continúan debajo, dentro de la misma página.</p>
+<p class="mainlinks"><a href="informe_final.pdf" target="_blank" rel="noopener">Abrir el PDF a pantalla completa</a> <a href="informe_final.pdf" download>Descargar informe</a> <a href="#problema">Leer la explicación matemática</a> <a href="#kaggle">Simular en Kaggle</a></p>
+<iframe src="informe_final.pdf#view=FitH" title="Informe final completo del estudio del nanodisco" loading="lazy"></iframe>
+<p class="small">Si el navegador no muestra el visor integrado, el enlace de apertura o descarga permite acceder al mismo informe completo.</p>
+'''
+SECTIONS.insert(0,('informe-completo','Informe final completo',report_view))
 
 # Una vista estática complementa el explorador para impresión y lectores sin JS.
 import matplotlib.pyplot as plt
@@ -427,9 +466,12 @@ document.getElementById('moments-download').onclick=()=>{const k=Object.keys(A.m
 const dialog=document.getElementById('image-dialog');document.querySelectorAll('img.original').forEach(img=>{const open=()=>{document.getElementById('modal-image').src=img.src;document.getElementById('modal-image').alt=img.alt;dialog.showModal()};img.onclick=open;img.onkeydown=e=>{if(e.key==='Enter')open()}});document.getElementById('close-modal').onclick=()=>dialog.close();
 draw();drawTextures();
 '''
+CSS+='''
+.mainlinks{display:flex;flex-wrap:wrap;gap:.7rem;font:15px/1.5 system-ui}.mainlinks a{display:inline-block;padding:.65rem .85rem;background:#0066b3;color:white;text-decoration:none;border-radius:4px}#informe-completo iframe{width:100%;height:78vh;min-height:500px;border:1px solid #cfdae4}pre{overflow:auto;padding:1rem;background:#f1f5f9;font:14px/1.6 monospace}pre code{padding:0;background:none}@media print{#informe-completo iframe,.mainlinks{display:none}}
+'''
 nav=''.join('<a href="#'+i+'">'+html.escape(t)+'</a>' for i,t,b in SECTIONS)
 body=''.join('<section id="'+i+'"><h2>'+t+'</h2>'+b+'</section>' for i,t,b in SECTIONS)
-page='<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Guía matemática completa del nanodisco quiral, ocho estados, enfriamiento, pruebas y revisión del informe final"><title>Nanodisco quiral: matemática, estados y pruebas</title><style>'+CSS+'</style></head><body><header><p>Universidad Nacional de Colombia · Computación Estadística · 2026-II</p><h1>Nanodisco quiral: matemática, enfriamiento y evidencia estadística</h1><p>Guía ampliada del informe final de Sebastián Mindiola Garizado. Problema, hipótesis, derivaciones, ocho estados y pruebas de convergencia, con auditoría local de los resultados.</p><p>Documento autónomo para lectura sin conexión. Las curvas y las texturas son datos derivados de las simulaciones existentes.</p></header><main><nav aria-label="Contenido">'+nav+'</nav><article>'+body+'</article></main><footer>Fuente principal: informe/latex/main.tex. Revisión local: 23 de noviembre de 2026. Base cruda excluida; incorporación futura desde Kaggle.</footer><dialog id="image-dialog"><button id="close-modal" type="button">Cerrar figura</button><img id="modal-image" alt=""></dialog><script id="data" type="application/json">'+DATA.replace('</',r'<\/')+'</script><script>'+JS+'</script></body></html>'
-out=ROOT/'docs/explicacion_completa.html';out.write_text(page)
+page='<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Guía matemática completa del nanodisco quiral, ocho estados, enfriamiento, pruebas y revisión del informe final"><title>Nanodisco quiral: matemática, estados y pruebas</title><style>'+CSS+'</style></head><body><header><p>Universidad Nacional de Colombia · Computación Estadística · 2026-II</p><h1>Nanodisco quiral: matemática, enfriamiento y evidencia estadística</h1><p>Guía ampliada del informe final de Sebastián Mindiola Garizado. Problema, hipótesis, derivaciones, ocho estados y pruebas de convergencia, con comprobaciones de los resultados.</p><p>Informe y explicación completos en una misma página. Las curvas y las texturas proceden de las simulaciones del estudio.</p><p class="mainlinks"><a href="#informe-completo">Informe completo</a><a href="#problema">Explicación paso a paso</a><a href="#kaggle">Guía de Kaggle</a></p></header><main><nav aria-label="Contenido">'+nav+'</nav><article>'+body+'</article></main><footer>Fuente principal: informe/latex/main.tex. Revisión local: 23 de noviembre de 2026. Base cruda excluida; incorporación futura desde Kaggle.</footer><dialog id="image-dialog"><button id="close-modal" type="button">Cerrar figura</button><img id="modal-image" alt=""></dialog><script id="data" type="application/json">'+DATA.replace('</',r'<\/')+'</script><script>'+JS+'</script></body></html>'
+out=ROOT/'index.html';out.write_text(page)
 (BUILD/'explorador.js').write_text(JS)
 print(f'HTML: {out}\nTamaño: {out.stat().st_size/1024/1024:.2f} MiB\nSecciones: {len(SECTIONS)}\nPalabras aproximadas de prosa y tablas: {len(re.sub("<[^>]+>"," ",body).split())}')

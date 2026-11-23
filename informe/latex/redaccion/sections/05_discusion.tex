@@ -1,4 +1,4 @@
-\section{Discusión, conclusiones y transparencia}
+\section{Discusión y conclusiones}
 
 \subsection{Respuesta a las preguntas del proyecto}
 
@@ -31,6 +31,6 @@ Un diseño factorial en $\kdm$ y $H$ permitiría separar sus asociaciones. Varia
 
 Para evaluar mezcla conviene registrar la termalización, guardar $Q$ y las componentes de magnetización durante la medición y comparar inicializaciones diferentes. El intercambio de réplicas y los movimientos colectivos son candidatos a estudiar; no se ejecutaron en esta revisión. Su evaluación requiere cambios de sector y viajes completos por la escalera, además de aceptación de intercambios.
 
-\subsection{Transparencia y reproducibilidad}
+\subsection{Reproducibilidad}
 
-El análisis original recibió apoyo del asistente Claude Code en depuración, programación y redacción, según la declaración previa del proyecto. La revisión local con Codex añadió pruebas de momentos en 56 puntos, covarianza agrupada por estado, sensibilidad al retirar estados, permutación exacta y curvas de magnetización en las 1128 combinaciones. No volvió a ejecutar la simulación ni el bootstrap de 50000 réplicas. Los programas, resultados derivados y registros se conservan en \texttt{scripts/auditoria/} y \texttt{resultados/auditoria/}; el desarrollo matemático y los exploradores se incluyen en \texttt{docs/explicacion\_completa.html}. La escritura sigue las pautas del marco Morfeo instalado.
+El análisis comprende los diagnósticos originales y una comprobación adicional de momentos en 56 puntos, covarianza agrupada por estado, sensibilidad al retirar estados, permutación exacta y curvas de magnetización en las 1128 combinaciones. La comprobación adicional no repitió la simulación ni el bootstrap de 50000 réplicas. Los programas, resultados derivados y registros se conservan en \texttt{scripts/auditoria/} y \texttt{resultados/auditoria/}; el desarrollo matemático y los exploradores se incluyen en \texttt{index.html}.

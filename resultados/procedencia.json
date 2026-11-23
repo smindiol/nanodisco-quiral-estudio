@@ -231,12 +231,12 @@
     },
     {
       "origen": "proyecto/entrega1/informe_final/main.pdf",
-      "destino": "docs/informe_final.pdf",
+      "destino": "informe_final.pdf",
       "sha256_origen": "934a2d41cfa2081d2b79f8cb89821d62c4e8efd66e48c456f0c037bbcf3d325d"
     },
     {
       "origen": "proyecto/entrega1/informe_final/explicacion_completa.html",
-      "destino": "docs/explicacion_completa.html",
+      "destino": "index.html",
       "sha256_origen": "28b58c724d35c303a3624a455f621bc21ce650f6ae182f367796902085481e6a"
     },
     {
@@ -423,16 +423,6 @@
       "origen": "proyecto/entrega1/informe_final/revision_local/magnetizacion.log",
       "destino": "pruebas/registros/magnetizacion.log",
       "sha256_origen": "cc8df430ffd0a35d6730f44cfd40f64b4db3f8195d4a598e5a630200a4ab07ae"
-    },
-    {
-      "origen": "proyecto/entrega1/informe_final/revision_local/estilo_html.json",
-      "destino": "pruebas/registros/estilo_html.json",
-      "sha256_origen": "ad1d86b4b80b6ffee18416ca46ff976277d85cef7b78b025e9139af960de4a10"
-    },
-    {
-      "origen": "proyecto/entrega1/informe_final/revision_local/estilo_informe.json",
-      "destino": "pruebas/registros/estilo_informe.json",
-      "sha256_origen": "ba501054842b5c2f601814c126cd709a32054410f956b6f9cc8f082d73b00fe2"
     },
     {
       "origen": "proyecto/entrega1/informe_final/revision_local/validacion_controles.log",

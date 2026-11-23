@@ -13,5 +13,5 @@ pdflatex -interaction=nonstopmode -halt-on-error -output-directory="$build_dir" 
 )
 pdflatex -interaction=nonstopmode -halt-on-error -output-directory="$build_dir" main.tex > "$build_dir/pdflatex_2.log" 2>&1
 pdflatex -interaction=nonstopmode -halt-on-error -output-directory="$build_dir" main.tex > "$build_dir/pdflatex_3.log" 2>&1
-cp "$build_dir/main.pdf" "$repo_dir/docs/informe_final.pdf"
-printf 'Informe compilado: docs/informe_final.pdf\n'
+cp "$build_dir/main.pdf" "$repo_dir/informe_final.pdf"
+printf 'Informe compilado: informe_final.pdf\n'
