@@ -105,7 +105,7 @@ $N=|\Lambda_{R,L}|=5425$ sitios, con bordes libres.
 \small
 \begin{align*}
 E(\mathbf s)={}&\underbrace{-J\sum_{\langle ij\rangle}\mathbf S_i\cdot\mathbf S_j}_{\text{intercambio de Heisenberg}}
-\underbrace{-\D\sum_{\langle ij\rangle_\parallel}\widehat{\mathbf r}_{ij}\cdot(\mathbf S_i\times\mathbf S_j)}_{\text{Dzyaloshinskii--Moriya}}\\[4pt]
+\underbrace{-\D\sum_{\langle ij\rangle_\parallel}\widehat{\mathbf r}_{ij}\cdot(\mathbf S_i\times\mathbf S_j)}_{\text{Dzyaloshinskii--Moriya}}\\[-5pt]
 &+\underbrace{\Kan\sum_i[(S_i^xS_i^y)^2+(S_i^xS_i^z)^2+(S_i^yS_i^z)^2]}_{\text{anisotropía magnetocristalina cúbica}}
 \underbrace{-\Hex\sum_i S_i^z}_{\text{Zeeman: campo externo}}.
 \end{align*}
@@ -118,7 +118,8 @@ E(\mathbf s)={}&\underbrace{-J\sum_{\langle ij\rangle}\mathbf S_i\cdot\mathbf S_
 \textbf{$\Kan$, anisotropía cristalina:} espín--órbita ligado a la red cúbica; con $\Kan=0.05>0$ favorece los ejes $\langle100\rangle$.\\[2pt]
 \textbf{$\Hex$, campo externo:} acopla los momentos a un campo aplicado en $+z$, perpendicular al disco; rompe la simetría $\pm z$.
 \end{columns}}
-\idea{Se fijan $J$ y $\Kan$ y se varían $\D$ y $\Hex$. Energías y campo están normalizados (adimensionales); la configuración final resulta de su competencia con las fluctuaciones térmicas.}
+\idea{Se fijan $J$ y $\Kan$ y se varían $\D$ y $\Hex$. Energías y campo están normalizados (adimensionales).}
+\fuente{Modelo y simulación de referencia: \href{https://doi.org/10.1016/j.matdes.2026.116816}{Méndez-Rondón, \dots, Agudelo-Giraldo (2026), \emph{Materials \& Design} 270, 116816}.}
 \note{El producto escalar premia vecinos paralelos. El producto vectorial distingue sentidos de giro. El intercambio J viene del principio de Pauli; DM y la anisotropía, del acoplamiento espín-órbita; H_ex es el campo externo aplicado. El campo y las energías están normalizados; son adimensionales. La suma compacta de enlaces del plano equivale a los términos x e y del informe.}
 \end{frame}
 
@@ -364,6 +365,38 @@ Las texturas, los tiempos de autocorrelación y las poblaciones finales describe
 \end{block}
 \idea{Los diagnósticos respaldan los momentos energéticos cerca del máximo y detectan mezcla limitada de la magnetización al enfriar. La confiabilidad depende del observable y de la temperatura.}
 \note{Cerrar con las respuestas, no con una lista de herramientas. El estudio aporta un mapa de estabilidad y de diversidad del enfriamiento. Nuevos barridos o intercambio de réplicas son propuestas de estudio, no resultados ya ejecutados.}
+\end{frame}
+
+\begin{frame}{Referencias: modelo y trabajos del autor original}
+\fontsize{7.5}{9}\selectfont
+\begin{columns}[T,onlytextwidth]
+\column{.49\textwidth}
+Méndez-Rondón, J.~S., García-Quimbayo, M.~I., Álvarez-Meza, A.~M., Montes-Monsalve, J. y Agudelo-Giraldo, J.~D. (2026). Regression-based explainable deep learning for estimating Hamiltonian parameters from magnetic nanodot images. \emph{Materials \& Design}, 270, 116816. \href{https://doi.org/10.1016/j.matdes.2026.116816}{doi:10.1016/j.matdes.2026.116816}\par\smallskip
+Rincón Gutiérrez, V.~P., Londoño Calderón, C.~L. y Agudelo-Giraldo, J.~D. (2026). Computational study of phase transitions in ultra-small copper nanoparticles under ultra-high cooling rates using COMB3 potential. \emph{MRS Advances}, 11, 1508--1515. \href{https://doi.org/10.1557/s43580-025-01464-9}{doi:10.1557/s43580-025-01464-9}\par\smallskip
+Agudelo-Giraldo, J.~D., Giraldo Daza, H.~A., Moscoso Londoño, O. y Londoño Calderón, C.~L. (2023). Effect of the surface anisotropy on the magnetic behavior of ultra-thin films single-domain on the spin reorientation transition regime by Monte Carlo simulation. \emph{Physica Scripta}, 98(12), 125968. \href{https://doi.org/10.1088/1402-4896/ad0ae1}{doi:10.1088/1402-4896/ad0ae1}
+\column{.49\textwidth}
+Agudelo-Giraldo, J.~D., Restrepo-Parra, E. y Restrepo, J. (2020). Grain boundary anisotropy on nano-polycrystalline magnetic thin films. \emph{Scientific Reports}, 10, 5041. \href{https://doi.org/10.1038/s41598-020-61979-z}{doi:10.1038/s41598-020-61979-z}\par\smallskip
+Agudelo-Giraldo, J.~D., Morales-Rojas, S., Hurtado-Marín, V.~A. y Restrepo-Parra, E. (2016). Influence of radial and tangential anisotropy components in single wall magnetic nanotubes. A Monte Carlo approach. \emph{Physica A}, 466, 440--449. \href{https://doi.org/10.1016/j.physa.2016.08.030}{doi:10.1016/j.physa.2016.08.030}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Referencias: física de texturas y métodos estadísticos}
+\fontsize{7.5}{9}\selectfont
+\begin{columns}[T,onlytextwidth]
+\column{.49\textwidth}
+\textbf{Física de texturas}\par\smallskip
+Dzyaloshinskii, I. (1958). \emph{J. Phys. Chem. Solids}, 4, 241--255. Moriya, T. (1960). \emph{Phys. Rev.}, 120, 91--98.\par\smallskip
+Nagaosa, N. y Tokura, Y. (2013). Topological properties and dynamics of magnetic skyrmions. \emph{Nature Nanotechnology}, 8, 899--911.\par\smallskip
+Sampaio, J. et al. (2013). \emph{Nature Nanotechnology}, 8, 839--844. Kern, L.-M. et al. (2025). \emph{Advanced Materials}, 2501250.\par\medskip
+\textbf{Métodos estadísticos}\par\smallskip
+Metropolis, N. et al. (1953). \emph{J. Chem. Phys.}, 21, 1087--1092. Hastings, W.~K. (1970). \emph{Biometrika}, 57, 97--109.
+\column{.49\textwidth}
+Gelman, A. y Rubin, D.~B. (1992). \emph{Statistical Science}, 7, 457--472. Vehtari, A. et al. (2021). \emph{Bayesian Analysis}, 16, 667--718.\par\smallskip
+Geweke, J. (1992). En \emph{Bayesian Statistics 4}, 169--193. White, K.~P. (1997). \emph{Simulation}, 69, 323--334.\par\smallskip
+Ferrenberg, A.~M. y Swendsen, R.~H. (1988). \emph{Phys. Rev. Lett.}, 61, 2635--2638. Sokal, A. (1997). En \emph{Functional Integration}, 131--192.\par\smallskip
+Efron, B. y Tibshirani, R.~J. (1993). \emph{An Introduction to the Bootstrap}. Chapman \& Hall.\par\smallskip
+Dempster, A.~P., Laird, N.~M. y Rubin, D.~B. (1977). \emph{JRSS B}, 39, 1--38. Schwarz, G. (1978). \emph{Ann. Statist.}, 6, 461--464. Holm, S. (1979). \emph{Scand. J. Statist.}, 6, 65--70.
+\end{columns}
 \end{frame}
 
 \appendix
