@@ -40,7 +40,7 @@ fig,axes=plt.subplots(2,4,figsize=(11,4.7),layout='constrained')
 for e,ax in enumerate(axes.flat,1):
     texture(ax,e,6.)
     st=A['curvas'][e-1]
-    ax.set_title(f"E{e}: D={st['kDM']:g}, H={st['H']:g}",fontsize=13,pad=4)
+    ax.set_title(f"E{e}: D={st['kDM']:g}, "+r"$H_{\mathrm{ex}}$"+f"={st['H']:g}",fontsize=13,pad=4)
 fig.colorbar(ScalarMappable(norm=Normalize(-1,1),cmap='RdBu_r'),ax=axes.ravel().tolist(),
              shrink=.8,pad=.02,label=r'$S_z$')
 save(fig,'ocho_estados')

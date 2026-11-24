@@ -7,11 +7,18 @@ La energía de una configuración $\mathbf s$ es
 \begin{split}
 \mathcal H(\mathbf s)={}&-J\sum_{\langle ij\rangle}\mathbf S_i\cdot\mathbf S_j
 -\kdm\sum_i\Big[\hat x\cdot(\mathbf S_i\times\mathbf S_{i+\hat x})+\hat y\cdot(\mathbf S_i\times\mathbf S_{i+\hat y})\Big]\\
-&+K\sum_i\Big[(S_i^xS_i^y)^2+(S_i^xS_i^z)^2+(S_i^yS_i^z)^2\Big]-H\sum_i S_i^z .
+&+\Kan\sum_i\Big[(S_i^xS_i^y)^2+(S_i^xS_i^z)^2+(S_i^yS_i^z)^2\Big]-\Hex\sum_i S_i^z .
 \end{split}
 \label{eq:hamiltoniano}
 \end{equation}
-El primer término (intercambio) premia los espines paralelos. El segundo es antisimétrico: premia un giro de sentido fijo entre vecinos del plano, con ángulo $\delta=\arctan(\kdm/J)$ en una cadena, y por tanto una espiral de período $\lambda=2\pi/\delta$ sitios. El tercero penaliza las direcciones alejadas de los ejes y el cuarto premia los espines alineados con el campo, perpendicular al disco. Los bordes del disco y de las capas son libres. A temperatura $T$, la configuración sigue la densidad de Boltzmann sobre $(\mathbb S^2)^N$,
+Cada término representa un mecanismo físico distinto. Todas las energías y el campo están normalizados y son adimensionales; $J=1$ fija la escala.
+\begin{itemize}
+\item \textbf{Intercambio de Heisenberg, $J$.} Surge del solapamiento de los orbitales de átomos vecinos y del principio de exclusión de Pauli. Con $J>0$ el acoplamiento es ferromagnético: la energía baja cuando los espines vecinos son paralelos. Es la interacción dominante y la que establece el orden magnético por debajo de la temperatura de transición.
+\item \textbf{Interacción de Dzyaloshinskii--Moriya, $\kdm$.} Proviene del acoplamiento espín--órbita en materiales sin centro de inversión. Es antisimétrica, porque depende de $\mathbf S_i\times\mathbf S_j$, y premia un giro de sentido fijo entre vecinos del plano. En una cadena, la competencia con $J$ fija un ángulo $\delta=\arctan(\kdm/J)$ entre vecinos y una espiral de período $\lambda=2\pi/\delta$ sitios. Es la responsable de la quiralidad de las texturas.
+\item \textbf{Anisotropía magnetocristalina cúbica, $\Kan$.} El acoplamiento espín--órbita también liga la orientación de los espines con la simetría de la red cristalina. Con $\Kan>0$, el término se anula cuando el espín apunta a lo largo de un eje cristalino $\langle100\rangle$ (ejes fáciles) y es máximo en las diagonales $\langle111\rangle$, donde vale $\Kan/3$ por espín. En este estudio es una perturbación débil, $\Kan=0.05J$.
+\item \textbf{Energía de Zeeman del campo externo, $\Hex$.} Es el acoplamiento de los momentos magnéticos con un campo aplicado desde fuera del material, perpendicular al disco ($+z$). Rompe la simetría entre $+z$ y $-z$ y favorece los espines con $S_i^z>0$. Este campo estabiliza los skyrmiones frente a las espirales.
+\end{itemize}
+Los bordes del disco y de las capas son libres. A temperatura $T$, la configuración sigue la densidad de Boltzmann sobre $(\mathbb S^2)^N$,
 \begin{equation}
 \pi_\beta(\mathbf s)=\frac{e^{-\beta\mathcal H(\mathbf s)}}{Z(\beta)},\qquad \beta=\frac{1}{k_BT},\qquad Z(\beta)=\int_{(\mathbb S^2)^N}e^{-\beta\mathcal H(\mathbf s)}\,\mathrm d\mathbf s .
 \label{eq:boltzmann}

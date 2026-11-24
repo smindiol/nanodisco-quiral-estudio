@@ -401,7 +401,7 @@ import matplotlib.pyplot as plt
 fig,axes=plt.subplots(2,2,figsize=(12,8))
 colors=['#0066b3','#cb4b16','#198754','#8b47a8','#bc2f50','#097c88','#856300','#303d52']
 for s,c in zip(A['curvas'],colors):
-    label=f"E{s['estado']} (DM={s['kDM']}, H={s['H']})"
+    label=f"E{s['estado']} (DM={s['kDM']}, "+r"$H_{\mathrm{ex}}$"+f"={s['H']})"
     rows=[r for r in M if r['estado']==s['estado']]
     axes[0,0].plot(s['T'],s['c_recalculado'],color=c,label=label)
     axes[0,1].plot([r['T'] for r in rows],[r['m_media'] for r in rows],color=c)

@@ -29,11 +29,11 @@ El ajuste sobre 1128 pares reproduce los coeficientes originales. La revisión c
 \begin{tabular}{lrrrr}\toprule Parámetro & Estimación & se HC0 & se CR1 & Rango al retirar un estado\\\midrule
 Intercepto & 3.0291 & 0.0986 & 0.2009 & [2.9072, 3.1837] \\
 $k_{DM}$ & -2.3653 & 0.0723 & 0.1450 & [-2.5773, -2.2520] \\
-$H$ & 2.7487 & 0.2170 & 0.5366 & [2.3520, 6.1538] \\
+$\Hex$ & 2.7487 & 0.2170 & 0.5366 & [2.3520, 6.1538] \\
 $1/T$ & 30.6096 & 0.7916 & 2.0863 & [29.4760, 31.4989] \\
 \bottomrule\end{tabular}\end{table}
 
-Al omitir el estado 8, el coeficiente de $H$ pasa de 2.749 a 6.154. El signo del coeficiente de $\kdm$ se mantiene en los ocho ajustes. Estas pruebas evalúan sensibilidad y no sustituyen un diseño factorial. La permutación exacta de la asociación entre $\kdm$ y $T^*$ se reprodujo con $\rho=0.0542169$ y $p=0.899256$; no rechazar asociación nula no demuestra equivalencia.
+Al omitir el estado 8, el coeficiente de $\Hex$ pasa de 2.749 a 6.154. El signo del coeficiente de $\kdm$ se mantiene en los ocho ajustes. Estas pruebas evalúan sensibilidad y no sustituyen un diseño factorial. La permutación exacta de la asociación entre $\kdm$ y $T^*$ se reprodujo con $\rho=0.0542169$ y $p=0.899256$; no rechazar asociación nula no demuestra equivalencia.
 
 \subsection{Fluctuaciones del protocolo y evolución de los ocho estados}
 
@@ -41,7 +41,7 @@ La revisión leyó la magnetización de los 1128 archivos, cada uno con $10000\t
 \begin{equation}
 \widehat{\operatorname{Var}}(m)=\frac1R\sum_j\widehat{\operatorname{Var}}_t(m_j)+\frac1R\sum_j(\bar m_j-\bar m)^2.
 \end{equation}
-La segunda contribución mide diferencias persistentes entre historias. Si sus frecuencias no son pesos de Boltzmann, $N\operatorname{Var}(m)/(k_BT)$ describe fluctuaciones del protocolo y no una susceptibilidad de equilibrio demostrada. Además, la respuesta al campo $H$ involucra la componente $M_z$ conjugada a él, no automáticamente la norma $m$.
+La segunda contribución mide diferencias persistentes entre historias. Si sus frecuencias no son pesos de Boltzmann, $N\operatorname{Var}(m)/(k_BT)$ describe fluctuaciones del protocolo y no una susceptibilidad de equilibrio demostrada. Además, la respuesta al campo $\Hex$ involucra la componente $M_z$ conjugada a él, no automáticamente la norma $m$.
 
 \begin{figure}[H]\centering
 \includegraphics[width=\textwidth]{fig/comparacion_ocho_estados.png}

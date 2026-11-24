@@ -87,13 +87,13 @@ Cerca de $T^*$ la pendiente vale entre $-0.88$ y $-1.08$ en los ocho estados: el
 Métrica & Parámetro & $\rho$ & IC 95~\% & $p$\\
 \midrule
 fracción de T con $\hat R_m<1.01$ & $k_{DM}$ & $+0.92$ & $[+0.47,\,+1.00]$ & 0.003 \\
-fracción de T con $\hat R_m<1.01$ & $H$ & $+0.11$ & $[-0.60,\,+0.84]$ & 0.801 \\
+fracción de T con $\hat R_m<1.01$ & $\Hex$ & $+0.11$ & $[-0.60,\,+0.84]$ & 0.801 \\
 T más baja del tramo convergido en $m$ (K) & $k_{DM}$ & $-0.92$ & $[-1.00,\,-0.47]$ & 0.002 \\
-T más baja del tramo convergido en $m$ (K) & $H$ & $-0.11$ & $[-0.81,\,+0.59]$ & 0.827 \\
+T más baja del tramo convergido en $m$ (K) & $\Hex$ & $-0.11$ & $[-0.81,\,+0.59]$ & 0.827 \\
 $\tau_{int}$ máximo de $m$ (barridos) & $k_{DM}$ & $-0.96$ & $[-1.00,\,-0.64]$ & 0.001 \\
-$\tau_{int}$ máximo de $m$ (barridos) & $H$ & $-0.14$ & $[-0.94,\,+0.55]$ & 0.762 \\
+$\tau_{int}$ máximo de $m$ (barridos) & $\Hex$ & $-0.14$ & $[-0.94,\,+0.55]$ & 0.762 \\
 $\tau_{int}$ máximo de $E$ (barridos) & $k_{DM}$ & $-0.20$ & $[-1.00,\,+0.65]$ & 0.631 \\
-$\tau_{int}$ máximo de $E$ (barridos) & $H$ & $-0.52$ & $[-0.96,\,+0.18]$ & 0.208 \\
+$\tau_{int}$ máximo de $E$ (barridos) & $\Hex$ & $-0.52$ & $[-0.96,\,+0.18]$ & 0.208 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -101,18 +101,18 @@ $\tau_{int}$ máximo de $E$ (barridos) & $H$ & $-0.52$ & $[-0.96,\,+0.18]$ & 0.2
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{correlacion_kdm.pdf}
-\caption{Fracción de temperaturas convergidas en $m$ (izquierda) y $\tauint$ máximo de $m$ (derecha) frente a $\kdm$. Círculos: $H=0$; rombos: $H>0$; el número identifica el estado.}
+\caption{Fracción de temperaturas convergidas en $m$ (izquierda) y $\tauint$ máximo de $m$ (derecha) frente a $\kdm$. Círculos: $\Hex=0$; rombos: $\Hex>0$; el número identifica el estado.}
 \label{fig:corr}
 \end{figure}
 
-La interacción quiral gobierna el costo de convergencia de la magnetización (tabla~\ref{tab:spearman} y figura~\ref{fig:corr}). Al pasar de $\kdm=0.05$ a $\kdm=1$, el $\tauint$ máximo de $m$ baja de 946 a 104 barridos ($\rho=-0.96$, $p=0.001$), la fracción de temperaturas convergidas sube del 34 al 77~\% ($\rho=0.92$, $p=0.003$) y el tramo convergido se extiende de 15.5 a 9.5~K. Para la energía no hay relación ($\rho=-0.20$, $p=0.63$). Con solo ocho estados, los intervalos son anchos y la correlación marginal con $H$ no es significativa; además, $H$ y $\kdm$ están confundidos en el diseño, pues los tres estados con campo tienen $\kdm$ intermedio o alto.
+La interacción quiral gobierna el costo de convergencia de la magnetización (tabla~\ref{tab:spearman} y figura~\ref{fig:corr}). Al pasar de $\kdm=0.05$ a $\kdm=1$, el $\tauint$ máximo de $m$ baja de 946 a 104 barridos ($\rho=-0.96$, $p=0.001$), la fracción de temperaturas convergidas sube del 34 al 77~\% ($\rho=0.92$, $p=0.003$) y el tramo convergido se extiende de 15.5 a 9.5~K. Para la energía no hay relación ($\rho=-0.20$, $p=0.63$). Con solo ocho estados, los intervalos son anchos y la correlación marginal con $\Hex$ no es significativa; además, $\Hex$ y $\kdm$ están confundidos en el diseño, pues los tres estados con campo tienen $\kdm$ intermedio o alto.
 
 Para describir asociaciones condicionadas a ambos parámetros se ajustó por mínimos cuadrados, sobre los $8\times141$ pares (estado, temperatura),
 \begin{equation}
-\log\tauint(m)=\underset{(0.10)}{3.03}-\underset{(0.07)}{2.37}\,\kdm+\underset{(0.22)}{2.75}\,H+\underset{(0.79)}{30.6}\,\frac1T,\qquad R^2=0.70,
+\log\tauint(m)=\underset{(0.10)}{3.03}-\underset{(0.07)}{2.37}\,\kdm+\underset{(0.22)}{2.75}\,\Hex+\underset{(0.79)}{30.6}\,\frac1T,\qquad R^2=0.70,
 \label{eq:regresion}
 \end{equation}
-con errores estándar de tipo sándwich (HC0), válidos bajo heterocedasticidad, entre paréntesis. A temperatura fija, aumentar $\kdm$ en 0.1 reduce $\tauint$ en un 21~\% ($e^{-0.237}$), mientras que aumentar $H$ en 0.1 lo multiplica por 1.32. Enfriar de 20 a 6~K lo multiplica por $e^{30.6(1/6-1/20)}\approx35$. Los pares con igual $\kdm$ confirman el signo del campo: con $\kdm=0.6$, $\tauint$ pasa de 194 barridos ($H=0$) a 421 ($H=0.1$). Los errores estándar de la ecuación~(\ref{eq:regresion}) son optimistas, porque temperaturas vecinas de un mismo estado no son independientes; la inferencia sobre los parámetros descansa en la prueba de permutación entre estados. La misma regresión para la energía explica apenas el 24~\% de la variación, con un coeficiente de $\kdm$ de 0.29.
+con errores estándar de tipo sándwich (HC0), válidos bajo heterocedasticidad, entre paréntesis. A temperatura fija, aumentar $\kdm$ en 0.1 reduce $\tauint$ en un 21~\% ($e^{-0.237}$), mientras que aumentar $\Hex$ en 0.1 lo multiplica por 1.32. Enfriar de 20 a 6~K lo multiplica por $e^{30.6(1/6-1/20)}\approx35$. Los pares con igual $\kdm$ confirman el signo del campo: con $\kdm=0.6$, $\tauint$ pasa de 194 barridos ($\Hex=0$) a 421 ($\Hex=0.1$). Los errores estándar de la ecuación~(\ref{eq:regresion}) son optimistas, porque temperaturas vecinas de un mismo estado no son independientes; la inferencia sobre los parámetros descansa en la prueba de permutación entre estados. La misma regresión para la energía explica apenas el 24~\% de la variación, con un coeficiente de $\kdm$ de 0.29.
 
 La escala espacial ofrece una explicación plausible para el signo observado de $\kdm$. La espiral tiene período $\lambda=2\pi/\arctan(\kdm/J)$, y el factor de estructura de las configuraciones finales lo confirma: con $\kdm$ de 0.33, 0.6 y 1.0 se miden 18.1, 10.1 y 7.0 sitios, frente a 19.7, 11.6 y 8.0 de la fórmula. Con $\kdm\le0.15$ el período teórico supera los 42 sitios, más que el diámetro del disco (37 sitios), y el período medido se satura en 30.2. Cuando la espiral no cabe en el disco, la textura es casi un único dominio con magnetización neta grande, y su orientación solo cambia rotando el disco entero, un movimiento colectivo que Metropolis, espín por espín, ejecuta con extrema lentitud. Con $\kdm$ grande caben varias vueltas de espiral, la magnetización se promedia entre dominios y cada camino la decorrelaciona pronto. El campo perpendicular, por su parte, estabiliza skyrmiones: a 6~K la carga topológica modal es $Q=0$ en los estados sin campo y $Q=-1$, $-4$ y $-6$ en los estados 6, 7 y 8. Cambiar la categoría de $Q$ puede requerir reorganizaciones difíciles con movimientos locales. Las configuraciones finales y el estancamiento del diagnóstico son compatibles con mezcla limitada, pero no se guardó la trayectoria de $Q$ por barrido para medir tasas de cambio de sector o demostrar que nunca ocurre.
 

@@ -30,7 +30,7 @@ Las 100 copias de un estado son independientes por construcción, de modo que la
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{calor_especifico.pdf}
-\caption{Izquierda: calor específico $c(T)$ de los ocho estados, promedio sobre 100 copias; el punto marca $T^*$. Derecha: $T^*$ frente a $\kdm$ con su intervalo percentil del 95~\%; círculos, $H=0$; rombos, $H>0$.}
+\caption{Izquierda: calor específico $c(T)$ de los ocho estados, promedio sobre 100 copias; el punto marca $T^*$. Derecha: $T^*$ frente a $\kdm$ con su intervalo percentil del 95~\%; círculos, $\Hex=0$; rombos, $\Hex>0$.}
 \label{fig:calor}
 \end{figure}
 
@@ -54,7 +54,7 @@ Estado & $T^*$ (K) & se (K) & IC 95~\% percentil & IC 95~\% BCa & Meseta (K) & $
 \end{tabular}
 \end{table}
 
-En los ocho estados, $c(T)$ tiene un máximo ancho cerca de 14.3~K (figura~\ref{fig:calor} y tabla~\ref{tab:tstar}). Como verificación independiente, el argumento del máximo recalculado directamente sobre las varianzas de cada temperatura de la malla, sin repesado, cae a menos de 0.05~K del $T^*$ de la tabla en los ocho estados. Las diferencias entre estados se contrastaron con la diferencia bootstrap $T^{*b}(a)-T^{*b}(b)$ entre réplicas independientes y valores $p$ corregidos por Holm sobre los 28 pares \citep{holm1979}. Solo el estado 8, el de campo más intenso ($H=0.3$), difiere: su $T^*$ es entre 0.5 y 0.8~K menor que el de los estados 1, 2, 3, 4 y 6 ($p$ ajustados de 0.002 a 0.037). Ningún otro par difiere. La correlación de Spearman entre $\kdm$ y $T^*$ es $\rho=0.05$ (prueba de permutación exacta sobre las $8!$ asignaciones, $p=0.90$): no se detecta una asociación monotónica en las ocho combinaciones. Este resultado no prueba independencia ni equivalencia de temperaturas.
+En los ocho estados, $c(T)$ tiene un máximo ancho cerca de 14.3~K (figura~\ref{fig:calor} y tabla~\ref{tab:tstar}). Como verificación independiente, el argumento del máximo recalculado directamente sobre las varianzas de cada temperatura de la malla, sin repesado, cae a menos de 0.05~K del $T^*$ de la tabla en los ocho estados. Las diferencias entre estados se contrastaron con la diferencia bootstrap $T^{*b}(a)-T^{*b}(b)$ entre réplicas independientes y valores $p$ corregidos por Holm sobre los 28 pares \citep{holm1979}. Solo el estado 8, el de campo más intenso ($\Hex=0.3$), difiere: su $T^*$ es entre 0.5 y 0.8~K menor que el de los estados 1, 2, 3, 4 y 6 ($p$ ajustados de 0.002 a 0.037). Ningún otro par difiere. La correlación de Spearman entre $\kdm$ y $T^*$ es $\rho=0.05$ (prueba de permutación exacta sobre las $8!$ asignaciones, $p=0.90$): no se detecta una asociación monotónica en las ocho combinaciones. Este resultado no prueba independencia ni equivalencia de temperaturas.
 
 Esta temperatura tiene una referencia física. Para el modelo de Heisenberg clásico en la red cúbica infinita, la transición ocurre en $k_BT_C=1.443\,J$ \citep{chen1993}, es decir $T_C\approx16.7$~K con $J=1$. El máximo observado cerca de 14.3~K es aproximadamente un 15~\% menor que esa referencia. Los bordes y el espesor pueden contribuir; la comparación cambia también anisotropía, interacción quiral y campo, de modo que no identifica un efecto exclusivo de tamaño. La susceptibilidad $\chi$ crece de forma monótona al enfriar y su máximo cae en el borde inferior de la escalera (de 6.0 a 8.4~K), de manera que no define $T^*$; además, depende de $m$, cuya convergencia es la más débil.
 

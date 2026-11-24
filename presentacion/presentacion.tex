@@ -16,6 +16,8 @@
 \setlength{\abovedisplayskip}{5pt}
 \setlength{\belowdisplayskip}{5pt}
 \newcommand{\D}{k_{DM}}
+\newcommand{\Hex}{H_{\mathrm{ex}}}
+\newcommand{\Kan}{K_{\mathrm{an}}}
 \newcommand{\Rhat}{\widehat R}
 \newcommand{\Var}{\operatorname{Var}}
 \newcommand{\E}{\mathbb E}
@@ -102,19 +104,22 @@ $N=|\Lambda_{R,L}|=5425$ sitios, con bordes libres.
 \begin{frame}{La energía: cuatro contribuciones en competencia}
 \small
 \begin{align*}
-E(\mathbf s)={}&\underbrace{-J\sum_{\langle ij\rangle}\mathbf S_i\cdot\mathbf S_j}_{\text{intercambio: alinear}}
-\underbrace{-\D\sum_{\langle ij\rangle_\parallel}\widehat{\mathbf r}_{ij}\cdot(\mathbf S_i\times\mathbf S_j)}_{\text{interacción quiral: girar}}\\[4pt]
-&+\underbrace{K\sum_i[(S_i^xS_i^y)^2+(S_i^xS_i^z)^2+(S_i^yS_i^z)^2]}_{\text{anisotropía: preferir ejes}}
-\underbrace{-H\sum_i S_i^z}_{\text{campo: favorecer }+z}.
+E(\mathbf s)={}&\underbrace{-J\sum_{\langle ij\rangle}\mathbf S_i\cdot\mathbf S_j}_{\text{intercambio de Heisenberg}}
+\underbrace{-\D\sum_{\langle ij\rangle_\parallel}\widehat{\mathbf r}_{ij}\cdot(\mathbf S_i\times\mathbf S_j)}_{\text{Dzyaloshinskii--Moriya}}\\[4pt]
+&+\underbrace{\Kan\sum_i[(S_i^xS_i^y)^2+(S_i^xS_i^z)^2+(S_i^yS_i^z)^2]}_{\text{anisotropía magnetocristalina cúbica}}
+\underbrace{-\Hex\sum_i S_i^z}_{\text{Zeeman: campo externo}}.
 \end{align*}
+{\footnotesize
 \begin{columns}[T,onlytextwidth]
 \column{.49\textwidth}
-$J=1$ y $K=0.05$ en todos los casos. Se varían $\D$ y $H$.
+\textbf{$J$, intercambio:} solapamiento orbital y principio de Pauli; con $J>0$ alinea vecinos (ferromagnético). Fija la escala, $J=1$.\\[2pt]
+\textbf{$\D$, Dzyaloshinskii--Moriya:} espín--órbita sin centro de inversión; impone un giro de sentido fijo (quiralidad).
 \column{.49\textwidth}
-Los enlaces quirales del plano se orientan en $+x$ y $+y$ y se cuentan una vez. $H$ es un coeficiente energético.
-\end{columns}
-\idea{La configuración final depende de la competencia entre estas contribuciones y las fluctuaciones térmicas.}
-\note{El producto escalar premia vecinos paralelos. El producto vectorial distingue sentidos de giro. El campo y las energías están normalizados; son adimensionales. La suma compacta de enlaces del plano equivale a los términos x e y del informe.}
+\textbf{$\Kan$, anisotropía cristalina:} espín--órbita ligado a la red cúbica; con $\Kan=0.05>0$ favorece los ejes $\langle100\rangle$.\\[2pt]
+\textbf{$\Hex$, campo externo:} acopla los momentos a un campo aplicado en $+z$, perpendicular al disco; rompe la simetría $\pm z$.
+\end{columns}}
+\idea{Se fijan $J$ y $\Kan$ y se varían $\D$ y $\Hex$. Energías y campo están normalizados (adimensionales); la configuración final resulta de su competencia con las fluctuaciones térmicas.}
+\note{El producto escalar premia vecinos paralelos. El producto vectorial distingue sentidos de giro. El intercambio J viene del principio de Pauli; DM y la anisotropía, del acoplamiento espín-órbita; H_ex es el campo externo aplicado. El campo y las energías están normalizados; son adimensionales. La suma compacta de enlaces del plano equivale a los términos x e y del informe.}
 \end{frame}
 
 \begin{frame}{Boltzmann: de la física al muestreo}
@@ -314,10 +319,10 @@ Asociación de rangos:
 \[
 \rho=-0.96,\qquad p=0.001.
 \]
-Con $\D=0.6$, pasar de $H=0$ a $0.1$ cambia el máximo de 194 a 421 barridos.
+Con $\D=0.6$, pasar de $\Hex=0$ a $0.1$ cambia el máximo de 194 a 421 barridos.
 \end{columns}
 \idea{Las texturas con escalas de giro más cortas se asocian con decorrelación más rápida de $m$. El diseño tiene ocho estados y no separa todos los efectos causales.}
-\fuente{Círculos: $H=0$; rombos: $H>0$. Convención completa de autocorrelación: $\tau=1+2\sum\rho$.}
+\fuente{Círculos: $\Hex=0$; rombos: $\Hex>0$. Convención completa de autocorrelación: $\tau=1+2\sum\rho$.}
 \note{La explicación física es una reorganización relativa más fácil, no que rotar rígidamente toda la textura cambie m. Los estados 4 y 7 permiten una comparación con la misma quiralidad. Las demás combinaciones confunden parcialmente campo y quiralidad.}
 \end{frame}
 
@@ -391,7 +396,7 @@ En los \textbf{32 puntos próximos al pico}:
 \small\renewcommand{\arraystretch}{1.13}
 \begin{tabular}{crrrcrr}
 \toprule
-Estado & $\D$ & $H$ & $T^*$ (K) & IC percentil 95\% (K) & Converge & $\tau_m^{\max}$\\\midrule
+Estado & $\D$ & $\Hex$ & $T^*$ (K) & IC percentil 95\% (K) & Converge & $\tau_m^{\max}$\\\midrule
 1&0.05&0&14.35&[14.00,14.37]&30\%&946\\
 2&0.15&0&14.14&[14.04,14.35]&31\%&933\\
 3&0.33&0&14.34&[14.04,14.65]&38\%&643\\
@@ -433,18 +438,18 @@ r_{jc}=\frac{w_c\phi(\bar m_j;\mu_c,\sigma_c^2)}{\sum_\ell w_\ell\phi(\bar m_j;\
 
 \begin{frame}{Respaldo: sensibilidad del efecto del campo}
 \[
-\log\tau_m=3.029-2.365\D+2.749H+30.610/T.
+\log\tau_m=3.029-2.365\D+2.749\Hex+30.610/T.
 \]
 \small\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{lrrrr}
 \toprule
 Parámetro & Coeficiente & se HC0 & se agrupado CR1 & Al retirar un estado\\\midrule
 $\D$ & $-2.365$&0.072&0.145&[$-2.577,-2.252$]\\
-$H$ & 2.749&0.217&0.537&[2.352,6.154]\\
+$\Hex$ & 2.749&0.217&0.537&[2.352,6.154]\\
 $1/T$ & 30.610&0.792&2.086&[29.476,31.499]\\\bottomrule
 \end{tabular}
 \idea{Las 141 temperaturas de un estado no son independientes. Con solo ocho grupos y un diseño incompleto, la regresión describe asociaciones y su sensibilidad.}
-\small Al excluir el estado 8, el coeficiente de $H$ sube a 6.154. El signo de $\D$ se mantiene al retirar cualquiera de los estados.
+\small Al excluir el estado 8, el coeficiente de $\Hex$ sube a 6.154. El signo de $\D$ se mantiene al retirar cualquiera de los estados.
 \end{frame}
 
 \begin{frame}{Respaldo sobre la longitud de las cadenas}

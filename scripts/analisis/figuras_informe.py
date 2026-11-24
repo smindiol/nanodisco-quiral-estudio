@@ -36,7 +36,7 @@ def cargar(entrada):
 
 
 def etiqueta(d):
-    return rf"$k_{{DM}}={d['kDM'][0]:.2f}$, $H={d['Hex'][0]:.2f}$"
+    return rf"$k_{{DM}}={d['kDM'][0]:.2f}$, $H_{{\mathrm{{ex}}}}={d['Hex'][0]:.2f}$"
 
 
 def tramo_continuo(T, ok):
@@ -185,7 +185,7 @@ def main():
     }
     filas = []
     for nombre, y in met.items():
-        for var, x in (("$k_{DM}$", kdm), ("$H$", hex_)):
+        for var, x in (("$k_{DM}$", kdm), (r"$H_{\mathrm{ex}}$", hex_)):
             rho, p, lo, hi = inferencia_spearman(x, y, rng)
             filas.append((nombre, var, rho, lo, hi, p))
     with open(os.path.join(a.tablas, "correlaciones.tex"), "w") as f:
@@ -222,8 +222,8 @@ def main():
         ax[k].set_xlabel(r"$k_{DM}$"); ax[k].set_title(tits[k])
     ax[1].set_yscale("log")
     from matplotlib.lines import Line2D
-    ax[0].legend(handles=[Line2D([], [], marker="o", ls="", color=TINTA2, label="$H=0$"),
-                          Line2D([], [], marker="D", ls="", color=TINTA2, label="$H>0$")], loc="upper left")
+    ax[0].legend(handles=[Line2D([], [], marker="o", ls="", color=TINTA2, label=r"$H_{\mathrm{ex}}=0$"),
+                          Line2D([], [], marker="D", ls="", color=TINTA2, label=r"$H_{\mathrm{ex}}>0$")], loc="upper left")
     fig.tight_layout(); fig.savefig(os.path.join(a.fig, "correlacion_kdm.pdf")); plt.close(fig)
 
     # ---------- Figure 6: between-copy spread of final <m> at 6 K versus 20 K ----------
