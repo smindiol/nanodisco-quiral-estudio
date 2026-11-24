@@ -74,8 +74,8 @@ for st,color in zip(A['curvas'],COLORS):
 for ax in axes:
     ax.set(xlim=(20,6),xlabel='Temperatura (K)');ax.grid(alpha=.18)
     ax.axvspan(13.5,14.7,color='#b9dcf5',alpha=.32,zorder=-1)
-axes[0].set(ylabel='Energía por espín (meV)',title='La energía desciende al enfriar')
-axes[1].set(ylabel='c (meV/K por espín)',title='La fluctuación tiene un máximo')
+axes[0].set(ylabel='Energía por espín',title='La energía desciende al enfriar')
+axes[1].set(ylabel='c por espín',title='La fluctuación tiene un máximo')
 axes[0].legend(ncol=4,loc='upper right',handlelength=1,columnspacing=.7)
 save(fig,'curvas_termicas')
 

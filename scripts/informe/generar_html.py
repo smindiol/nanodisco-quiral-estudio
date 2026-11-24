@@ -48,7 +48,7 @@ sec('problema','1. Problema y alcance del estudio',r'''
 <p>La configuración final de una temperatura inicia la siguiente. Por eso las temperaturas de un mismo camino están relacionadas, aunque los 100 caminos usen claves aleatorias distintas. El tiempo del algoritmo se mide en barridos; no representa una duración física calibrada en segundos.</p>
 <div class="note"><strong>Dos objetos de inferencia.</strong> El equilibrio corresponde a la distribución de Boltzmann a temperatura fija. El protocolo corresponde a la distribución de resultados producida por este enfriamiento finito. Si falla la mezcla global, los datos siguen siendo útiles para estudiar memoria, diversidad de texturas, atrapamiento y costo del algoritmo. Esa utilidad exige nombrar correctamente qué distribución describen.</div>
 <p>Esta guía desarrolla el <code>main.tex</code> de <code>informe_final</code>, sus secciones y sus figuras. Conserva las estimaciones originales de la transición y añade comprobaciones sobre los datos existentes. No representa una nueva simulación ni una repetición del bootstrap original de 50000 réplicas.</p>
-'''+table(['Estado','k<sub>DM</sub>','H','Lote','Caminos','Temperaturas'],[[i,s['kDM'],s['H'],(i+1)//2,100,141] for i,s in enumerate(A['curvas'],1)],'Diseño simulado. J = 1 meV y K = 0.05 meV; H actúa como coeficiente energético del término de Zeeman. La simulación no proporciona una conversión de H a teslas.')+r'''
+'''+table(['Estado','k<sub>DM</sub>','H','Lote','Caminos','Temperaturas'],[[i,s['kDM'],s['H'],(i+1)//2,100,141] for i,s in enumerate(A['curvas'],1)],'Diseño simulado. J = 1 y K = 0.05; H actúa como coeficiente del término de Zeeman. Energías y campo están normalizados y son adimensionales.')+r'''
 <p>Los ocho estados no forman un diseño factorial completo: los tres casos con campo tienen valores distintos de k<sub>DM</sub>. Solo los estados 4 y 7 comparten k<sub>DM</sub> = 0.6 con distinto campo. Este par permite una comparación puntual; los demás contrastes describen combinaciones de parámetros y no aíslan por sí solos el efecto causal de H.</p>
 ''')
 
@@ -70,7 +70,7 @@ sec('modelo','3. Modelo matemático: de los espines a la distribución objetivo'
 <h3>3.1. Configuración y grados de libertad</h3>
 <p>El espín i tiene tres componentes, pero su norma impone una restricción. Cada espín aporta dos grados de libertad. La configuración completa pertenece al producto de 5425 esferas y tiene 10850 grados de libertad continuos.</p>
 <eq>\mathbf{s}=(\mathbf{S}_1,\ldots,\mathbf{S}_N),\quad |\mathbf{S}_i|=1,\quad \mathbf{s}\in(\mathbb{S}^{2})^N</eq>
-<p>En las siguientes ecuaciones, E designa la energía física total de una configuración y H el parámetro del campo. Esta distinción evita confundir el campo con el hamiltoniano. El archivo crudo almacena una energía normalizada E/E₀; el análisis debe multiplicarla por E₀ antes de calcular momentos en meV.</p>
+<p>En las siguientes ecuaciones, E designa la energía física total de una configuración y H el parámetro del campo. Esta distinción evita confundir el campo con el hamiltoniano. El archivo crudo almacena una energía normalizada E/E₀; el análisis debe multiplicarla por E₀ antes de calcular momentos.</p>
 <h3>3.2. Las cuatro contribuciones de energía</h3>
 <eq>E(\mathbf{s})=E_{\mathrm{exc}}+E_{\mathrm{DM}}+E_{\mathrm{an}}+E_{\mathrm{campo}}</eq>
 <eq>E_{\mathrm{exc}}=-J\sum_{\langle ij\rangle}\mathbf{S}_i\cdot\mathbf{S}_j</eq>
@@ -80,14 +80,14 @@ sec('modelo','3. Modelo matemático: de los espines a la distribución objetivo'
 <eq>E_{\mathrm{an}}=K\sum_i[(S_i^x S_i^y)^2+(S_i^x S_i^z)^2+(S_i^y S_i^z)^2]</eq>
 <p>Con K positivo, este término vale cero sobre los ejes y penaliza direcciones con varias componentes no nulas. No es una anisotropía uniaxial del tipo −K(Sᶻ)²: cambiar esa expresión cambiaría el problema.</p>
 <eq>E_{\mathrm{campo}}=-H\sum_i S_i^z</eq>
-<p>Un espín con componente z positiva reduce la energía cuando H es positivo. En este código H tiene unidades de energía por espín de norma uno. Llamarlo directamente un campo en teslas requeriría especificar el momento magnético y su conversión.</p>
+<p>Un espín con componente z positiva reduce la energía cuando H es positivo. En este código H es un parámetro normalizado y adimensional, como las energías.</p>
 <h3>3.3. Por qué aparece una espiral</h3>
 <p>En una cadena ideal y para un giro compatible con el vector DM, la energía por enlace es −J cos δ − k<sub>DM</sub> sin δ. Al derivar respecto al ángulo y anular la derivada se obtiene:</p>
 <eq>J\sin\delta-k_{DM}\cos\delta=0,\quad \delta=\arctan(k_{DM}/J),\quad \lambda=\frac{2\pi}{\delta}</eq>
 <p>El período λ cuenta los sitios necesarios para completar una vuelta. Esta relación ofrece una escala física de referencia. Un disco finito con varias capas, anisotropía y campo no tiene por qué seguirla exactamente; el período medido depende además de los bordes y de la resolución del análisis de Fourier.</p>
 <h3>3.4. Distribución de Boltzmann e integración</h3>
 <eq>\pi_\beta(\mathbf{s})=\frac{\exp[-\beta E(\mathbf{s})]}{Z(\beta)},\quad \beta=\frac{1}{k_B T}</eq>
-<eq>Z(\beta)=\int_{(\mathbb{S}^2)^N}\exp[-\beta E(\mathbf{s})]\,d\Omega,\quad k_B=0.086173404\ \mathrm{meV/K}</eq>
+<eq>Z(\beta)=\int_{(\mathbb{S}^2)^N}\exp[-\beta E(\mathbf{s})]\,d\Omega,\quad k_B=0.086173404</eq>
 <p>La medida dΩ es el producto de elementos de área sobre las esferas. Z normaliza la distribución. A temperatura alta, las diferencias de energía pesan menos; al enfriar, las configuraciones de menor energía reciben más probabilidad. El mínimo de energía no representa por sí solo el equilibrio: también importa cuántas configuraciones tienen energías similares.</p>
 <eq>\langle A\rangle_\beta=\int A(\mathbf{s})\pi_\beta(\mathbf{s})\,d\Omega\ \simeq\ \frac{1}{n}\sum_{t=1}^n A(\mathbf{s}_t)</eq>
 <p>La integral tiene demasiadas dimensiones para una cuadratura directa. Monte Carlo la aproxima con estados de una cadena. La aproximación exige explorar adecuadamente la distribución objetivo; si la cadena queda atrapada, el promedio puede describir solo un sector.</p>
@@ -103,7 +103,7 @@ sec('simulacion','4. Simulación: propuesta, aceptación y enfriamiento',r'''
 <p>U₁ y U₂ son uniformes independientes. La propuesta tiene norma uno porque la suma de sus componentes al cuadrado vale (1−z²)(cos²φ+sin²φ)+z²=1. La densidad de propuesta es constante, 1/(4π), tanto al ir del espín actual al propuesto como al regresar.</p>
 <h3>4.2. Aceptación de Metropolis y balance</h3>
 <eq>\alpha(\mathbf{s},\mathbf{s}')=\min\left(1,\frac{\pi_\beta(\mathbf{s}')q(\mathbf{s}\mid\mathbf{s}')}{\pi_\beta(\mathbf{s})q(\mathbf{s}'\mid\mathbf{s})}\right)=\min(1,e^{-\beta\Delta E})</eq>
-<p>La constante Z y las densidades simétricas de propuesta se cancelan. Si ΔE es negativa se acepta siempre. Si es positiva se acepta cuando una nueva uniforme es menor que exp(−βΔE). Por ejemplo, para ΔE = 0.1 meV, la probabilidad es aproximadamente 0.944 a 20 K y 0.824 a 6 K. El enfriamiento dificulta salir de una región mediante pasos que aumenten la energía.</p>
+<p>La constante Z y las densidades simétricas de propuesta se cancelan. Si ΔE es negativa se acepta siempre. Si es positiva se acepta cuando una nueva uniforme es menor que exp(−βΔE). Por ejemplo, para ΔE = 0.1, la probabilidad es aproximadamente 0.944 a 20 K y 0.824 a 6 K. El enfriamiento dificulta salir de una región mediante pasos que aumenten la energía.</p>
 <eq>\pi(\mathbf{s})q(\mathbf{s}'\mid\mathbf{s})\alpha(\mathbf{s},\mathbf{s}')=\min[\pi(\mathbf{s})q(\mathbf{s}'\mid\mathbf{s}),\pi(\mathbf{s}')q(\mathbf{s}\mid\mathbf{s}')]</eq>
 <p>La expresión es simétrica al intercambiar los estados; demuestra balance detallado de la actualización elemental. El código divide la red en dos subredes sin vecinos dentro de una misma subred. Sus espines se pueden actualizar en paralelo condicionados a la otra. La composición de ambas actualizaciones preserva la distribución objetivo, aunque la composición no necesite ser reversible.</p>
 <h3>4.3. Qué significa un camino independiente</h3>
@@ -125,7 +125,7 @@ sec('estimadores','5. Observables, calor específico e incertidumbre',r'''
 <eq>\frac{\partial\log Z}{\partial\beta}=-\langle E\rangle,\quad \frac{\partial\langle E\rangle}{\partial\beta}=-(\langle E^2\rangle-\langle E\rangle^2)</eq>
 <p>Como dβ/dT = −1/(kBT²), la regla de la cadena convierte esa derivada en una respuesta térmica positiva. Dividir por N da el calor específico por espín:</p>
 <eq>c(T)=\frac{1}{N}\frac{d\langle E\rangle}{dT}=\frac{\langle E^2\rangle-\langle E\rangle^2}{Nk_BT^2}</eq>
-<p>Las unidades son meV/(K·espín). Si la energía normalizada del archivo se usara sin recuperar E₀, la varianza perdería un factor E₀². Tampoco se puede introducir la energía por espín en esta fórmula sin ajustar N: Var(E)=N² Var(e).</p>
+<p>Si la energía normalizada del archivo se usara sin recuperar E₀, la varianza perdería un factor E₀². Tampoco se puede introducir la energía por espín en esta fórmula sin ajustar N: Var(E)=N² Var(e).</p>
 <p>Esta identidad es termodinámica y supone equilibrio. Sobre un conjunto de caminos que no mezcla, la misma fórmula sigue definiendo una curva de fluctuaciones del protocolo. Su interpretación como derivada de equilibrio queda condicionada a la representatividad del conjunto.</p>
 <h3>5.3. Fluctuaciones dentro de los caminos y entre ellos</h3>
 <eq>\widehat{\mathrm{Var}}_{\mathrm{total}}(X)=\frac{1}{R}\sum_{j=1}^R\widehat{\mathrm{Var}}_t(X_j)+\frac{1}{R}\sum_{j=1}^R(\bar X_j-\bar X)^2</eq>
@@ -208,7 +208,7 @@ sec('transicion','7. Resultados: transición y diferencias entre estados',r'''
 <p>El estado 5 tiene T* = 14.55 K, pero su intervalo percentil llega hasta 13.14 K y su error estándar es 0.445 K. Las réplicas acumulan máximos cerca de 13.55, 14.05, 14.35 y 14.55 K. Este comportamiento impide resumir el resultado como 14.55 ± 0.01 K, aunque la malla fina tenga pasos de 0.01 K.</p>
 <p>La meseta original alrededor del máximo seleccionado, [14.55,14.58] K, se define como un tramo contiguo que permanece a menos de un error estándar de la altura máxima. No abarca necesariamente todos los máximos alternativos. Por ello una meseta local estrecha puede coexistir con un intervalo amplio para el argmax.</p>
 <h3>7.4. Referencia del cristal infinito</h3>
-<p>Chen et al. (1993), citados en el informe, dan kBT<sub>C</sub> ≈ 1.443J para el Heisenberg clásico cúbico de referencia. Con J = 1 meV resulta T<sub>C</sub> ≈ 16.75 K. El valor cercano a 14.3 K es aproximadamente 15 % menor. Los bordes y el pequeño espesor ofrecen una explicación plausible, pero esta comparación cambia también anisotropía, interacción quiral y campo. No aísla un efecto de tamaño. Para atribuirlo al confinamiento haría falta simular varios radios y espesores con el mismo hamiltoniano.</p>
+<p>Chen et al. (1993), citados en el informe, dan kBT<sub>C</sub> ≈ 1.443J para el Heisenberg clásico cúbico de referencia. Con J = 1 resulta T<sub>C</sub> ≈ 16.75 K. El valor cercano a 14.3 K es aproximadamente 15 % menor. Los bordes y el pequeño espesor ofrecen una explicación plausible, pero esta comparación cambia también anisotropía, interacción quiral y campo. No aísla un efecto de tamaño. Para atribuirlo al confinamiento haría falta simular varios radios y espesores con el mismo hamiltoniano.</p>
 ''')
 
 sec('explorador','8. Curvas comparativas de los ocho estados',r'''
@@ -407,7 +407,7 @@ for s,c in zip(A['curvas'],colors):
     axes[0,1].plot([r['T'] for r in rows],[r['m_media'] for r in rows],color=c)
     axes[1,0].plot(s['T'],s['rhat_M'],color=c)
     axes[1,1].plot([r['T'] for r in rows],[r['fraccion_var_entre'] for r in rows],color=c)
-for ax,title,ylabel in zip(axes.flat,['Fluctuación energética','Magnetización del protocolo','Mezcla entre caminos','Heterogeneidad de caminos'],['c (meV/K por espín)','m media','R-hat clásico de m','Fracción de varianza entre caminos']):
+for ax,title,ylabel in zip(axes.flat,['Fluctuación energética','Magnetización del protocolo','Mezcla entre caminos','Heterogeneidad de caminos'],['c por espín','m media','R-hat clásico de m','Fracción de varianza entre caminos']):
     ax.set(title=title,xlabel='Temperatura (K)',ylabel=ylabel,xlim=(20,6));ax.grid(alpha=.2)
 axes[1,0].axhline(1.01,color='black',linestyle=':')
 axes[0,0].legend(fontsize=8,ncol=2)
@@ -425,7 +425,7 @@ JS=r'''
 const D=JSON.parse(document.getElementById('data').textContent), A=D.auditoria, colors=['#0066b3','#cb4b16','#198754','#8b47a8','#bc2f50','#097c88','#856300','#303d52'];
 let active=new Set([1,2,3,4,5,6,7,8]);
 const extra=new Map(D.magnetizacion.map(r=>[r.estado+':'+r.T.toFixed(1),r]));
-const metrics={c_recalculado:['c (meV/K por espín)','Curva reconstruida en las 141 temperaturas medidas a partir de la varianza agrupada de energía. Las estimaciones T* oficiales usan repesado: no se recalculan con este selector.'],energia_meV_por_espin:['E/N (meV por espín)','Energía recuperada mediante E₀ y dividida por N. Curvas del ensamble observado.'],m_media:['m media','Media del protocolo sobre 100 caminos. La tabla añade error entre caminos y percentiles 10 y 90 de sus medias.'],chi_protocolo:['χm del protocolo','N Var(m)/(kBT) agrupada. Puede contener diferencias persistentes entre caminos. No equivale por definición a la respuesta d⟨Mz⟩/dH.'],fraccion_var_entre:['Fracción de varianza entre caminos','Varianza de las medias de caminos dividida por la varianza total. Resume heterogeneidad del protocolo, no una fracción de fases.'],rhat_M:['R-hat clásico de m','Diagnóstico clásico original; línea de referencia 1.01. Los veredictos oficiales usan una versión por rangos, dividida y plegada.'],rhat_E:['R-hat clásico de E','Diagnóstico clásico de energía. Un valor próximo a 1 no prueba ausencia de sectores no visitados.'],tau_M:['τm (barridos)','Convención completa 1+2Σρ. Autocovarianzas agrupadas entre caminos y ventana W≥6τ. No mezclar con τS por copia.'],tau_E:['τE (barridos)','Autocorrelación completa de energía en el análisis de barridos. Describe información temporal de la variable medida.']};
+const metrics={c_recalculado:['c por espín','Curva reconstruida en las 141 temperaturas medidas a partir de la varianza agrupada de energía. Las estimaciones T* oficiales usan repesado: no se recalculan con este selector.'],energia_meV_por_espin:['E/N (por espín)','Energía recuperada mediante E₀ y dividida por N. Curvas del ensamble observado.'],m_media:['m media','Media del protocolo sobre 100 caminos. La tabla añade error entre caminos y percentiles 10 y 90 de sus medias.'],chi_protocolo:['χm del protocolo','N Var(m)/(kBT) agrupada. Puede contener diferencias persistentes entre caminos. No equivale por definición a la respuesta d⟨Mz⟩/dH.'],fraccion_var_entre:['Fracción de varianza entre caminos','Varianza de las medias de caminos dividida por la varianza total. Resume heterogeneidad del protocolo, no una fracción de fases.'],rhat_M:['R-hat clásico de m','Diagnóstico clásico original; línea de referencia 1.01. Los veredictos oficiales usan una versión por rangos, dividida y plegada.'],rhat_E:['R-hat clásico de E','Diagnóstico clásico de energía. Un valor próximo a 1 no prueba ausencia de sectores no visitados.'],tau_M:['τm (barridos)','Convención completa 1+2Σρ. Autocovarianzas agrupadas entre caminos y ventana W≥6τ. No mezclar con τS por copia.'],tau_E:['τE (barridos)','Autocorrelación completa de energía en el análisis de barridos. Describe información temporal de la variable medida.']};
 function val(s,key,i){return s[key] ? s[key][i] : extra.get(s.estado+':'+s.T[i].toFixed(1))[key]}
 const fmt=x=>Number.isFinite(x)?x.toLocaleString('es-CO',{maximumSignificantDigits:5}):'No disponible';
 function draw(){

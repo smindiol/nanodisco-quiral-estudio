@@ -85,7 +85,7 @@ def generar(dB, res):
                      f"{_f(float(d['c_pico']))} ± {_f(float(d['c_pico_boot'].std(ddof=1)), 2)} | "
                      f"{float(d['chi_Tstar']):.2f}{' (borde)' if bool(d['chi_borde']) else ''} | {int(d['B'])} |")
     t1 = ("| Estado | kDM | Hex | Kan1 | T* de c (K) | Mediana bootstrap | se | IC 95 % percentil | IC 95 % BCa | Meseta del pico | "
-          "c en el pico (meV/K por espín) | T* de χ (K) | B |\n|" + "---|" * 13 + "\n" + "\n".join(filas))
+          "c en el pico (por espín) | T* de χ (K) | B |\n|" + "---|" * 13 + "\n" + "\n".join(filas))
     open(os.path.join(dT, "T_estrella.md"), "w").write(t1)
     md += ["## 1. Temperatura del pico del calor específico", "", t1, ""]
 
@@ -152,7 +152,7 @@ def generar(dB, res):
         fig, ax = plt.subplots(nf, nc, figsize=(4.2 * nc, 3.2 * nf), squeeze=False)
         return fig, ax.ravel()
 
-    for nombre, ylab in (("c", "c (meV/K por espín)"), ("chi", "χ")):
+    for nombre, ylab in (("c", "c por espín"), ("chi", "χ")):
         fig, ax = panel(len(est))
         for a, e in zip(ax, est):
             d = E[e]
@@ -204,8 +204,8 @@ def generar(dB, res):
             d = E[e]
             a.fill_between(d["T"], d[f"{nombre}_lo_p"], d[f"{nombre}_hi_p"], color=col[e], alpha=0.3, lw=0)
             a.plot(d["T"], d[nombre], color=col[e], label=etiqueta[e])
-        a.set_xlabel("T (K)"); a.set_title({"U": "Cumulante de Binder de |m|", "e_exc": "Energía de intercambio por espín (meV)",
-                                            "e_dm": "Energía DMI por espín (meV)", "e_an": "Energía de anisotropía por espín (meV)"}[nombre])
+        a.set_xlabel("T (K)"); a.set_title({"U": "Cumulante de Binder de |m|", "e_exc": "Energía de intercambio por espín",
+                                            "e_dm": "Energía DMI por espín", "e_an": "Energía de anisotropía por espín"}[nombre])
         a.legend(fontsize=7); fig.tight_layout(); fig.savefig(os.path.join(dF, f"{nombre}_T.png"), dpi=130); plt.close(fig)
 
     fig, ax = plt.subplots(2, len(est), figsize=(3 * len(est), 6), squeeze=False)

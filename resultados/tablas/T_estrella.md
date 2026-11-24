@@ -1,4 +1,4 @@
-| Estado | kDM | Hex | Kan1 | T* de c (K) | Mediana bootstrap | se | IC 95 % percentil | IC 95 % BCa | Meseta del pico | c en el pico (meV/K por espín) | T* de χ (K) | B |
+| Estado | kDM | Hex | Kan1 | T* de c (K) | Mediana bootstrap | se | IC 95 % percentil | IC 95 % BCa | Meseta del pico | c en el pico (por espín) | T* de χ (K) | B |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | 0.05 | 0 | 0.05 | 14.35 | 14.24 | 0.117 | [14.00, 14.37] | [14.14, 14.45] | [14.35, 14.40] | 0.17 ± 0.00073 | 6.75 | 50000 |
 | 2 | 0.15 | 0 | 0.05 | 14.14 | 14.14 | 0.068 | [14.04, 14.35] | [13.95, 14.14] | [14.11, 14.14] | 0.17 ± 0.00089 | 6.45 | 50000 |
