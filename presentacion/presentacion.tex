@@ -24,13 +24,22 @@
 \newcommand{\grafica}[2][\linewidth]{\makebox[\linewidth][c]{\includegraphics[width=#1,height=4.0cm,keepaspectratio]{figuras/#2.pdf}}}
 \title[Nanodiscos: física y simulación]{Estados térmicos de un nanodisco quiral}
 \subtitle{Problema físico, estimación Monte Carlo y convergencia}
-\author[Sebastián Mindiola]{Sebastián Mindiola Garizado}
+\author[Sebastián Mindiola]{Sebastián Mindiola Garizado\\\texttt{smindiola@unal.edu.co}}
 \institute[UNAL]{Universidad Nacional de Colombia, sede La Paz\\Computación Estadística, Grupo I\\Docente: Yoselin Nieto Gil}
 \date{2026-II}
 \hypersetup{pdftitle={Estados térmicos de un nanodisco quiral},pdfauthor={Sebastián Mindiola Garizado}}
 
 \begin{document}
 
+% --- Portada ---
+{
+  \addtobeamertemplate{headline}{\vspace*{-0.5cm}}{}
+  \begin{frame}
+    \vspace{0.4cm}
+    \titlepage
+    \note{Presentarse: nombre, curso y docente. Anunciar el tema: estados térmicos de un nanodisco quiral simulados por Monte Carlo y la evaluación de su convergencia.}
+  \end{frame}
+}
 
 \section{Problema}
 \begin{frame}{El problema físico del nanodisco}
